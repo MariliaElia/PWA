@@ -6,15 +6,19 @@ a {
   color: #00B7FF;
 }
 
+.container {
+    width: 100%;
+    padding-top: 350px;
+}
+
 #heading {
     background-color: #F97A61;
-    padding: 50px 10px;
     color: floralwhite;
     text-align: center;
-    position: fixed;
-    top: 0;
     width: 100%;
     transition: 0.2s;
+    position: fixed;
+    top: 0;
 }
 
 #title {
