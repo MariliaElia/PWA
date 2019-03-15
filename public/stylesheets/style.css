@@ -7,14 +7,14 @@ a {
 }
 
 #heading {
-    background-color: #FF9966;
+    background-color: #F97A61;
     padding: 50px 10px;
     color: floralwhite;
-    position: fixed;
-    width: 100%;
-    top: 0;
     text-align: center;
-    transition: 0.4s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: 0.2s;
 }
 
 #title {
