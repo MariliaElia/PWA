@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+#heading {
+    background-color: #F97A61;
+    padding: 50px 10px;
+    color: floralwhite;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    text-align: center;
+    transition: 0.2s;
+
+}
