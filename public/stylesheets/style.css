@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,13 +7,16 @@ a {
 }
 
 #heading {
-    background-color: #F97A61;
+    background-color: #FF9966;
     padding: 50px 10px;
     color: floralwhite;
     position: fixed;
     width: 100%;
     top: 0;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.4s;
+}
 
+#title {
+    font-size: 90px;
 }
