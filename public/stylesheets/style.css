@@ -6,21 +6,20 @@ a {
   color: #00B7FF;
 }
 
-.container {
-    width: 100%;
-    padding-top: 350px;
-}
-
-#heading {
-    background-color: #F97A61;
+.header {
+    padding: 10px 16px;
+    background: #FF9966;
     color: floralwhite;
     text-align: center;
-    width: 100%;
-    transition: 0.2s;
-    position: fixed;
     top: 0;
+    width: 100%;
+    position: sticky;
+}
+
+.content {
+    padding: 16px;
 }
 
 #title {
-    font-size: 90px;
+    font-size: 60px;
 }
