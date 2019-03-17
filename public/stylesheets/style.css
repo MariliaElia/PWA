@@ -1,31 +1,19 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
-.header {
-    position: sticky; /*sticky not working again*/
-    background: #ffffff;
-    color: black;
-    text-align: center;
-    top: 0;
-    max-width: 100%;
-}
-#title {
-    font-size: 55px;
-    font-family: Marker Felt, fantasy;
-    padding: 10px;
-}
-.header2 {
-    position: sticky; /* this one works for some reason? */
+.top-container {
+    /*position: sticky; /*this one works for some reason? */
     padding: 10px;
     font-size: 24px;
     color: floralwhite;
     text-align: center;
-    top: 0;
+    /*top: 0;*/
     max-width: 100%;
     background: #f8f9fa;
     background-image: url("icons/drink.png"), url("icons/electric-keyboard.png"), url("icons/ferris.png"),
@@ -39,15 +27,17 @@ a {
     background-repeat: no-repeat;
     background-size: 50px;
 }
+.title {
+    background: #ffffff;
+    color: black;
+    text-align: center;
+    max-width: 100%;
+}
 
-
-.content {
-    margin: 20px;
-    padding: 30px;
-    padding-bottom: 45px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightgray;
+#title {
+    font-size: 55px;
+    font-family: Marker Felt, fantasy;
+    padding: 10px;
 }
 
 .search{
@@ -59,14 +49,30 @@ a {
     border-color: lightgray;
 }
 
-
-
 .search-icon {
     background-image: url("icons/search.png");
     background-position: 5px 5px;
     background-repeat: no-repeat;
     background-size: 25px;
 
+}
+
+.content {
+    margin: 20px;
+    padding: 30px;
+    padding-bottom: 45px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .search{
+    padding-top: 102px;
 }
 
 #inp {

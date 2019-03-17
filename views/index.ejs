@@ -1,29 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <% include templates/head %>
 </head>
+<body>
 
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        var options={
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        };
-        date_input.datepicker(options);
-    })
-</script>
-
-<body onload="initEvents()">
-
-<header>
-    <% include templates/header %>
-</header>
+<% include templates/header %>
 
 <div class="search">
     <div class="md-form active-pink active-pink-2 mb-3 mt-0">
@@ -63,11 +45,25 @@
         </a>
     <% } %>
 </div>
-​
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+
 <footer>
     <% include templates/footer %>
 </footer>
 
-</body>
 
+</body>
 </html>
