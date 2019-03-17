@@ -7,13 +7,14 @@ a {
 }
 
 .header {
+    position: sticky; /*sticky not working again*/
     padding: 10px 16px;
     background: #FF9966;
     color: floralwhite;
     text-align: center;
     top: 0;
     width: 100%;
-    position: sticky;
+
 }
 
 .content {
@@ -28,3 +29,20 @@ a {
 #title {
     font-size: 60px;
 }
+
+.search-icon {
+    background-image: url("icons/search.png");
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+
+}
+
+#inp {
+    padding-left: 35px;
+}
+
+#date {
+    width:8%;
+}
+

@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>PhotoFest</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src = "scripts/index.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <!-- Bootstrap Date-Picker Plugin -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <% include templates/head %>
 </head>
 
 <script>
@@ -28,16 +18,16 @@
         date_input.datepicker(options);
     })
 </script>
+
 <body >
 
-<div class="header">
-  <h1 id="title"><%= title %></h1>
-  <p>Share your stories!</p>
-</div>
+<header>
+    <% include templates/header %>
+</header>
 
 <div class="search">
     <div class="md-form active-pink active-pink-2 mb-3 mt-0">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Keyword">
+        <input class="form-control search-icon" id="inp" type="text" placeholder="Search" aria-label="Keyword">
     </div>
     <div class="panel-group">
         <div class="panel panel-default">
@@ -52,17 +42,17 @@
                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                 </div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-md">Display Map</button>
+                    <img src="/stylesheets/icons/pin.png" alt="home" style="width:40px;">
+                    <button type="button" class="btn btn-outline-dark">Display Map</button>
                 </div>
             </div>
         </div>
+        <br>
+    </div>
+    <button type="button" class="btn btn-info btn-md">Search</button>
 </div>
-<button type="button" class="btn btn-info btn-md">Search</button>
-</div>
 
-
-
-    <div class="content">
+<div class="content">
     <% for(var i = 0; i < events.length; i++) { %>
         <a href="#" class="list-group list-group-item-action">
             <p><%= events[i].title%></p>
@@ -70,28 +60,14 @@
             <p><%= events[i].author %></p>
             <p><%= events[i].publishedAt %></p>
             <p><%= events[i].createdAt %></p>
-
         </a>
     <% } %>
 </div>
 ​
-<nav class="navbar flex-row navbar-expand-sm bg-light fixed-bottom justify-content-center">
-  <ul class="navbar-nav flex-row justify-content-between">
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)">
-        <img src="/stylesheets/icons/home.png" alt="home" style="width:40px;">
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)">
-        <img src="/stylesheets/icons/add-button.png" alt="add-button" style="width:40px;">
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)">
-        <img src="/stylesheets/icons/user.png" alt="user" style="width:40px;">
-      </a>
-    </li>
-  </ul>
-</nav>
+<footer>
+    <% include templates/footer %>
+</footer>
+
 </body>
+
 </html>
