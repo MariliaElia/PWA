@@ -14,6 +14,13 @@ a {
     text-align: center;
     top: 0;
     width: 100%;
+    background-image: url("icons/drink.png"), url("icons/electric-keyboard.png"), url("icons/ferris.png"),
+    url("icons/guitar.png"), url("icons/ice-cream.png"), url("icons/microphone.png"), url("icons/stage.png"),
+    url("icons/tickets.png");
+    background-position: 25px 25px, 150px 25px, 275px 25px, 400px 25px, 900px 25px, 1025px 25px, 1150px 25px,
+    1275px 25px;
+    background-repeat: no-repeat;
+    background-size: 100px;
 
 }
 
