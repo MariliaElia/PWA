@@ -8,27 +8,26 @@ a {
 
 .header {
     position: sticky; /*sticky not working again*/
-    padding: 10px 16px;
-    background: #F7F6F5;
-    color: #FF7350;
-    text-align: left;
+    background: #ffffff;
+    color: black;
+    text-align: center;
     top: 0;
     max-width: 100%;
 }
 #title {
     font-size: 55px;
-    font-family: Trattatello, fantasy;
-    padding-left: 25px;
+    font-family: Marker Felt, fantasy;
+    padding: 10px;
 }
 .header2 {
     position: sticky; /* this one works for some reason? */
-    padding: 10px 16px;
+    padding: 10px;
     font-size: 24px;
     color: floralwhite;
     text-align: center;
     top: 0;
     max-width: 100%;
-    background: #F7F6F5;
+    background: #f8f9fa;
     background-image: url("icons/drink.png"), url("icons/electric-keyboard.png"), url("icons/ferris.png"),
     url("icons/guitar.png"), url("icons/ice-cream.png"), url("icons/microphone.png"), url("icons/stage.png"),
     url("icons/tickets.png"), url("icons/camera.png"), url("icons/shirt.png"), url("icons/beer.png"),
@@ -43,12 +42,21 @@ a {
 
 
 .content {
+    margin: 20px;
     padding: 30px;
     padding-bottom: 45px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
 }
 
 .search{
+    margin: 20px;
     padding: 30px;
+    background: #f8f9fa;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
 }
 
 
