@@ -10,19 +10,31 @@ a {
     position: sticky; /*sticky not working again*/
     padding: 10px 16px;
     background: #FF9966;
+    font-size: 24px;
     color: floralwhite;
     text-align: center;
     top: 0;
-    width: 100%;
+    max-width: 100%;
+}
+
+.header2 {
+    position: sticky; /*sticky not working again*/
+    padding: 10px 16px;
+    font-size: 24px;
+    color: floralwhite;
+    text-align: center;
+    top: 0;
+    max-width: 100%;
     background-image: url("icons/drink.png"), url("icons/electric-keyboard.png"), url("icons/ferris.png"),
     url("icons/guitar.png"), url("icons/ice-cream.png"), url("icons/microphone.png"), url("icons/stage.png"),
-    url("icons/tickets.png");
-    background-position: 25px 25px, 150px 25px, 275px 25px, 400px 25px, 900px 25px, 1025px 25px, 1150px 25px,
-    1275px 25px;
+    url("icons/tickets.png"), url("icons/camera.png"), url("icons/shirt.png"), url("icons/beer.png"),
+    url("icons/speaker.png");
+    background-position: 25px 25px, 150px 25px, 275px 25px, 400px 25px, 525px 25px, 650px 25px, 775px 25px,
+    900px 25px, 1025px 25px, 1150px 25px, 1275px 25px, 1400px 25px;
     background-repeat: no-repeat;
-    background-size: 100px;
-
+    background-size: 50px;
 }
+
 
 .content {
     padding: 30px;
@@ -34,7 +46,7 @@ a {
 }
 
 #title {
-    font-size: 60px;
+    font-size: 80px;
 }
 
 .search-icon {
