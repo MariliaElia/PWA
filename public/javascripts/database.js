@@ -19,7 +19,42 @@
  * @param forecastObject
  */
 function storeCachedData(event, eventDetails) {
-    localStorage.setItem(event, JSON.stringify(eventDetails));
+    //localStorage.setItem(event, JSON.stringify(eventDetails));
+    dbPromise.then(async db => { // async is necessary as we use await below
+        var tx = db.transaction('store', 'readwrite');
+        var store = tx.objectStore('store');
+        var item = {
+            title: 'event 1',
+            description: 'my very first event',
+            date: new Date(1/1/2019),
+            creator: 'cesim'
+        };
+        await store.add(item); //await necessary as add return a promise
+        return tx.complete;
+    }).then(function () {
+        console.log('added item to the store! '+ JSON.stringify(item));
+    }).catch(function (error) {
+        //do something
+    });
+}
+
+function getLoginData(loginObject) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching: '+login);
+            var tx = db.transaction(LOGIN_STORE_NAME, 'readonly');
+            var store = tx.objectStore(LOGIN_STORE_NAME);
+            var index = store.index('userId');
+            return index.get(IDBKeyRange.only(loginObject.userId));
+        }).then(function (foundObject) {
+            if (foundObject && (foundObject.userId==loginObject.userId &&
+                foundObject.password==loginObject.password)){
+                console.log(“login successful”);
+            } else {
+                alert("login or password incorrect")
+            }
+        });
+    }
 }
 
 

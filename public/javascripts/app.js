@@ -1,13 +1,6 @@
-const CLOUDY = 0;
-const CLEAR = 1;
-const RAINY = 2;
-const OVERCAST = 3;
-const SNOWY = 4;
-
-
 /**
  * called by the HTML onload
- * showing any cached forecast data and declaring the service worker
+ * showing any cached data and declaring the service worker
  */
 function initEvents() {
     loadData();
@@ -19,10 +12,46 @@ function initEvents() {
                 console.log(error.message);
             });
     }
+
+    // check that the browser supports IndexedDB
+    (function() {
+        'use strict'; // impose strict syntax checks on the Javascript code
+        //check for support
+        if (!('indexedDB' in window)) {
+            console.log('This browser doesn\'t support IndexedDB');
+            return;
+        }
+        // To ensure database integrity, object
+        // stores can only be created and removed in the callback function in idb.open
+        var dbPromise = idb.open('test-db1', 1,
+        function(upgradeDb) {
+            console.log('making a new object store');
+            if (!upgradeDb.objectStoreNames.contains('eventOS')) {
+                upgradeDb.createObjectStore('eventOS', {keyPath: 'id', autoIncrement:true}, {keyPath: 'title'});
+                eventOS.createIndex('id', 'id', {unique:true});
+
+                dbPromise.then(async db => {
+                    var tx = db.transaction('eventOS', "readwrite");
+                    var store = tx.objectStore('eventOS');
+                    var myevent = {
+                        id: '1',
+                        title: 'my event!'
+                    };
+                    await eventOS.add(myevent); await necessary to return a promise
+                    return tx.complete;
+                }).then(function () {
+                    console.log('added item to the event store' + JSON.stringify(myevent));
+                }).catch(function (error) {
+                    console.log('could not add');
+                });
+            }
+        });
+
+    })();
 }
 
 /**
- * given the list of cities created by the user, it will retrieve all the data from
+ * given the list of events created by the user, it will retrieve all the data from
  * the server (or failing that) from the database
  */
 function loadData(){
