@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       createdAt: new Date('2016-03-17')
     }
   ]
-  res.render('index', { title: 'PhotoFest', events: eventPosts});
+  res.render('index', { title: 'photofest', events: eventPosts});
 
   /*//get random event for now
   const event = getEvents();
