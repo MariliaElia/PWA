@@ -32,9 +32,11 @@ a {
     background-image: url("icons/drink.png"), url("icons/electric-keyboard.png"), url("icons/ferris.png"),
     url("icons/guitar.png"), url("icons/ice-cream.png"), url("icons/microphone.png"), url("icons/stage.png"),
     url("icons/tickets.png"), url("icons/camera.png"), url("icons/shirt.png"), url("icons/beer.png"),
-    url("icons/speaker.png");
-    background-position: 25px 25px, 150px 25px, 275px 25px, 400px 25px, 525px 25px, 650px 25px, 775px 25px,
-    900px 25px, 1025px 25px, 1150px 25px, 1275px 25px, 1400px 25px;
+    url("icons/speaker.png"), url("icons/drums.png"), url("icons/heavy-metal.png"), url("icons/screen.png"),
+    url("icons/spotlight.png"), url("icons/vinyl.png"), url("icons/vip.png"), url("icons/microphone2.png");
+    background-position: 25px 25px, 100px 25px, 175px 25px, 250px 25px, 325px 25px, 400px 25px, 475px 25px,
+    550px 25px, 625px 25px, 700px 25px, 775px 25px, 850px 25px, 925px 25px, 1000px 25px, 1075px 25px,
+    1150px 25px, 1225px 25px, 1300px 25px, 1375px 25px;
     background-repeat: no-repeat;
     background-size: 50px;
 }
