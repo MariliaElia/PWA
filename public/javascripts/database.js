@@ -15,8 +15,8 @@
 
 /**
  * it saves the forecasts for a city in localStorage
- * @param city
- * @param forecastObject
+ * @param event
+ * @param eventDetails
  */
 function storeCachedData(event, eventDetails) {
     //localStorage.setItem(event, JSON.stringify(eventDetails));
@@ -26,7 +26,7 @@ function storeCachedData(event, eventDetails) {
         var item = {
             title: 'event 1',
             description: 'my very first event',
-            date: new Date(1/1/2019),
+            date: new Date(),
             creator: 'cesim'
         };
         await store.add(item); //await necessary as add return a promise
@@ -49,7 +49,7 @@ function getLoginData(loginObject) {
         }).then(function (foundObject) {
             if (foundObject && (foundObject.userId==loginObject.userId &&
                 foundObject.password==loginObject.password)){
-                console.log(“login successful”);
+                console.log("login successful");
             } else {
                 alert("login or password incorrect")
             }
@@ -60,13 +60,13 @@ function getLoginData(loginObject) {
 
 /**
  * it retrieves the event data for an event from localStorage
- * @param city
+ * @param event
  * @returns {*}
  */
 function getCachedData(event) {
     const value = localStorage.getItem(event);
     if (value == null)
-        return {event: event}
+        return {event: event};
     else return JSON.parse(value);
 }
 

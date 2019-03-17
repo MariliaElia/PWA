@@ -23,21 +23,21 @@ function initEvents() {
         }
         // To ensure database integrity, object
         // stores can only be created and removed in the callback function in idb.open
-        var dbPromise = idb.open('test-db1', 1,
+        var dbPromise = idb.openDb('test-db1', 1,
         function(upgradeDb) {
             console.log('making a new object store');
             if (!upgradeDb.objectStoreNames.contains('eventOS')) {
-                upgradeDb.createObjectStore('eventOS', {keyPath: 'id', autoIncrement:true}, {keyPath: 'title'});
+                var eventOS = upgradeDb.createObjectStore('eventOS', {keyPath: 'id', autoIncrement:true}, {keyPath: 'title'});
                 eventOS.createIndex('id', 'id', {unique:true});
 
                 dbPromise.then(async db => {
                     var tx = db.transaction('eventOS', "readwrite");
-                    var store = tx.objectStore('eventOS');
+                    var eventOS = tx.objectStore('eventOS');
                     var myevent = {
                         id: '1',
                         title: 'my event!'
                     };
-                    await eventOS.add(myevent); await necessary to return a promise
+                    await eventOS.add(myevent); //await is necessary to return a promise
                     return tx.complete;
                 }).then(function () {
                     console.log('added item to the event store' + JSON.stringify(myevent));
@@ -66,7 +66,7 @@ function loadData(){
  * @param eventList the list of the most popular events
  */
 function retrieveAllEventsData(eventList){
-    refreshEventList();
+    //refreshEventList();
     for (index in eventList)
         loadEventData(eventList[index]);
 }
@@ -75,7 +75,7 @@ function retrieveAllEventsData(eventList){
  * given one city and a date, it queries the server via Ajax to get the latest
  * weather forecast for that city
  * if the request to the server fails, it shows the data stored in the database
- * @param city
+ * @param event
  * @param date
  */
 function loadEventData(event){
