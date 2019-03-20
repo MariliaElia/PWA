@@ -34,7 +34,6 @@ router.get('/', function(req, res, next) {
   res.send(JSON.stringify(event));*/
 });
 
-
 class Event{
   constructor (title, description, date, creator) {
     this.title = title;
