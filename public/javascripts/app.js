@@ -21,6 +21,9 @@ function initEvents() {
             console.log('This browser doesn\'t support IndexedDB');
             return;
         }
+        else {
+            console.log('We support IndexedDB');
+        }
         // To ensure database integrity, object
         // stores can only be created and removed in the callback function in idb.open
         var dbPromise = idb.openDb('test-db1', 1,
