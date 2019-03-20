@@ -86,3 +86,12 @@ a {
 .add-space {
     padding: 5px;
 }
+
+#account-header {
+    border: none;
+}
+
+#user-image {
+    justify-content: center;
+    max-width: 100px;
+}

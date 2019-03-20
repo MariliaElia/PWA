@@ -8,6 +8,59 @@
 <body>
     <% include templates/header %>
 
+    <div class="container">
+        <div class="panel panel-default">
+            <div id="account-header" class="card mb-3">
+                <div class="d-flex flex-nowrap row no-gutters">
+                    <div class="col-md-1">
+                    <img src="/stylesheets/icons/user.png" id="user-image" class="card-img" alt="user" style="width:100%;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Username</h5>
+                        <p class="card-text">Description</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Stories</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h5 class="card-title">Event 1</h5>
+                            </a>
+                            <p class="card-text">Description</p>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h5 class="card-title">Event 2</h5>
+                            </a>
+                            <p class="card-text">Description</p>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <h5 class="card-title">Event 3</h5>
+                            </a>
+                            <p class="card-text">Description</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div>
+    </div>
+
 <footer>
     <% include templates/footer %>
 </footer>
