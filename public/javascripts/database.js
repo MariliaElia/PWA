@@ -12,30 +12,42 @@
  *  is blocking. It would be best to implement it using indexedDB
  */
 
+var dbPromise;
+
+function initDatabase() {
+    dbPromise = idb.openDb('photofest-db', 1,
+        function(upgradeDb) {
+            console.log('making a new object store');
+            if (!upgradeDb.objectStoreNames.contains('event')) {
+                var eventOS = upgradeDb.createObjectStore('event', {keyPath: 'title'});
+                eventOS.createIndex('id', 'id', {unique: true});
+            }
+        });
+}
+
 
 /**
  * it saves the forecasts for a city in localStorage
  * @param event
  * @param eventDetails
  */
-function storeCachedData(event, eventDetails) {
+function storeCachedData(event, eventObject) {
     //localStorage.setItem(event, JSON.stringify(eventDetails));
-    dbPromise.then(async db => { // async is necessary as we use await below
-        var tx = db.transaction('store', 'readwrite');
-        var store = tx.objectStore('store');
-        var item = {
-            title: 'event 1',
-            description: 'my very first event',
-            date: new Date(),
-            creator: 'cesim'
-        };
-        await store.add(item); //await necessary as add return a promise
-        return tx.complete;
-    }).then(function () {
-        console.log('added item to the store! '+ JSON.stringify(item));
-    }).catch(function (error) {
-        //do something
-    });
+    if (dbPromise) {
+        dbPromise.then(async db => {
+            var tx = db.transaction('event', "readwrite");
+            var store = tx.objectStore('event');
+            await store.put(eventObject); //await is necessary to return a promise
+            return tx.complete;
+        }).then(function () {
+            console.log('added item to the event store' + JSON.stringify(eventObject));
+        }).catch(function (error) {
+            console.log('could not add');
+        });
+    }
+    else {
+        localStorage.setItem(event, JSON.stringify(eventObject));
+    }
 }
 
 function getLoginData(loginObject) {

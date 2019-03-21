@@ -14,43 +14,20 @@ function initEvents() {
     }
 
     // check that the browser supports IndexedDB
-    (function() {
+
         'use strict'; // impose strict syntax checks on the Javascript code
         //check for support
         if (!('indexedDB' in window)) {
             console.log('This browser doesn\'t support IndexedDB');
-            return;
+            initDatabase();
         }
         else {
             console.log('We support IndexedDB');
         }
         // To ensure database integrity, object
         // stores can only be created and removed in the callback function in idb.open
-        var dbPromise = idb.openDb('test-db1', 1,
-        function(upgradeDb) {
-            console.log('making a new object store');
-            if (!upgradeDb.objectStoreNames.contains('eventOS')) {
-                var eventOS = upgradeDb.createObjectStore('eventOS', {keyPath: 'id', autoIncrement:true}, {keyPath: 'title'});
-                eventOS.createIndex('id', 'id', {unique:true});
 
-                dbPromise.then(async db => {
-                    var tx = db.transaction('eventOS', "readwrite");
-                    var eventOS = tx.objectStore('eventOS');
-                    var myevent = {
-                        id: '1',
-                        title: 'my event!'
-                    };
-                    await eventOS.add(myevent); //await is necessary to return a promise
-                    return tx.complete;
-                }).then(function () {
-                    console.log('added item to the event store' + JSON.stringify(myevent));
-                }).catch(function (error) {
-                    console.log('could not add');
-                });
-            }
-        });
 
-    })();
 }
 
 /**
