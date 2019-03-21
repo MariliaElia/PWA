@@ -19,10 +19,11 @@ function initEvents() {
         //check for support
         if (!('indexedDB' in window)) {
             console.log('This browser doesn\'t support IndexedDB');
-            initDatabase();
+
         }
         else {
             console.log('We support IndexedDB');
+            initDatabase();
         }
         // To ensure database integrity, object
         // stores can only be created and removed in the callback function in idb.open

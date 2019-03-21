@@ -21,17 +21,21 @@ function initDatabase() {
             if (!upgradeDb.objectStoreNames.contains('event')) {
                 var eventOS = upgradeDb.createObjectStore('event', {keyPath: 'title'});
                 eventOS.createIndex('id', 'id', {unique: true});
+                myevent = {title: 'my event 1', id: '1'};
+                myevent2 = {title: 'my event 2', id: '2'};
+                storeCachedData(myevent);
+                storeCachedData(myevent2);
+                console.log('tried to add an event');
             }
         });
 }
 
 
 /**
- * it saves the forecasts for a city in localStorage
- * @param event
- * @param eventDetails
+ * it saves the event in indexed db
+ * @param eventObject
  */
-function storeCachedData(event, eventObject) {
+function storeCachedData(eventObject) {
     //localStorage.setItem(event, JSON.stringify(eventDetails));
     if (dbPromise) {
         dbPromise.then(async db => {
@@ -46,7 +50,7 @@ function storeCachedData(event, eventObject) {
         });
     }
     else {
-        localStorage.setItem(event, JSON.stringify(eventObject));
+        console.log('could not db promise')
     }
 }
 
