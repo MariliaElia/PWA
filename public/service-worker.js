@@ -24,6 +24,7 @@ var filesToCache = [
     '/users',
     '/stylesheets/style.css',
     '/javascripts/jquery.min.js',
+    '/javascripts/idb.js',
     '/javascripts/popper.min.js',
     '/javascripts/header.js',
     '/javascripts/database.js',
