@@ -4,24 +4,23 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('pwa:server');
+const app = require('../app');
+const debug = require('debug')('pwa:server');
 //var http = require('http');
-var https = require('https');
-var fs = require('fs-extra');
-var idb = require('idb');
+const https = require('https');
+const fs = require('fs-extra');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTPs server.
  */
-var options = {
+const options = {
   key: fs.readFileSync('./private_access/ca.key'),
   cert: fs.readFileSync('./private_access/ca.crt')
 };

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//var dataCacheName = 'photofest';
-var cacheName = 'photofest';
+var dataCacheName = 'weatherData-v1';
+var cacheName = 'weatherPWA-step-8-1';
 var filesToCache = [
     '/',
     '/create-event',
@@ -22,17 +22,16 @@ var filesToCache = [
     '/search-results',
     '/test',
     '/users',
-    '/javascripts/app.js',
-    '/javascripts/idb.js',
     '/stylesheets/style.css',
+    '/javascripts/jquery.min.js',
+    '/javascripts/popper.min.js',
+    '/javascripts/header.js',
+    '/javascripts/database.js',
+    '/javascripts/app.js',
     '/stylesheets/bootstrap.min.css',
     '/javascripts/bootstrap.min.js',
     '/stylesheets/bootstrap-datepicker3.css',
     '/javascripts/bootstrap-datepicker.min.js',
-    'javascripts/popper.min.js',
-    '/javascripts/header.js',
-    '/javascripts/database.js',
-    '/javascripts/jquery.min.js',
     '/stylesheets/icons/add-button.png',
     '/stylesheets/icons/home.png',
     '/stylesheets/icons/user.png'
@@ -93,9 +92,9 @@ self.addEventListener('activate', function (e) {
  */
 self.addEventListener('fetch', function (e) {
     console.log('[Service Worker] Fetch', e.request.url);
-    //var dataUrl = '/weather_data';
+    var dataUrl = '/weather_data';
     //if the request is '/weather_data', post to the server
-    //if (e.request.url.indexOf(dataUrl) > -1) {
+    if (e.request.url.indexOf(dataUrl) > -1) {
         /*
          * When the request URL contains dataUrl, the app is asking for fresh
          * weather data. In this case, the service worker always goes to the
@@ -103,27 +102,21 @@ self.addEventListener('fetch', function (e) {
          * network" strategy:
          * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
          */
-        //return fetch(e.request).then(function (response) {
+        return fetch(e.request).then(function (response) {
             // note: it the network is down, response will contain the error
             // that will be passed to Ajax
-            //return response;
-      //  })
-    //} else {
+            return response;
+        })
+    } else {
         /*
          * The app is asking for app shell files. In this scenario the app uses the
          * "Cache, falling back to the network" offline strategy:
          * https://jakearchibald.com/2014/offline-cookbook/#cache-falling-back-to-network
          */
         e.respondWith(
-            caches.match(e.request)
-                .then(function (response) {
-                    if (response) {
-
-                        return response;
-                    }
-                    return fetch(e.request);
-
-                        /*
+            caches.match(e.request).then(function (response) {
+                return response
+                    || fetch(e.request)
                         .then(function (response) {
                             // note if network error happens, fetch does not return
                             // an error. it just returns response not ok
@@ -134,7 +127,8 @@ self.addEventListener('fetch', function (e) {
                         })
                         .catch(function (e) {
                             console.log("error: " + err);
-                        }) */
+                        })
             })
         );
+    }
 });
