@@ -26,4 +26,18 @@ function storeCachedData(newObject, objectStore) {
             alert('could not add object to object store')
         });
     }
+    //localStorage.setItem('event', JSON.stringify(newObject));
+}
+
+function getCachedData(objectStore) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: ' + objectStore);
+            var tx = db.transaction(objectStore, 'readonly');
+            var store = tx.objectStore(objectStore);
+            //var index = store.index('title');
+            var request = objectStore.getAllKeys();
+            console.log(request);
+        });
+    }
 }

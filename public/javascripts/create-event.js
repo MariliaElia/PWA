@@ -14,7 +14,6 @@ function sendAjaxQuery(url, data) {
             document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, 'EVENT_OS');
-
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -41,6 +40,7 @@ function initEvents() {
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
+        getCachedData('EVENT_OS');
     }
     else {
         console.log('This browser doesn\'t support IndexedDB');
