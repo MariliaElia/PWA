@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include templates/head %>
+
+</head>
+
+<body onload="initDB()">
+
+    <% include templates/header %>
+
+    <div class="form-container">
+
+        <h2 class="photofestheading">Log in</h2>
+        <form id="loginForm" onsubmit="logIn()">
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control" id="formGroupExampleInput">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" name="password"  class="form-control" id="formGroupExampleInput">
+            </div>
+            <input type="submit" name="log-in" id="log-in" value="Log in" class="btn btn-info btn-md">
+        </form>
+        <br>
+        <a class="btn btn-secondary" href="signup" role="button">Sign up</a>
+    </div>
+
+<footer>
+    <% include templates/footer %>
+</footer>
+
+</body>
+
+</html>
