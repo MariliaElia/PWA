@@ -21,7 +21,16 @@ function initDatabase() {
         } else {
             console.log('could not create object store STORY_OS')
         }
+        if (!upgradeDb.objectStoreNames.contains('USERS')) {
+            var userDb = upgradeDb.createObjectStore('USERS', {keypath: 'id', autoIncrement: true, unique: true});
+            userDb.createIndex('username', 'username', {unique: true});
+            userDb.createIndex('name', 'name', {unique: false});
+            userDb.createIndex('email', 'email', {unique: false});
+            userDb.createIndex('password', 'password', {unique: false});
+        }
     });
+    localStorage.setItem("isLoggedIn", "false");
+    console.log('created object store')
 }
 
 function storeCachedData(newObject, objectStore) {

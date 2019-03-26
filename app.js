@@ -12,6 +12,8 @@ var mapRouter = require('./routes/map');
 var searchResultsRouter = require('./routes/search-results');
 var createEventRouter = require('./routes/create-event');
 var accountRouter = require('./routes/account');
+var loginRouter = require('./routes/login');
+var signupRouter = require('./routes/signup');
 var viewEventRouter = require('./routes/view-event');
 var createStoryRouter = require('./routes/create-story');
 
@@ -40,6 +42,8 @@ app.use('/map', mapRouter);
 app.use('/search-results', searchResultsRouter);
 app.use('/create-event', createEventRouter);
 app.use('/account', accountRouter);
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 app.use('/view-event', viewEventRouter);
 app.use('/create-story', createStoryRouter);
 
