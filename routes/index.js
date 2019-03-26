@@ -34,6 +34,11 @@ router.get('/', function(req, res, next) {
   res.send(JSON.stringify(event));*/
 });
 
+router.post('/', function(req, res, next) {
+  res.render('create-story', { title: 'photofest'})
+})
+
+
 class Event{
   constructor (title, description, date, creator) {
     this.title = title;
