@@ -12,6 +12,8 @@ var mapRouter = require('./routes/map');
 var searchResultsRouter = require('./routes/search-results');
 var createEventRouter = require('./routes/create-event');
 var accountRouter = require('./routes/account');
+var loginRouter = require('./routes/login');
+var signupRouter = require('./routes/signup');
 
 
 
@@ -37,6 +39,8 @@ app.use('/map', mapRouter);
 app.use('/search-results', searchResultsRouter);
 app.use('/create-event', createEventRouter);
 app.use('/account', accountRouter);
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 
 
 // catch 404 and forward to error handler
