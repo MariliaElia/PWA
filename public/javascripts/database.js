@@ -7,9 +7,21 @@ function initDatabase() {
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
             eventDb.createIndex('location', 'location', {unique: false});
+            console.log('created object store EVENT_OS')
+        } else {
+            console.log('could not create object store EVENT_OS')
+        }
+        if (!upgradeDb.objectStoreNames.contains('STORY_OS')) {
+            var storyDb = upgradeDb.createObjectStore('STORY_OS', {keyPath: 'storyId', autoIncrement: true, unique: true});
+            storyDb.createIndex('forEvent', 'title', {unique: false});
+            storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
+            storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
+            storyDb.createIndex('image', 'image', {unique: false});
+            console.log('created object store STORY_OS')
+        } else {
+            console.log('could not create object store STORY_OS')
         }
     });
-    console.log('created object store')
 }
 
 function storeCachedData(newObject, objectStore) {

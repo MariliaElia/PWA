@@ -36,13 +36,22 @@
 
 <div class="content">
     <% for(var i = 0; i < events.length; i++) { %>
-        <a href="#" class="list-group list-group-item-action">
+        <!--<a href="#" class="list-group list-group-item-action">
             <p><%= events[i].title%></p>
             <p><%= events[i].description %></p>
             <p><%= events[i].author %></p>
             <p><%= events[i].publishedAt %></p>
             <p><%= events[i].createdAt %></p>
-        </a>
+        </a>-->
+            <div class="list-group list-group-item">
+                <p><%= events[i].title%></p>
+                <p><%= events[i].description %></p>
+                <p><%= events[i].author %></p>
+                <p><%= events[i].publishedAt %></p>
+                <p><%= events[i].createdAt %></p>
+                <a href="view-event" class="btn btn-info btn-md" role="button">Add Story</a>
+            </div>
+            <br>
     <% } %>
 </div>
 <script>

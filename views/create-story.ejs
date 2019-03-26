@@ -6,7 +6,7 @@
 
 </head>
 
-<body onload="initStories()">
+<body onload="initDB()">
 
 <% include templates/header %>
 
@@ -14,24 +14,24 @@
     <div class="panel panel-default">
         <h2 class="photofestheading">create story</h2>
 
-        <form id="story" onsubmit="">
+        <form id="storyForm" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
                 <label for="event-name">For event: <a href="view-event"><%= eventName %></a></label>
             </div>
             <div class="form-group">
                 <label for="story-description">Description:</label>
                 <!--<textarea class="form-control" rows="3"></textarea>-->
-                <input type="text" name="event-description"  class="form-control" id="formGroupExampleInput">
+                <input type="text" name="story-description"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
-                <label for="event-location">Location:</label>
-                <input type="text" name="event-location"  class="form-control" id="formGroupExampleInput">
+                <label for="story-location">Location:</label>
+                <input type="text" name="story-location"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
-                <label for="event-location">Image:</label>
-                <input type="file" name="image"  class="form-control" id="formGroupExampleInput">
+                <label for="story-image">Image:</label>
+                <!--<input type="file" name="image"  class="form-control" id="formGroupExampleInput">-->
             </div>
-            <input type="submit" name="g" id="g" value="Submit" class="btn btn-info btn-md">
+            <input type="submit" name="g2" id="g2" value="Submit" class="btn btn-info btn-md">
         </form>
     </div>
 </div>
