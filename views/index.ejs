@@ -3,7 +3,6 @@
 <head>
     <% include templates/head %>
 </head>
-
 <body>
 
 <% include templates/header %>
@@ -37,28 +36,15 @@
 
 <div class="content">
     <% for(var i = 0; i < events.length; i++) { %>
-        <!--<a href="test" class="list-group list-group-item-action">
+        <a href="#" class="list-group list-group-item-action">
             <p><%= events[i].title%></p>
             <p><%= events[i].description %></p>
             <p><%= events[i].author %></p>
             <p><%= events[i].publishedAt %></p>
             <p><%= events[i].createdAt %></p>
-        </a>-->
-        <div class="list-group list-group-item">
-            <p><%= events[i].title%></p>
-            <p><%= events[i].description %></p>
-            <p><%= events[i].author %></p>
-            <p><%= events[i].publishedAt %></p>
-            <p><%= events[i].createdAt %></p>
-            <a href="view-event" class="btn btn-info btn-md" role="button">Add Story</a>
-        </div>
-        <br>
+        </a>
     <% } %>
-    <footer>
-        <% include templates/footer %>
-    </footer>
 </div>
-
 <script>
     window.onscroll = function() {myFunction()};
 
@@ -74,7 +60,9 @@
     }
 </script>
 
-
+<footer>
+    <% include templates/footer %>
+</footer>
 
 
 </body>
