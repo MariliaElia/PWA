@@ -1,4 +1,4 @@
-function sendAjaxQuery(url, data) {
+function sendAjaxQuery(url, data, objectStore) {
     $.ajax({
         url: url ,
         data: data,
@@ -11,9 +11,9 @@ function sendAjaxQuery(url, data) {
             var ret = dataR;
             // in order to have the object printed by alert
             // we need to JSON stringify the object
-            document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
+            //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
-            storeCachedData(ret, 'EVENT_OS');
+            storeCachedData(ret, objectStore);
 
         },
         error: function (xhr, status, error) {
@@ -22,7 +22,7 @@ function sendAjaxQuery(url, data) {
     });
 }
 
-function onSubmit() {
+function onSubmit(url, objectStore) {
     console.log('in onsubmit')
     var formArray= $("form").serializeArray();
     console.log('serializing array')
@@ -32,12 +32,12 @@ function onSubmit() {
     }
     console.log('serialized array')
     // const data = JSON.stringify($(this).serializeArray());
-    sendAjaxQuery('/create-event', data);
+    sendAjaxQuery(url, data, objectStore);
     console.log('tried to send ajax query')
     event.preventDefault();
 }
 
-function initEvents() {
+function initDB() {
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
