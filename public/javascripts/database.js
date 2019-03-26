@@ -1,3 +1,5 @@
+var dbPromise;
+
 function initDatabase() {
     console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
@@ -29,16 +31,17 @@ function storeCachedData(newObject, objectStore) {
     //localStorage.setItem('event', JSON.stringify(newObject));
 }
 
-/*function getCachedData(objectStore) {
+function getCachedData(objectStore) {
+    console.log("Get cached data!");
     if (dbPromise) {
         dbPromise.then(function (db) {
             console.log('fetching from: ' + objectStore);
-            var tx = db.transaction(objectStore, 'readonly');
-            var store = tx.objectStore(objectStore);
-            //var index = store.index('title');
-            var request = objectStore.getAllKeys();
-            console.log(request);
+            var transaction = db.transaction(objectStore, "readonly");
+            var store = transaction.objectStore(objectStore);
+            var request = store.getAll();
+            return request;
+        }).then( function (request) {
+            displayEvents(request);
         });
     }
 }
-*/

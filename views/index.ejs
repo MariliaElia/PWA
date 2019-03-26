@@ -3,7 +3,7 @@
 <head>
     <% include templates/head %>
 </head>
-<body>
+<body onload="loadEvents()" >
 
 <% include templates/header %>
 
@@ -34,17 +34,8 @@
     <a href="search-results" class="btn btn-info btn-md" role="button">Search</a>
 </div>
 
-<div class="content">
-    <% for(var i = 0; i < events.length; i++) { %>
-        <a href="#" class="list-group list-group-item-action">
-            <p><%= events[i].title%></p>
-            <p><%= events[i].description %></p>
-            <p><%= events[i].author %></p>
-            <p><%= events[i].publishedAt %></p>
-            <p><%= events[i].createdAt %></p>
-        </a>
-    <% } %>
-</div>
+<div class="content" id = "events"></div>
+
 <script>
     window.onscroll = function() {myFunction()};
 

@@ -9,18 +9,16 @@
     <% include templates/header %>
 
     <div class="story-content ">
-        <h3 class="event-title"><a href="create-story"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventName %></h3>
+        <h3 class="title"><a href="create-story"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventName %></h3>
         <br>
 
-        <% for(var i = 0; i < 4; i++) { %>
-            <div class="list-group list-group-item">
-                <p>Story Name</p>
-                <p>Story Description</p>
-                <p>Story Author</p>
-                <p>Story Date</p>
-            </div>
-        <br>
-        <% } %>
+        <div class="list-group list-group-item">
+            <p>Story Name</p>
+            <p>Story Description</p>
+            <p>Story Author</p>
+            <p>Story Date</p>
+        </div>
+
         <footer>
             <% include templates/footer %>
         </footer>
