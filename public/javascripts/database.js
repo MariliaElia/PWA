@@ -29,7 +29,7 @@ function storeCachedData(newObject, objectStore) {
     //localStorage.setItem('event', JSON.stringify(newObject));
 }
 
-function getCachedData(objectStore) {
+/*function getCachedData(objectStore) {
     if (dbPromise) {
         dbPromise.then(function (db) {
             console.log('fetching from: ' + objectStore);
@@ -41,3 +41,4 @@ function getCachedData(objectStore) {
         });
     }
 }
+*/

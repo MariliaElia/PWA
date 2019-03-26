@@ -6,14 +6,14 @@
 
 </head>
 
-<body onload="initEvents()">
+<body onload="initDB()">
 
     <% include templates/header %>
 
     <div class="form-container">
         <div class="panel panel-default">
             <h2 class="photofestheading">create event</h2>
-            <form id="myForm" onsubmit="onSubmit()">
+            <form id="myForm" onsubmit="onSubmit('/create-event', 'EVENT_OS')">
                 <div class="form-group">
                     <label for="event-name">Event Name:</label>
                     <input type="text" name="event-name" class="form-control" id="formGroupExampleInput">
