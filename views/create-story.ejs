@@ -16,20 +16,21 @@
 
         <form id="storyForm" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
-                <label for="event-name">For event: <a href="view-event"><%= eventName %></a></label>
+                <label for="title"><a href="view-event">Event:</a></label>
+                <input type="text" name="title" value="<%= eventName %>"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
-                <label for="story-description">Description:</label>
+                <label for="storyDescription">Description:</label>
                 <!--<textarea class="form-control" rows="3"></textarea>-->
-                <input type="text" name="story-description"  class="form-control" id="formGroupExampleInput">
+                <input type="text" name="storyDescription"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
-                <label for="story-location">Location:</label>
-                <input type="text" name="story-location"  class="form-control" id="formGroupExampleInput">
+                <label for="storyLocation">Location:</label>
+                <input type="text" name="storyLocation"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
-                <label for="story-image">Image:</label>
-                <!--<input type="file" name="image"  class="form-control" id="formGroupExampleInput">-->
+                <label for="image">Image:</label>
+                <input type="file" name="image"  class="form-control" id="formGroupExampleInput">
             </div>
             <input type="submit" name="g2" id="g2" value="Submit" class="btn btn-info btn-md">
         </form>

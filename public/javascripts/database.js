@@ -13,7 +13,7 @@ function initDatabase() {
         }
         if (!upgradeDb.objectStoreNames.contains('STORY_OS')) {
             var storyDb = upgradeDb.createObjectStore('STORY_OS', {keyPath: 'storyId', autoIncrement: true, unique: true});
-            storyDb.createIndex('forEvent', 'title', {unique: false});
+            storyDb.createIndex('title', 'title', {unique: false});
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
             storyDb.createIndex('image', 'image', {unique: false});
