@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include templates/head %>
+
+</head>
+
+<body onload="initDB()">
+
+    <% include templates/header %>
+
+    <div class="form-container">
+
+        <h2 class="photofestheading">Sign up</h2>
+        <form id="registerForm" onsubmit="onSubmit('/signup', 'USERS')">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control" id="formGroupExampleInput">
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control" id="formGroupExampleInput">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" name="password"  class="form-control" id="formGroupExampleInput">
+            </div>
+            <input type="submit" name="sign-up" id="sign-up" value="Sign up" class="btn btn-info btn-md">
+        </form>
+    </div>
+
+    <br>
+    <div class="some padding" id="results"></div>
+
+<footer>
+    <% include templates/footer %>
+</footer>
+
+</body>
+
+</html>
