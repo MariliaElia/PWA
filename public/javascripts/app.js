@@ -16,7 +16,6 @@ function sendAjaxQuery(url, data, objectStore) {
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
             takeToAccount(url, ret);
-
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -40,6 +39,7 @@ function onSubmit(url, objectStore) {
 }
 
 function initDB() {
+
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
