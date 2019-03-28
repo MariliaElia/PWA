@@ -13,7 +13,7 @@ router.get('/view-event/:id', function(req, res, next){
 
 router.get('/create-story/:id', function(req, res, next) {
     var eventID = req.params.id;
-    res.render('create-story', { title: 'photofest', eventName: eventID});
+    res.render('create-story', { title: 'photofest', eventID: eventID});
 });
 
 router.post('/', function(req, res, next) {
