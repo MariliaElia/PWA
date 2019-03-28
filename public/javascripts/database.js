@@ -1,3 +1,5 @@
+var dbPromise;
+
 function initDatabase() {
     console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
@@ -44,22 +46,36 @@ function storeCachedData(newObject, objectStore) {
         }).then(function () {
             console.log('added item to the store! '+ JSON.stringify(newObject));
         }).catch(function (error) {
-            alert('could not add object to object store')
+            console.log('could not add object to object store');
+            alert('could not add object to object store');
         });
     }
-    //localStorage.setItem('event', JSON.stringify(newObject));
 }
 
-/*function getCachedData(objectStore) {
+function getLoginData(loginObject) {
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: ' + objectStore);
-            var tx = db.transaction(objectStore, 'readonly');
-            var store = tx.objectStore(objectStore);
-            //var index = store.index('title');
-            var request = objectStore.getAllKeys();
-            console.log(request);
+            console.log('fetching');
+            var tx = db.transaction('USERS', 'readonly');
+            var store = tx.objectStore('USERS');
+            var index = store.index('username');
+            return index.get(IDBKeyRange.only(loginObject.username));
+        }).then(function (foundObject) {
+            if (foundObject && (foundObject.username==loginObject.username &&
+                foundObject.password==loginObject.password)){
+                localStorage.setItem("isLoggedIn", "true")
+                console.log('login successful');
+            } else {
+                alert("login or password incorrect")
+            }
         });
     }
 }
-*/
+
+function setLoginState(value) {
+    localStorage.setItem("isLoggedIn", JSON.stringify(value));
+}
+
+function getLoginState() {
+    localStorage.getItem("isLoggedIn");
+}

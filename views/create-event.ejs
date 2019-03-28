@@ -12,16 +12,16 @@
 
     <div class="form-container">
         <div class="panel panel-default">
-            <h2 class="photofestheading">create event</h2>
-            <form id="eventForm" onsubmit="onSubmit('/create-event', 'EVENT_OS')">
+            <h2 class="photofestheading">Create Event</h2>
+            <form id="myForm" onsubmit="onSubmit('/create-event', 'EVENT_OS')">
                 <div class="form-group">
                     <label for="title">Event Name:</label>
                     <input type="text" name="title" class="form-control" id="formGroupExampleInput">
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="event-description">Description:</label>
                     <!--<textarea class="form-control" rows="3"></textarea>-->
-                    <input type="text" name="description"  class="form-control" id="formGroupExampleInput">
+                    <input type="text" name="event-description"  class="form-control" id="formGroupExampleInput">
                 </div>
                 <div class="form-group"> <!-- Date input -->
                     <label class="control-label" for="date">Date</label>
