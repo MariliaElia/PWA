@@ -60,6 +60,12 @@ function loadEvents() {
 
 function loadStories(eventID) {
     console.log("EVENT ID: " + eventID)
+    if ('indexedDB' in window) {
+        initDatabase();
+        getStoryData(eventID, "STORY_OS");
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
 }
 
 function displayEvents(request) {
@@ -75,4 +81,16 @@ function displayEvents(request) {
     }
     document.getElementById('events').innerHTML = eventList;
 
+}
+
+function displayStories(request) {
+    var storyList = "";
+    for (var i=0; i< request.length; i++) {
+        storyList +=
+            "<a href='#' class='list-group list-group-item-action'> " +
+            "<p>" + request[i].storyDescription + "</p>" +
+            "<p>" + request[i].storyLocation + "</p>" +
+            "</a>";
+    }
+    document.getElementById('stories').innerHTML = storyList;
 }
