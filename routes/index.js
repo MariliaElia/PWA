@@ -4,7 +4,16 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'photofest'});
+});
 
+router.get('/view-event/:id', function(req, res, next){
+    var eventID = req.params.id;
+    res.render('view-event', { title: 'photofest', eventID: eventID} );
+});
+
+router.get('/create-story/:id', function(req, res, next) {
+    var eventID = req.params.id;
+    res.render('create-story', { title: 'photofest', eventName: eventID});
 });
 
 router.post('/', function(req, res, next) {

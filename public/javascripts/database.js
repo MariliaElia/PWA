@@ -39,7 +39,7 @@ function storeCachedData(newObject, objectStore) {
     }
 }
 
-function getCachedData(objectStore) {
+function getEventData(objectStore) {
     console.log("Get cached data!");
     if (dbPromise) {
         dbPromise.then(function (db) {
@@ -50,6 +50,21 @@ function getCachedData(objectStore) {
             return request;
         }).then( function (request) {
             displayEvents(request);
+        });
+    }
+}
+
+function getEventByID(id) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: ' + objectStore);
+            var transaction = db.transaction(objectStore, "readonly");
+            var store = transaction.objectStore(objectStore);
+            var request = store.get(id);
+            Console.log(id);
+            return request;
+        }).then( function (request) {
+            Console.log(request.title)
         });
     }
 }

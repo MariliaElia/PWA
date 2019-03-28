@@ -49,20 +49,25 @@ function initDB() {
 function loadEvents() {
     if ('indexedDB' in window) {
         initDatabase();
-        getCachedData("EVENT_OS");
+        getEventData("EVENT_OS");
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+function loadStories(eventID) {
+    console.log("EVENT ID: " + eventID)
+}
+
 function displayEvents(request) {
     var eventList = "";
     for (var i=0; i< request.length; i++) {
-        eventList += "<a href='/view-event' class='list-group list-group-item-action'>" +
-            "<p>" + request[i].title + "</p>" +
-            "<p>" + request[i].description + "</p>" +
-            "<p>" + request[i].date + "</p>" +
-            "<p>" + request[i].location + "</p>" +
+        eventList +=
+            "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
+                "<p>" + request[i].title + "</p>" +
+                "<p>" + request[i].description + "</p>" +
+                "<p>" + request[i].date + "</p>" +
+                "<p>" + request[i].location + "</p>" +
             "</a>";
     }
     document.getElementById('events').innerHTML = eventList;
