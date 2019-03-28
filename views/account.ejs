@@ -13,14 +13,14 @@
             <div id="account-header" class="card mb-3">
                 <div class="d-flex flex-nowrap row no-gutters">
                     <div class="col-md-1">
-                    <img src="/stylesheets/icons/user.png" id="user-image" class="card-img" alt="user" style="width:100%;">
+                        <img src="/stylesheets/icons/user.png" id="user-image" class="card-img" alt="user" style="width:100%;">
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" id="username">Username</h5>
                         <p class="card-text">Description</p>
                     </div>
-                </div>
                 </div>
             </div>
 
@@ -58,13 +58,13 @@
                     </ul>
                 </div>
             </div>
-        <div>
+        </div>
+        <a class="sign-out-btn" href="login">Sign out</a>
+        <footer>
+            <% include templates/footer %>
+            <br>
+        </footer>
     </div>
-
-<footer>
-    <% include templates/footer %>
-</footer>
-
 </body>
 
 </html>

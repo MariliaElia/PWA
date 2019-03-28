@@ -13,7 +13,7 @@ function initDatabase() {
         }
         if (!upgradeDb.objectStoreNames.contains('STORY_OS')) {
             var storyDb = upgradeDb.createObjectStore('STORY_OS', {keyPath: 'storyId', autoIncrement: true, unique: true});
-            storyDb.createIndex('title', 'title', {unique: false});
+            storyDb.createIndex('eventId', 'eventId', {unique: false});
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
             storyDb.createIndex('image', 'image', {unique: false});
@@ -30,7 +30,7 @@ function initDatabase() {
         }
     });
     localStorage.setItem("isLoggedIn", "false");
-    console.log('created object store')
+    //console.log('created object store')
 }
 
 function storeCachedData(newObject, objectStore) {

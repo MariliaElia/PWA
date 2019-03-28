@@ -9,6 +9,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     var userData = req.body;
+    var username = req.body.username;
+    var password = req.body.password;
+    console.log(username);
+    console.log(password);
     if (userData == null) {
         res.status(403).send('No data sent!')
     }

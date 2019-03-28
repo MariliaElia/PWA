@@ -142,3 +142,14 @@ a {
     border-radius: 4px;
     background-color: lavender;
 }
+ .signup {
+     margin: auto;
+ }
+
+ .sign-out-btn {
+     padding: 10px;
+     margin: auto;
+     text-align: right;
+     width: 50%;
+     display: inline-block;
+ }

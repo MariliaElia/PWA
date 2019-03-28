@@ -1,3 +1,4 @@
+
 function sendAjaxQuery(url, data, objectStore) {
     $.ajax({
         url: url ,
@@ -14,6 +15,8 @@ function sendAjaxQuery(url, data, objectStore) {
             //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
+            takeToAccount(url, ret);
+
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
