@@ -67,6 +67,24 @@ function getEventData(objectStore) {
     }
 }
 
+function getStoryData(eventID, objectStore) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: ' + objectStore);
+            var transaction = db.transaction(objectStore, "readonly");
+            var store = transaction.objectStore(objectStore);
+            var index = store.index('eventId');
+            var request = index.getAll(eventID.toString());
+            console.log(eventID);
+            console.log(request);
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            displayStories(request);
+        });
+    }
+}
+
 function getLoginData(loginObject) {
     if (dbPromise) {
         dbPromise.then(function (db) {
@@ -88,18 +106,7 @@ function getLoginData(loginObject) {
 }
 
 function getEventByID(id) {
-    if (dbPromise) {
-        dbPromise.then(function (db) {
-            console.log('fetching from: ' + objectStore);
-            var transaction = db.transaction(objectStore, "readonly");
-            var store = transaction.objectStore(objectStore);
-            var request = store.get(id);
-            Console.log(id);
-            return request;
-        }).then( function (request) {
-            Console.log(request.title)
-        });
-    }
+
 }
 
 function setLoginState(value) {
