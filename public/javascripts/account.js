@@ -71,4 +71,4 @@ function loggedIn() {
     logged = true;
 }
 
-module.exports.logged = logged;
+//module.exports.logged = logged;
