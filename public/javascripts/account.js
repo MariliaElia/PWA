@@ -1,4 +1,3 @@
-
 function sendLogInQuery(url, data) {
     console.log('in sendLogInQuery');
     $.ajax({
