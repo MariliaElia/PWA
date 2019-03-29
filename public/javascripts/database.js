@@ -1,7 +1,7 @@
 var dbPromise;
 
 function initDatabase() {
-    console.log('called initDatabase()');
+    //console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
         if (!upgradeDb.objectStoreNames.contains('EVENT_OS')) {
             var eventDb = upgradeDb.createObjectStore('EVENT_OS', {keyPath: 'id', autoIncrement: true, unique: true});
@@ -31,7 +31,6 @@ function initDatabase() {
             userDb.createIndex('password', 'password', {unique: false});
         }
     });
-    localStorage.setItem("isLoggedIn", "false");
     //console.log('created object store')
 }
 
