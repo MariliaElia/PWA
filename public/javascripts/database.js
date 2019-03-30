@@ -1,7 +1,7 @@
 var dbPromise;
 
 function initDatabase() {
-    //console.log('called initDatabase()');
+    console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
         if (!upgradeDb.objectStoreNames.contains('EVENT_OS')) {
             var eventDb = upgradeDb.createObjectStore('EVENT_OS', {keyPath: 'id', autoIncrement: true, unique: true});
@@ -10,6 +10,8 @@ function initDatabase() {
             eventDb.createIndex('date', 'date', {unique: false});
             eventDb.createIndex('location', 'location', {unique: false});
             eventDb.createIndex('userId', 'userId', {unique: false});
+            eventDb.createIndex('latitude', 'latitude', {unique: false});
+            eventDb.createIndex('longitude', 'longitude', {unique: false});
             console.log('created object store EVENT_OS')
         } else {
             console.log('could not create object store EVENT_OS')
@@ -68,16 +70,36 @@ function getEventData(objectStore) {
     }
 }
 
-function getStoryData(eventId, objectStore) {
+function getStoryData(eventID, objectStore) {
     if (dbPromise) {
         dbPromise.then(function (db) {
             console.log('fetching from: ' + objectStore);
             var transaction = db.transaction(objectStore, "readonly");
             var store = transaction.objectStore(objectStore);
             var index = store.index('eventId');
-            return index.getAll(IDBKeyRange.only(eventId));
-        }).then(function (request) {
+            var request = index.getAll(eventID.toString());
+            console.log(eventID);
+            console.log(request);
+            return request;
+        }).then( function (request) {
+            console.log(request);
             displayStories(request);
+        });
+    }
+}
+
+function getEventDateSearch(eventName, date) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: EVENT_OS');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('title');
+            var request = index.getAll(eventName.toString());
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            var indexDate = request.index()
         });
     }
 }
@@ -92,8 +114,8 @@ function getLoginData(loginObject) {
             return index.get(IDBKeyRange.only(loginObject.username));
         }).then(function (foundObject) {
             if (foundObject && (foundObject.username==loginObject.username &&
-                foundObject.password==loginObject.password)) {
-                localStorage.setItem("isLoggedIn", "true");
+                foundObject.password==loginObject.password)){
+                localStorage.setItem("isLoggedIn", "true")
                 console.log('login successful');
             } else {
                 alert("login or password incorrect")

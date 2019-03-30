@@ -8,30 +8,32 @@
 <% include templates/header %>
 
 <div class="search">
-    <div class="md-form active-pink active-pink-2 mb-3 mt-0">
-        <input class="form-control search-icon" id="inp" type="text" placeholder="Search" aria-label="Keyword">
-    </div>
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <p class="panel-title">
-                    <a data-toggle="collapse" href="#collapse1">Advanced Search</a>
-                </p>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse">
-                <div class="form-group"> <!-- Date input -->
-                    <label class="control-label" for="date">Date</label>
-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-                </div>
-                <div class="panel-footer">
-                    <img src="/stylesheets/icons/pin.png" alt="home" style="width:40px;">
-                    <a href="map" class="btn btn-outline-dark" role="button">Display Map</a>
-                </div>
-            </div>
+    <form id="searchForm" onsubmit="onSearch()">
+        <div class="form-group">
+            <input class="form-control" id="eventName" name="eventName" type="text" placeholder="Event Name" aria-label="Keyword">
         </div>
-        <br>
-    </div>
-    <a href="search-results" class="btn btn-info btn-md" role="button">Search</a>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Advanced Search</a>
+                    </p>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="date">Date</label>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                    </div>
+                    <div class="panel-footer">
+                        <img src="/stylesheets/icons/pin.png" alt="home" style="width:40px;">
+                        <a href="map" class="btn btn-outline-dark" role="button">Display Map</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <input type="submit" name="search" id="search" value="Search" class="btn btn-info btn-md">
+    </form>
 </div>
 
 <div class="content" id = "events"></div>
