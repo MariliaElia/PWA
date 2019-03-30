@@ -66,26 +66,6 @@ function getEventData(objectStore) {
     }
 }
 
-function getLoginData(loginObject) {
-    if (dbPromise) {
-        dbPromise.then(function (db) {
-            console.log('fetching');
-            var tx = db.transaction('USERS', 'readonly');
-            var store = tx.objectStore('USERS');
-            var index = store.index('username');
-            return index.get(IDBKeyRange.only(loginObject.username));
-        }).then(function (foundObject) {
-            if (foundObject && (foundObject.username==loginObject.username &&
-                foundObject.password==loginObject.password)){
-                localStorage.setItem("isLoggedIn", "true")
-                console.log('login successful');
-            } else {
-                alert("login or password incorrect")
-            }
-        });
-    }
-}
-
 function getEventByID(id) {
     if (dbPromise) {
         dbPromise.then(function (db) {
@@ -99,12 +79,4 @@ function getEventByID(id) {
             Console.log(request.title)
         });
     }
-}
-
-function setLoginState(value) {
-    localStorage.setItem("isLoggedIn", JSON.stringify(value));
-}
-
-function getLoginState() {
-    localStorage.getItem("isLoggedIn");
 }

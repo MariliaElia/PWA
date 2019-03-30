@@ -42,6 +42,11 @@ function onSubmit(url, objectStore) {
  * body onload function for initialising the databse, can call in login page
  */
 function initDB() {
+
+    //document.querySelector('#pictureTest').addEventListener('change', doFile);
+    //document.querySelector('#testImageBtn').addEventListener('click', doImageTest);
+
+
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
@@ -56,11 +61,12 @@ function initDB() {
  */
 function crEvent() {
     loginState = getLoginState();
-    if (loginState == 'false') {
-        document.location = 'test';
-    }
+
     if (loginState == 'true') {
         document.location = 'create-event';
+    }
+    else {
+        document.location = 'test';
     }
 }
 
@@ -87,7 +93,7 @@ function loadStories(eventID) {
     console.log("EVENT ID: " + eventID)
     if ('indexedDB' in window) {
         initDatabase();
-        getStoryData(eventID, "STORY_OS");
+        //getStoryData(eventID, "STORY_OS");
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }

@@ -100,11 +100,11 @@ function signOut() {
  */
 function myAcc() {
     loginState = getLoginState();
-    if (loginState == 'false') {
+    if (loginState == 'true') {
         //alert('you are not logged in');
-        document.location = 'login';
-    }
-    else if (loginState == 'true') {
         document.location = 'account';
+    }
+    else {
+        document.location = 'login';
     }
 }
