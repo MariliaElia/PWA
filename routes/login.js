@@ -16,6 +16,7 @@ router.post('/', function(req, res, next) {
     if (userData == null) {
         res.status(403).send('No data sent!')
     }
+    //res.cookie('loggedIn', true);
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(userData));
 });

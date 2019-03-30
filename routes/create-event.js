@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: false}));
-//var acc = require('./public');
 
 router.get('/', function(req, res, next) {
-    //if (acc.logged) {
-        res.render('create-event', { title: 'photofest'});
+    //var log = req.cookies['loggedIn'];
+    //if (log) {
+        res.render('create-event', {title: 'photofest'});
     //}
     //else {
-     //   res.render('login', { title: 'photofest'});
+    //    res.render('login', {title: 'photofest'});
     //}
 
 });

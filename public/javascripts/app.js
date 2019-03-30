@@ -1,3 +1,8 @@
+/**
+ * general function to POST form data
+ * @param url
+ * @param data
+ */
 function sendAjaxQuery(url, data, objectStore) {
     $.ajax({
         url: url ,
@@ -5,17 +10,13 @@ function sendAjaxQuery(url, data, objectStore) {
         dataType: 'json',
         type: 'POST',
         success: function (dataR) {
-            // no need to JSON parse the result, as we are using
-            // dataType:json, so JQuery knows it and unpacks the
-            // object for us before returning it
+            // no need to JSON parse the result, as we are using dataType:json, so JQuery knows it and unpacks the object for us before returning it
             var ret = dataR;
-            // in order to have the object printed by alert
-            // we need to JSON stringify the object
+            // in order to have the object printed by alert we need to JSON stringify the object
             //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
-            takeToAccount(url, ret);
-
+            takeToAccount(url, ret); // if this is a login or registry form
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -23,6 +24,11 @@ function sendAjaxQuery(url, data, objectStore) {
     });
 }
 
+/**
+ * onsubmit for forms
+ * @param url
+ * @param objectStore
+ */
 function onSubmit(url, objectStore) {
     console.log('in onsubmit')
     var formArray= $("form").serializeArray();
@@ -38,8 +44,11 @@ function onSubmit(url, objectStore) {
     event.preventDefault();
 }
 
+/**
+ * body onload function for initialising the databse, can call in login page
+ */
 function initDB() {
-    //check for support3
+    //check for support
     if ('indexedDB' in window) {
         initDatabase();
     }
@@ -48,7 +57,30 @@ function initDB() {
     }
 }
 
+/**
+ * user should not be able to create event unless they are logged in
+ */
+function crEvent() {
+    loginState = getLoginState();
+    if (loginState == 'false') {
+        document.location = 'test';
+    }
+    if (loginState == 'true') {
+        document.location = 'create-event';
+    }
+}
+
 function loadEvents() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./service-worker.js')
+            .then(function () {
+                console.log('Service Worker Registered');
+            })
+            .catch (function (error){
+                console.log('Service Worker NOT Registered '+ error.message);
+            });
+    }
     if ('indexedDB' in window) {
         initDatabase();
         getEventData("EVENT_OS");

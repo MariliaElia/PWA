@@ -32,7 +32,6 @@ function initDatabase() {
             userDb.createIndex('password', 'password', {unique: false});
         }
     });
-    localStorage.setItem("isLoggedIn", "false");
     //console.log('created object store')
 }
 
@@ -123,7 +122,18 @@ function getLoginData(loginObject) {
 }
 
 function getEventByID(id) {
-
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: ' + objectStore);
+            var transaction = db.transaction(objectStore, "readonly");
+            var store = transaction.objectStore(objectStore);
+            var request = store.get(id);
+            Console.log(id);
+            return request;
+        }).then( function (request) {
+            Console.log(request.title)
+        });
+    }
 }
 
 function setLoginState(value) {
