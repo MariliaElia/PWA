@@ -14,6 +14,7 @@ function sendAjaxQuery(url, data, objectStore) {
             var ret = dataR;
             // in order to have the object printed by alert we need to JSON stringify the object
             //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
+            console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
             takeToAccount(url, ret); // if this is a login or registry form
         },
@@ -29,12 +30,17 @@ function sendAjaxQuery(url, data, objectStore) {
  * @param objectStore
  */
 function onSubmit(url, objectStore) {
+    console.log('in onsubmit')
     var formArray= $("form").serializeArray();
+    console.log('serializing array')
     var data={};
     for (index in formArray){
         data[formArray[index].name]= formArray[index].value;
     }
+    console.log('serialized array')
+    // const data = JSON.stringify($(this).serializeArray());
     sendAjaxQuery(url, data, objectStore);
+    console.log('tried to send ajax query')
     event.preventDefault();
 }
 
@@ -93,7 +99,7 @@ function loadStories(eventID) {
     console.log("EVENT ID: " + eventID)
     if ('indexedDB' in window) {
         initDatabase();
-        //getStoryData(eventID, "STORY_OS");
+        getStoryData(eventID, "STORY_OS");
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
@@ -121,6 +127,7 @@ function displayStories(request) {
             "<a href='#' class='list-group list-group-item-action'> " +
             "<p>" + request[i].storyDescription + "</p>" +
             "<p>" + request[i].storyLocation + "</p>" +
+            "<img src='" + request[i].storyImage + "' />" +
             "</a>";
     }
     document.getElementById('stories').innerHTML = storyList;

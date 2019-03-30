@@ -1,14 +1,15 @@
 var dbPromise;
 
 function initDatabase() {
-    //console.log('called initDatabase()');
+    console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
         if (!upgradeDb.objectStoreNames.contains('EVENT_OS')) {
             var eventDb = upgradeDb.createObjectStore('EVENT_OS', {keyPath: 'id', autoIncrement: true, unique: true});
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
-            eventDb.createIndex('location', 'location', {unique: false});
+            eventDb.createIndex('latitude', 'latitude', {unique: false});
+            eventDb.createIndex('longitude', 'longitude', {unique: false});
             console.log('created object store EVENT_OS')
         } else {
             console.log('could not create object store EVENT_OS')
@@ -18,7 +19,7 @@ function initDatabase() {
             storyDb.createIndex('eventId', 'eventId', {unique: false});
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
-            storyDb.createIndex('image', 'image', {unique: false});
+            storyDb.createIndex('storyImage', 'storyImage', {unique: false});
             console.log('created object store STORY_OS')
         } else {
             console.log('could not create object store STORY_OS')
@@ -62,6 +63,60 @@ function getEventData(objectStore) {
             return request;
         }).then(function (request) {
             displayEvents(request);
+        });
+    }
+}
+
+function getStoryData(eventID, objectStore) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: ' + objectStore);
+            var transaction = db.transaction(objectStore, "readonly");
+            var store = transaction.objectStore(objectStore);
+            var index = store.index('eventId');
+            var request = index.getAll(eventID.toString());
+            console.log(eventID);
+            console.log(request);
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            displayStories(request);
+        });
+    }
+}
+
+function getEventDateSearch(eventName, date) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: EVENT_OS');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('title');
+            var request = index.getAll(eventName.toString());
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            var indexDate = request.index()
+        });
+    }
+}
+
+function getLoginData(loginObject) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching');
+            var tx = db.transaction('USERS', 'readonly');
+            var store = tx.objectStore('USERS');
+            var index = store.index('username');
+            return index.get(IDBKeyRange.only(loginObject.username));
+        }).then(function (foundObject) {
+            if (foundObject && (foundObject.username==loginObject.username &&
+                foundObject.password==loginObject.password)){
+                localStorage.setItem("isLoggedIn", "true")
+                console.log('login successful');
+            } else {
+                alert("login or password incorrect")
+            }
         });
     }
 }

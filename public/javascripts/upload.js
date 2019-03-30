@@ -68,7 +68,11 @@ var fileBits;
 
 function setFileBits(bits) {
     fileBits = bits;
+    fileBits = fileBits.replace("data:image/jpeg;base64,", "");
     //console.log(fileBits);
+    //console.log(fileBits);
+    //test = fileBits.slice(0,22);
+    //console.log(test);
     document.getElementById('bits').value = fileBits;
 }
 
