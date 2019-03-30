@@ -5,14 +5,16 @@ var router = express.Router();
 //app.use(cookieParser());
 
 router.get('/', function(req, res, next) {
-    //var log = req.cookies['loggedIn'];
-    //if (log) {
-        res.render('account', {title: 'photofest'});
-    //}
-    //else {
-    //    res.render('login', {title: 'photofest'});
-    //}
+    res.render('account', {title: 'photofest'});
+});
 
+router.post('/', function(req, res, next) {
+    var userData = req.body;
+    if (userData == null) {
+        res.status(403).send('No data sent!')
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(userData));
 });
 
 module.exports = router;

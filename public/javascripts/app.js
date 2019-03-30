@@ -31,7 +31,7 @@ function sendAjaxQuery(url, data, objectStore) {
 function onSubmit(url, objectStore) {
     var formArray= $("form").serializeArray();
     var data={};
-    for (index in formArray){
+    for (index in formArray) {
         data[formArray[index].name]= formArray[index].value;
     }
     sendAjaxQuery(url, data, objectStore);
@@ -43,7 +43,7 @@ function onSubmit(url, objectStore) {
  */
 function initDB() {
     //check for support
-    if ('indexedDB' in window) {
+    if ('indexedDB' in window ) {
         initDatabase();
     }
     else {
@@ -75,7 +75,7 @@ function loadEvents() {
                 console.log('Service Worker NOT Registered '+ error.message);
             });
     }
-    if ('indexedDB' in window) {
+    if ('indexedDB' in window ) {
         initDatabase();
         getEventData("EVENT_OS");
     } else {
@@ -93,9 +93,19 @@ function loadStories(eventID) {
     }
 }
 
+function loadAccount() {
+    if ('indexedDB' in window ) {
+        initDatabase();
+        getEventByUserId();
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
 function displayEvents(request) {
+    console.log(request);
     var eventList = "";
-    for (var i=0; i< request.length; i++) {
+    for (var i = 0; i < request.length; i++) {
         eventList +=
             "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
                 "<p>" + request[i].title + "</p>" +
@@ -105,12 +115,11 @@ function displayEvents(request) {
             "</a>";
     }
     document.getElementById('events').innerHTML = eventList;
-
 }
 
 function displayStories(request) {
     var storyList = "";
-    for (var i=0; i< request.length; i++) {
+    for (var i = 0; i < request.length; i++) {
         storyList +=
             "<a href='#' class='list-group list-group-item-action'> " +
             "<p>" + request[i].storyDescription + "</p>" +
@@ -118,4 +127,24 @@ function displayStories(request) {
             "</a>";
     }
     document.getElementById('stories').innerHTML = storyList;
+}
+
+function displayUserEvents(request) {
+    //console.log("in displayUserEvents");
+    //console.log(request);
+    //console.log(request.length);
+    var user = getUsername();
+    var userEvents = "";
+    for (var i = 0; i < request.length; i++) {
+        userEvents +=
+            "<li class='list-group-item'>" +
+            "<a href='/view-event/" + request[i].id + "'>" +
+            "<h5 class='card-title'> " + request[i].title + "</h5>" +
+            "</a>" +
+            "<p class='card-text'> " + request[i].description +"</p>" +
+            "<p class='card-text'> " + request[i].date +"</p>" +
+            "</li>"
+    }
+    document.getElementById('userEventList').innerHTML = userEvents;
+    document.getElementById('accountHeader').innerHTML =  "<h5 class='card-title'>" + user.toString() + "</h5>";
 }

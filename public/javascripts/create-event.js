@@ -1,4 +1,4 @@
-function sendAjaxQuery(url, data, objectStore) {
+function sendEventAjaxQuery(url, data, objectStore) {
     $.ajax({
         url: url ,
         data: data,
@@ -8,6 +8,7 @@ function sendAjaxQuery(url, data, objectStore) {
             // no need to JSON parse the result, as we are using
             // dataType:json, so JQuery knows it and unpacks the
             // object for us before returning it
+            dataR['userId'] = getUsername();
             var ret = dataR;
             // in order to have the object printed by alert
             // we need to JSON stringify the object
@@ -22,7 +23,7 @@ function sendAjaxQuery(url, data, objectStore) {
     });
 }
 
-function onSubmit(url, objectStore) {
+function onEventSubmit(url, objectStore) {
     console.log('in onsubmit')
     var formArray= $("form").serializeArray();
     console.log('serializing array')
@@ -32,7 +33,7 @@ function onSubmit(url, objectStore) {
     }
     console.log('serialized array')
     // const data = JSON.stringify($(this).serializeArray());
-    sendAjaxQuery(url, data, objectStore);
+    sendEventAjaxQuery(url, data, objectStore);
     console.log('tried to send ajax query')
     event.preventDefault();
 }
