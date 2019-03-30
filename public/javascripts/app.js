@@ -1,4 +1,3 @@
-
 function sendAjaxQuery(url, data, objectStore) {
     $.ajax({
         url: url ,
@@ -40,7 +39,7 @@ function onSubmit(url, objectStore) {
 }
 
 function initDB() {
-    //check for support
+    //check for support3
     if ('indexedDB' in window) {
         initDatabase();
     }

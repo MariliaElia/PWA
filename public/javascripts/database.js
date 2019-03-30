@@ -8,7 +8,8 @@ function initDatabase() {
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
-            eventDb.createIndex('location', 'location', {unique: false});
+            eventDb.createIndex('latitude', 'latitude', {unique: false});
+            eventDb.createIndex('longitude', 'longitude', {unique: false});
             console.log('created object store EVENT_OS')
         } else {
             console.log('could not create object store EVENT_OS')
@@ -81,6 +82,22 @@ function getStoryData(eventID, objectStore) {
         }).then( function (request) {
             console.log(request);
             displayStories(request);
+        });
+    }
+}
+
+function getEventDateSearch(eventName, date) {
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: EVENT_OS');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('title');
+            var request = index.getAll(eventName.toString());
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            var indexDate = request.index()
         });
     }
 }

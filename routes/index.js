@@ -6,6 +6,17 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'photofest'});
 });
 
+router.post('/', function(req, res, next) {
+    var searchData = req.body;
+    var title = req.body.eventName;
+    var date = req.body.date;
+    if (searchData == null) {
+        res.status(403).send('No data sent!')
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(searchData));
+});
+
 router.get('/view-event/:id', function(req, res, next){
     var eventID = req.params.id;
     res.render('view-event', { title: 'photofest', eventID: eventID} );
@@ -18,7 +29,9 @@ router.get('/create-story/:id', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   res.render('create-story', { title: 'photofest'})
-})
+});
+
+
 
 
 class Event{
