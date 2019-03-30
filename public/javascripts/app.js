@@ -130,9 +130,6 @@ function displayStories(request) {
 }
 
 function displayUserEvents(request) {
-    //console.log("in displayUserEvents");
-    //console.log(request);
-    //console.log(request.length);
     var user = getUsername();
     var userEvents = "";
     for (var i = 0; i < request.length; i++) {

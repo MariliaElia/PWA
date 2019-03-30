@@ -23,7 +23,7 @@ function sendEventAjaxQuery(url, data, objectStore) {
     });
 }
 
-function onEventSubmit(url, objectStore) {
+function submitData(url, objectStore) {
     console.log('in onsubmit')
     var formArray= $("form").serializeArray();
     console.log('serializing array')
@@ -36,14 +36,4 @@ function onEventSubmit(url, objectStore) {
     sendEventAjaxQuery(url, data, objectStore);
     console.log('tried to send ajax query')
     event.preventDefault();
-}
-
-function initDB() {
-    //check for support
-    if ('indexedDB' in window) {
-        initDatabase();
-    }
-    else {
-        console.log('This browser doesn\'t support IndexedDB');
-    }
 }
