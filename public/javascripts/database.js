@@ -8,7 +8,6 @@ function initDatabase() {
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
-            eventDb.createIndex('location', 'location', {unique: false});
             eventDb.createIndex('userId', 'userId', {unique: false});
             eventDb.createIndex('latitude', 'latitude', {unique: false});
             eventDb.createIndex('longitude', 'longitude', {unique: false});
