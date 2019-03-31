@@ -34,7 +34,7 @@ function onSubmit(url, objectStore) {
     var formArray= $("form").serializeArray();
     console.log('serializing array')
     var data={};
-    for (index in formArray) {
+    for (index in formArray){
         data[formArray[index].name]= formArray[index].value;
     }
     console.log('serialized array')
@@ -130,18 +130,32 @@ function displayEvents(request) {
             "</a>";
     }
     document.getElementById('events').innerHTML = eventList;
+
 }
 
 function displayStories(request) {
     var storyList = "";
+    //var strImg = document.getElementById('testImg');
     for (var i=0; i< request.length; i++) {
+        //strImg.src = request[i].storyImage;
+        //var strImg = document.getElementById('testImg');
+        //strImg.src = request[i].storyImage;
+        //bits = request[i].storyImage;
+        //bs64 = 'data:image/jpeg;base64,' + bits;
         storyList +=
-            "<a href='#' class='list-group list-group-item-action'> " +
-            "<p>" + request[i].storyDescription + "</p>" +
-            "<p>" + request[i].storyLocation + "</p>" +
-            "</a>";
+            "<a href='#' class='list-group list-group-item-action stories'> " +
+            "<p>Description: " + request[i].storyDescription + "</p>" +
+            "<p>Location: " + request[i].storyLocation + "</p>" +
+            "<img src='" +
+            request[i].storyImage +
+            "' id='testImg'>" +
+            "</a>" ;
+
+
+
     }
     document.getElementById('stories').innerHTML = storyList;
+    //console.log('the base64: ' + request[0].storyImage);
 }
 
 function displayUserEvents(request) {

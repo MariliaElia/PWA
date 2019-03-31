@@ -20,7 +20,7 @@ function initDatabase() {
             storyDb.createIndex('eventId', 'eventId', {unique: false});
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
-            storyDb.createIndex('image', 'image', {unique: false});
+            storyDb.createIndex('storyImage', 'storyImage', {unique: false});
             storyDb.createIndex('userId', 'userId', {unique: false});
             console.log('created object store STORY_OS')
         } else {
