@@ -6,7 +6,7 @@
 
 </head>
 
-<body>
+<body onload="initDB()">
 
 <% include templates/header %>
 
@@ -14,7 +14,7 @@
     <div class="panel panel-default">
         <h2 class="photofestheading">create story</h2>
 
-        <form id="story" onsubmit="onSubmit('/create-story', 'STORY_OS')">
+        <form id="story" onsubmit="submitData('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
                 <label for="event-name">For event: <a href="view-event"><%= eventID %></a></label>
                 <input type="hidden" name="eventId" value="<%= eventID %>">

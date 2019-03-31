@@ -39,8 +39,10 @@ function logIn() {
  * takes the user to account after registering/logging in
  * @param url
  */
-function takeToAccount(url) {
+function takeToAccount(url, user) {
     setLoginState(true);
+    setUsername(user.toString());
+    console.log(user);
     if (url == '/signup' || url == '/login') {
         document.location = 'account';
     }
@@ -62,7 +64,7 @@ function checkUser(username, password) {
         }).then(function (request) {
             if (request && request.username == username && request.password == password) {
                 //console.log('login successful');
-                takeToAccount('/login');
+                takeToAccount('/login', username);
             }
             else {
                 alert('Incorrect username or password');
@@ -92,7 +94,24 @@ function getLoginState() {
  */
 function signOut() {
     setLoginState(false);
+    localStorage.removeItem('username');
     document.location = 'login';
+}
+
+/*
+ * gets username from local storage
+ * @returns {string}
+ */
+function getUsername() {
+    return localStorage.getItem("username");
+}
+
+/*
+ * sets username of logged in user in local storage
+ * @param username
+ */
+function setUsername(username) {
+    localStorage.setItem('username', username);
 }
 
 /**

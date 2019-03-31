@@ -5,7 +5,7 @@
     <% include templates/head %>
 </head>
 
-<body>
+<body onload="loadAccount()">
     <% include templates/header %>
 
     <div class="container">
@@ -17,10 +17,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title" id="username">Username</h5>
-                        <p class="card-text">Description</p>
-                    </div>
+                    <div class="card-body" id="accountHeader"></div>
                 </div>
             </div>
 
@@ -36,7 +33,7 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" id="userEventList">
                         <li class="list-group-item">
                             <a href="#">
                                 <h5 class="card-title">Event 1</h5>

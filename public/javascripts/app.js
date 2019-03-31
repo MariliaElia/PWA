@@ -34,7 +34,7 @@ function onSubmit(url, objectStore) {
     var formArray= $("form").serializeArray();
     console.log('serializing array')
     var data={};
-    for (index in formArray){
+    for (index in formArray) {
         data[formArray[index].name]= formArray[index].value;
     }
     console.log('serialized array')
@@ -108,7 +108,17 @@ function loadMapEvents() {
     }
 }
 
+function loadAccount() {
+    if ('indexedDB' in window ) {
+        initDatabase();
+        getEventByUserId();
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
 function displayEvents(request) {
+    console.log(request);
     var eventList = "";
     for (var i=0; i< request.length; i++) {
         eventList +=
@@ -120,7 +130,6 @@ function displayEvents(request) {
             "</a>";
     }
     document.getElementById('events').innerHTML = eventList;
-
 }
 
 function displayStories(request) {
@@ -133,4 +142,21 @@ function displayStories(request) {
             "</a>";
     }
     document.getElementById('stories').innerHTML = storyList;
+}
+
+function displayUserEvents(request) {
+    var user = getUsername();
+    var userEvents = "";
+    for (var i = 0; i < request.length; i++) {
+        userEvents +=
+            "<li class='list-group-item'>" +
+            "<a href='/view-event/" + request[i].id + "'>" +
+            "<h5 class='card-title'> " + request[i].title + "</h5>" +
+            "</a>" +
+            "<p class='card-text'> " + request[i].description +"</p>" +
+            "<p class='card-text'> " + request[i].date +"</p>" +
+            "</li>"
+    }
+    document.getElementById('userEventList').innerHTML = userEvents;
+    document.getElementById('accountHeader').innerHTML =  "<h5 class='card-title'>" + user.toString() + "</h5>";
 }

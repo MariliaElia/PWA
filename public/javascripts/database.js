@@ -8,6 +8,8 @@ function initDatabase() {
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
+            eventDb.createIndex('location', 'location', {unique: false});
+            eventDb.createIndex('userId', 'userId', {unique: false});
             eventDb.createIndex('latitude', 'latitude', {unique: false});
             eventDb.createIndex('longitude', 'longitude', {unique: false});
             console.log('created object store EVENT_OS')
@@ -20,6 +22,7 @@ function initDatabase() {
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
             storyDb.createIndex('image', 'image', {unique: false});
+            storyDb.createIndex('userId', 'userId', {unique: false});
             console.log('created object store STORY_OS')
         } else {
             console.log('could not create object store STORY_OS')
@@ -179,6 +182,24 @@ function getEventByID(id) {
         });
     }
 }
+
+
+function getEventByUserId() {
+    var userId = getUsername();
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching events for user: ' + userId);
+            var transaction = db.transaction('EVENT_OS', 'readonly');
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('userId');
+            return index.getAll(IDBKeyRange.only(userId));
+        }).then(function (request) {
+            displayUserEvents(request);
+            console.log("retrieved events");
+        });
+    }
+}
+
 
 function setLoginState(value) {
     localStorage.setItem("isLoggedIn", JSON.stringify(value));
