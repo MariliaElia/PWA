@@ -19,6 +19,7 @@ function save(input) {
         var reader = new FileReader();
 
         reader.readAsDataURL(input.files[0]);
+        //reader.readAsBinaryString(input.files[0]);
         reader.onload = function(e) {
             let bits = e.target.result;
             console.log('called setFileBits');
@@ -68,7 +69,7 @@ var fileBits;
 
 function setFileBits(bits) {
     fileBits = bits;
-    fileBits = fileBits.replace("data:image/jpeg;base64,", "");
+    //fileBits = fileBits.replace("data:image/jpeg;base64,", "");
     //console.log(fileBits);
     //console.log(fileBits);
     //test = fileBits.slice(0,22);
