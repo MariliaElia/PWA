@@ -11,7 +11,7 @@ function sendAjaxQuery(url, data, objectStore) {
         type: 'POST',
         success: function (dataR) {
             // no need to JSON parse the result, as we are using dataType:json, so JQuery knows it and unpacks the object for us before returning it
-            if (url != '/signup') {
+            if (url != '/signup' && url != '/login') {
                 dataR['username'] = getUsername();
             }
 
@@ -121,6 +121,13 @@ function loadMapEvents() {
 }
 
 function loadAccount() {
+    username = localStorage.getItem('username');
+    document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
+    loadUserEvents();
+    loadUserStories();
+}
+
+function loadUserEvents() {
     if ('indexedDB' in window ) {
         initDatabase();
         getEventByUsername();
@@ -129,20 +136,31 @@ function loadAccount() {
     }
 }
 
+function loadUserStories() {
+    if ('indexedDB' in window ) {
+        initDatabase();
+        getStoryByUsername();
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
 function displayEvents(request) {
     console.log(request);
     var eventList = "";
-    for (var i=request.length-1; i>= 0; i--) {
-        eventList +=
-            "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
+    if (request.length == 0 ) {
+        document.getElementById('noEvent').innerHTML = 'No events in the database';
+    } else {
+        for (var i=request.length-1; i>= 0; i--) {
+            eventList +=
+                "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
                 "<p>" + request[i].title + "</p>" +
                 "<p>" + request[i].description + "</p>" +
                 "<p>" + request[i].date + "</p>" +
-                "<p>" + request[i].location + "</p>" +
-            "</a>";
+                "</a>";
+        }
+        document.getElementById('events').innerHTML = eventList;
     }
-    document.getElementById('events').innerHTML = eventList;
-
 }
 
 function displayStories(request) {
@@ -155,7 +173,7 @@ function displayStories(request) {
         //bits = request[i].storyImage;
         //bs64 = 'data:image/jpeg;base64,' + bits;
         storyList +=
-            "<a href='#' class='list-group list-group-item-action stories'> " +
+            "<a  class='list-group list-group-item-action stories'> " +
             "<p>Description: " + request[i].storyDescription + "</p>" +
             "<p>Location: " + request[i].storyLocation + "</p>" +
             "<img src='" +
@@ -174,7 +192,6 @@ function displayUserEvents(request) {
     console.log(request);
     var userEvents = "";
     for (var i = 0; i < request.length; i++) {
-        var userName = "<h5 class='card-title'>" + request[i].username + "</h5>";
         userEvents +=
             "<li class='list-group-item'>" +
                 "<a href='/view-event/" + request[i].id + "'>" +
@@ -184,8 +201,21 @@ function displayUserEvents(request) {
                 "</a>" +
             "</li>"
     }
-    document.getElementById('accountHeader').innerHTML = userName ;
     document.getElementById('events').innerHTML = userEvents;
+}
+
+function displayStoryEvents(request) {
+    var storyList = "";
+    for (var i=request.length-1; i>= 0; i--) {
+        storyList +=
+            "<a class='list-group list-group-item-action stories'> " +
+            "<p>Description: " + request[i].storyDescription + "</p>" +
+            "<img src='" +
+            request[i].storyImage +
+            "' id='testImg'>" +
+            "</a>" ;
+    }
+    document.getElementById('stories').innerHTML = storyList;
 }
 
 function takeToEvent(url, ret) {
