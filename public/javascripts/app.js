@@ -11,7 +11,7 @@ function sendAjaxQuery(url, data, objectStore) {
         type: 'POST',
         success: function (dataR) {
             // no need to JSON parse the result, as we are using dataType:json, so JQuery knows it and unpacks the object for us before returning it
-            if (url != '/signup') {
+            if (url != '/signup' && url != '/login') {
                 dataR['username'] = getUsername();
             }
 
@@ -22,7 +22,13 @@ function sendAjaxQuery(url, data, objectStore) {
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
             takeToAccount(url, ret); // if this is a login or registry form
-            if ((url == '/create-story') || (url == '/create-event')) { history.go(-1); }
+            if (url == '/create-story') {
+                eventId = ret.eventId;
+                document.location = '/view-event/' + eventId;
+            }
+            else if (url == '/create-event') {
+                document.location = '/';
+            }
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -145,13 +151,12 @@ function displayEvents(request) {
     if (request.length == 0 ) {
         document.getElementById('noEvent').innerHTML = 'No events in the database';
     } else {
-        for (var i=0; i< request.length; i++) {
+        for (var i=request.length-1; i>= 0; i--) {
             eventList +=
                 "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
                 "<p>" + request[i].title + "</p>" +
                 "<p>" + request[i].description + "</p>" +
                 "<p>" + request[i].date + "</p>" +
-                "<p>" + request[i].location + "</p>" +
                 "</a>";
         }
         document.getElementById('events').innerHTML = eventList;

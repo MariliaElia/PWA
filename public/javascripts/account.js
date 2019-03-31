@@ -12,9 +12,9 @@ function sendLogInQuery(url, data) {
         success: function (dataR) {
             var ret = dataR;
             //console.log('login data' + JSON.stringify(ret));
-            username = ret.username;
-            password = ret.password;
-            checkUser(username, password); // checks if user is registered
+            /*username = ret.username;
+            password = ret.password;*/
+            checkUser(ret); // checks if user is registered
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -53,7 +53,10 @@ function takeToAccount(url, data) {
  * @param username
  * @param password
  */
-function checkUser(username, password) {
+function checkUser(ret) {
+    username = ret.username;
+    password = ret.password;
+    console.log("Checking this user: " + username);
     if (dbPromise) {
         dbPromise.then(function (db) {
             var tx = db.transaction('USERS', 'readonly');
@@ -64,7 +67,7 @@ function checkUser(username, password) {
         }).then(function (request) {
             if (request && request.username == username && request.password == password) {
                 //console.log('login successful');
-                takeToAccount('/login', username);
+                takeToAccount('/login', ret);
             }
             else {
                 alert('Incorrect username or password');
@@ -111,6 +114,7 @@ function getUsername() {
  * @param username
  */
 function setUsername(username) {
+    console.log(username);
     localStorage.setItem('username', username);
 }
 
