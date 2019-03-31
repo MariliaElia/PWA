@@ -22,7 +22,13 @@ function sendAjaxQuery(url, data, objectStore) {
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
             takeToAccount(url, ret); // if this is a login or registry form
-            if ((url == '/create-story') || (url == '/create-event')) { history.go(-1); }
+            if (url == '/create-story') {
+                eventId = ret.eventId;
+                document.location = '/view-event/' + eventId;
+            }
+            else if (url == '/create-event') {
+                document.location = '/';
+            }
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -126,7 +132,7 @@ function loadAccount() {
 function displayEvents(request) {
     console.log(request);
     var eventList = "";
-    for (var i=0; i< request.length; i++) {
+    for (var i=request.length-1; i>= 0; i--) {
         eventList +=
             "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
                 "<p>" + request[i].title + "</p>" +

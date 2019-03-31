@@ -22,7 +22,6 @@ function sendSearchQuery(url, data) {
                 console.log("date not null");
                 getDateSearch(date);
             } else {
-
             }
         },
         error: function (xhr, status, error) {
