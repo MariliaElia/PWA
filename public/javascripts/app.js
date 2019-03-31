@@ -11,7 +11,12 @@ function sendAjaxQuery(url, data, objectStore) {
         type: 'POST',
         success: function (dataR) {
             // no need to JSON parse the result, as we are using dataType:json, so JQuery knows it and unpacks the object for us before returning it
+            if (url != '/signup') {
+                dataR['username'] = getUsername();
+            }
+
             var ret = dataR;
+
             // in order to have the object printed by alert we need to JSON stringify the object
             //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
@@ -111,7 +116,7 @@ function loadMapEvents() {
 function loadAccount() {
     if ('indexedDB' in window ) {
         initDatabase();
-        getEventByUserId();
+        getEventByUsername();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
@@ -159,18 +164,19 @@ function displayStories(request) {
 }
 
 function displayUserEvents(request) {
-    var user = getUsername();
+    console.log(request);
     var userEvents = "";
     for (var i = 0; i < request.length; i++) {
+        var userName = "<h5 class='card-title'>" + request[i].username + "</h5>";
         userEvents +=
             "<li class='list-group-item'>" +
-            "<a href='/view-event/" + request[i].id + "'>" +
-            "<h5 class='card-title'> " + request[i].title + "</h5>" +
-            "</a>" +
-            "<p class='card-text'> " + request[i].description +"</p>" +
-            "<p class='card-text'> " + request[i].date +"</p>" +
+                "<a href='/view-event/" + request[i].id + "'>" +
+                    "<h5 class='card-title'> " + request[i].title + "</h5>" +
+                    "<p class='card-text'> " + request[i].description +"</p>" +
+                    "<p class='card-text'> " + request[i].date +"</p>" +
+                "</a>" +
             "</li>"
     }
-    document.getElementById('userEventList').innerHTML = userEvents;
-    document.getElementById('accountHeader').innerHTML =  "<h5 class='card-title'>" + user.toString() + "</h5>";
+    document.getElementById('accountHeader').innerHTML = userName ;
+    document.getElementById('events').innerHTML = userEvents;
 }

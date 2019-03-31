@@ -8,7 +8,7 @@ function initDatabase() {
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
-            eventDb.createIndex('userId', 'userId', {unique: false});
+            eventDb.createIndex('username', 'username', {unique: false});
             eventDb.createIndex('latitude', 'latitude', {unique: false});
             eventDb.createIndex('longitude', 'longitude', {unique: false});
             console.log('created object store EVENT_OS')
@@ -130,6 +130,7 @@ function getDateSearch(date) {
         });
     }
 }
+
 function getEventSearch(eventName) {
     console.log("Get event search");
     if (dbPromise) {
@@ -147,65 +148,21 @@ function getEventSearch(eventName) {
     }
 }
 
-function getLoginData(loginObject) {
+function getEventByUsername() {
+    var username = getUsername();
+
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching');
-            var tx = db.transaction('USERS', 'readonly');
-            var store = tx.objectStore('USERS');
-            var index = store.index('username');
-            return index.get(IDBKeyRange.only(loginObject.username));
-        }).then(function (foundObject) {
-            if (foundObject && (foundObject.username==loginObject.username &&
-                foundObject.password==loginObject.password)){
-                localStorage.setItem("isLoggedIn", "true")
-                console.log('login successful');
-            } else {
-                alert("login or password incorrect")
-            }
-        });
-    }
-}
-
-function getEventByID(id) {
-    if (dbPromise) {
-        dbPromise.then(function (db) {
-            console.log('fetching from: ' + objectStore);
-            var transaction = db.transaction(objectStore, "readonly");
-            var store = transaction.objectStore(objectStore);
-            var request = store.get(id);
-            Console.log(id);
-            return request;
-        }).then( function (request) {
-            Console.log(request.title)
-        });
-    }
-}
-
-
-function getEventByUserId() {
-    var userId = getUsername();
-    if (dbPromise) {
-        dbPromise.then(function (db) {
-            console.log('fetching events for user: ' + userId);
+            console.log('fetching events for user: ' + username);
             var transaction = db.transaction('EVENT_OS', 'readonly');
             var store = transaction.objectStore('EVENT_OS');
-            var index = store.index('userId');
-            return index.getAll(IDBKeyRange.only(userId));
+            var index = store.index('username');
+            return index.getAll(IDBKeyRange.only(username.toString()));
         }).then(function (request) {
             displayUserEvents(request);
             console.log("retrieved events");
         });
     }
-}
-
-
-function setLoginState(value) {
-    localStorage.setItem("isLoggedIn", JSON.stringify(value));
-}
-
-function getLoginState() {
-    localStorage.getItem("isLoggedIn");
 }
 
 function getAllEvents() {

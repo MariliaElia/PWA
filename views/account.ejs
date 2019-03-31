@@ -5,7 +5,7 @@
     <% include templates/head %>
 </head>
 
-<body onload="loadAccount()">
+<body>
     <% include templates/header %>
 
     <div class="container">
@@ -21,40 +21,22 @@
                 </div>
             </div>
 
-            <div class="card">
                 <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
+                    <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Events</a>
+                            <a class="nav-link active" data-toggle="tab" href="#events">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Stories</a>
+                            <a class="nav-link" data-toggle="tab" href="#stories">Stories</a>
                         </li>
                     </ul>
                 </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush" id="userEventList">
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h5 class="card-title">Event 1</h5>
-                            </a>
-                            <p class="card-text">Description</p>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h5 class="card-title">Event 2</h5>
-                            </a>
-                            <p class="card-text">Description</p>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h5 class="card-title">Event 3</h5>
-                            </a>
-                            <p class="card-text">Description</p>
-                        </li>
-                    </ul>
+
+                <div class="tab-content">
+                    <div id="events" class=""container tab-pane active><br></div>
+                    <div id="stories" class=""container tab-pane active><br></div>
                 </div>
-            </div>
+
         </div>
         <a onclick="signOut()" class="sign-out-btn" href="login">Sign out</a>
         <footer>

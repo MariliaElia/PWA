@@ -39,9 +39,10 @@ function logIn() {
  * takes the user to account after registering/logging in
  * @param url
  */
-function takeToAccount(url, user) {
+function takeToAccount(url, data) {
     setLoginState(true);
-    setUsername(user.toString());
+    console.log(data.username);
+    setUsername(data.username);
     console.log(user);
     if (url == '/signup' || url == '/login') {
         document.location = 'account';
