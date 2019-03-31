@@ -17,6 +17,7 @@ function sendAjaxQuery(url, data, objectStore) {
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
             takeToAccount(url, ret); // if this is a login or registry form
+            if ((url == '/create-story') || (url == '/create-event')) { history.go(-1); }
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -63,10 +64,10 @@ function initDB() {
 function crEvent() {
     loginState = getLoginState();
     if (loginState == 'true') {
-        document.location = 'create-event';
+        document.location = ('/create-event');
     }
     else {
-        document.location = 'test';
+        document.location = '/test';
     }
 }
 
@@ -136,7 +137,7 @@ function displayEvents(request) {
 function displayStories(request) {
     var storyList = "";
     //var strImg = document.getElementById('testImg');
-    for (var i=0; i< request.length; i++) {
+    for (var i=request.length-1; i>= 0; i--) {
         //strImg.src = request[i].storyImage;
         //var strImg = document.getElementById('testImg');
         //strImg.src = request[i].storyImage;
@@ -173,4 +174,12 @@ function displayUserEvents(request) {
     }
     document.getElementById('userEventList').innerHTML = userEvents;
     document.getElementById('accountHeader').innerHTML =  "<h5 class='card-title'>" + user.toString() + "</h5>";
+}
+
+function takeToEvent(url, ret) {
+    eventId = ret.eventId;
+    console.log('/create-story/'+eventId)
+    if (url == '/create-story/'+eventId) {
+        document.location = 'view-event/' + eventId
+    }
 }

@@ -44,7 +44,7 @@ function takeToAccount(url, user) {
     setUsername(user.toString());
     console.log(user);
     if (url == '/signup' || url == '/login') {
-        document.location = 'account';
+        document.location = '/account';
     }
 }
 
@@ -121,9 +121,9 @@ function myAcc() {
     loginState = getLoginState();
     if (loginState == 'true') {
         //alert('you are not logged in');
-        document.location = 'account';
+        document.location = '/account';
     }
     else {
-        document.location = 'login';
+        document.location = '/login';
     }
 }
