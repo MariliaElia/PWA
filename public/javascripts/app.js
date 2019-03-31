@@ -21,7 +21,7 @@ function sendAjaxQuery(url, data, objectStore) {
             //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
             console.log('Success! Adding down below' + JSON.stringify(ret));
             storeCachedData(ret, objectStore);
-            takeToAccount(url, ret); // if this is a login or registry form
+            takeToAccount(url, ret); // if this is a registry form
             if (url == '/create-story') {
                 eventId = ret.eventId;
                 document.location = '/view-event/' + eventId;
