@@ -96,7 +96,51 @@ function getEventDateSearch(eventName, date) {
             return request;
         }).then( function (request) {
             console.log(request);
-            var indexDate = request.index()
+            console.log(date);
+            if(request && request.length>0) {
+                var results = [];
+                for (var event of request) {
+                    console.log("Event date: " + event.date);
+                    if (event.date == date) {
+                        results.push(event);
+                    }
+                }
+            }
+            console.log(results);
+            displayEvents(results);
+        });
+    }
+}
+
+function getDateSearch(date) {
+    console.log("Get date search");
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: EVENT_OS');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('date');
+            var request = index.getAll(date.toString());
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            displayEvents(request)
+        });
+    }
+}
+function getEventSearch(eventName) {
+    console.log("Get event search");
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: EVENT_OS');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var index = store.index('title');
+            var request = index.getAll(eventName.toString());
+            return request;
+        }).then( function (request) {
+            console.log(request);
+            displayEvents(request)
         });
     }
 }
@@ -142,4 +186,19 @@ function setLoginState(value) {
 
 function getLoginState() {
     localStorage.getItem("isLoggedIn");
+}
+
+function getAllEvents() {
+    console.log("Get cached data!");
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching from: \'EVENT_OS\'');
+            var transaction = db.transaction('EVENT_OS', "readonly");
+            var store = transaction.objectStore('EVENT_OS');
+            var request = store.getAll();
+            return request;
+        }).then(function (request) {
+            displayOnMap(request);
+        });
+    }
 }

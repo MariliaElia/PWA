@@ -62,11 +62,11 @@ function initDB() {
  */
 function crEvent() {
     loginState = getLoginState();
-    if (loginState == 'false') {
-        document.location = 'test';
-    }
     if (loginState == 'true') {
         document.location = 'create-event';
+    }
+    else {
+        document.location = 'test';
     }
 }
 
@@ -94,6 +94,15 @@ function loadStories(eventID) {
     if ('indexedDB' in window) {
         initDatabase();
         getStoryData(eventID, "STORY_OS");
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
+function loadMapEvents() {
+    if ('indexedDB' in window) {
+        initDatabase();
+        getAllEvents();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }

@@ -11,13 +11,16 @@ function sendSearchQuery(url, data) {
             eventName = ret.eventName;
             date = ret.date;
             console.log("Event Name: " + eventName);
-            console.log("Date: " + date);
-            if ((eventName != null || eventName != "") && (date != null || date != "")) {
+            console.log("Date:" + date +"hello");
+            if ((eventName != "" ) && (date != "")) {
+                console.log("date and title not null");
                 getEventDateSearch(eventName, date);
             } else if ((date == "") && (eventName!= "")) {
-
+                console.log("title not null");
+                getEventSearch(eventName);
             } else if ((date != "") && (eventName == "")){
-
+                console.log("date not null");
+                getDateSearch(date);
             } else {
 
             }
