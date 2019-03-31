@@ -64,6 +64,7 @@ var filesToCache = [
     '/javascripts/datePicker.js',
     '/javascripts/popper.min.js',
     '/javascripts/database.js',
+    '/javascripts/search.js'
 
 ];
 

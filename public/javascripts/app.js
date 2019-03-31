@@ -48,11 +48,6 @@ function onSubmit(url, objectStore) {
  * body onload function for initialising the databse, can call in login page
  */
 function initDB() {
-
-    //document.querySelector('#pictureTest').addEventListener('change', doFile);
-    //document.querySelector('#testImageBtn').addEventListener('click', doImageTest);
-
-
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
@@ -67,7 +62,6 @@ function initDB() {
  */
 function crEvent() {
     loginState = getLoginState();
-
     if (loginState == 'true') {
         document.location = 'create-event';
     }
@@ -105,7 +99,26 @@ function loadStories(eventID) {
     }
 }
 
+function loadMapEvents() {
+    if ('indexedDB' in window) {
+        initDatabase();
+        getAllEvents();
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
+function loadAccount() {
+    if ('indexedDB' in window ) {
+        initDatabase();
+        getEventByUserId();
+    } else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+}
+
 function displayEvents(request) {
+    console.log(request);
     var eventList = "";
     for (var i=0; i< request.length; i++) {
         eventList +=
@@ -141,7 +154,23 @@ function displayStories(request) {
 
 
     }
-
     document.getElementById('stories').innerHTML = storyList;
     //console.log('the base64: ' + request[0].storyImage);
+}
+
+function displayUserEvents(request) {
+    var user = getUsername();
+    var userEvents = "";
+    for (var i = 0; i < request.length; i++) {
+        userEvents +=
+            "<li class='list-group-item'>" +
+            "<a href='/view-event/" + request[i].id + "'>" +
+            "<h5 class='card-title'> " + request[i].title + "</h5>" +
+            "</a>" +
+            "<p class='card-text'> " + request[i].description +"</p>" +
+            "<p class='card-text'> " + request[i].date +"</p>" +
+            "</li>"
+    }
+    document.getElementById('userEventList').innerHTML = userEvents;
+    document.getElementById('accountHeader').innerHTML =  "<h5 class='card-title'>" + user.toString() + "</h5>";
 }
