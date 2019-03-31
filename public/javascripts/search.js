@@ -22,7 +22,7 @@ function sendSearchQuery(url, data) {
                 console.log("date not null");
                 getDateSearch(date);
             } else {
-
+                alert('Please fill in the form to search!');
             }
         },
         error: function (xhr, status, error) {

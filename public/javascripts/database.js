@@ -19,9 +19,8 @@ function initDatabase() {
             var storyDb = upgradeDb.createObjectStore('STORY_OS', {keyPath: 'storyId', autoIncrement: true, unique: true});
             storyDb.createIndex('eventId', 'eventId', {unique: false});
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
-            storyDb.createIndex('storyLocation', 'storyLocation', {unique: false});
             storyDb.createIndex('storyImage', 'storyImage', {unique: false});
-            storyDb.createIndex('userId', 'userId', {unique: false});
+            storyDb.createIndex('username', 'username', {unique: false});
             console.log('created object store STORY_OS')
         } else {
             console.log('could not create object store STORY_OS')
@@ -160,6 +159,22 @@ function getEventByUsername() {
             return index.getAll(IDBKeyRange.only(username.toString()));
         }).then(function (request) {
             displayUserEvents(request);
+            console.log("retrieved events");
+        });
+    }
+}
+
+function getStoryByUsername() {
+    var username = getUsername();
+    if (dbPromise) {
+        dbPromise.then(function (db) {
+            console.log('fetching events for user: ' + username);
+            var transaction = db.transaction('STORY_OS', 'readonly');
+            var store = transaction.objectStore('STORY_OS');
+            var index = store.index('username');
+            return index.getAll(IDBKeyRange.only(username.toString()));
+        }).then(function (request) {
+            displayStoryEvents(request);
             console.log("retrieved events");
         });
     }
