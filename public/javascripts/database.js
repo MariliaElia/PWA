@@ -1,7 +1,9 @@
 var dbPromise;
 
+/**
+ * creates object stores
+ */
 function initDatabase() {
-    console.log('called initDatabase()');
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
         if (!upgradeDb.objectStoreNames.contains('EVENT_OS')) {
             var eventDb = upgradeDb.createObjectStore('EVENT_OS', {keyPath: 'id', autoIncrement: true, unique: true});
@@ -11,7 +13,6 @@ function initDatabase() {
             eventDb.createIndex('username', 'username', {unique: false});
             eventDb.createIndex('latitude', 'latitude', {unique: false});
             eventDb.createIndex('longitude', 'longitude', {unique: false});
-            console.log('created object store EVENT_OS')
         } else {
             console.log('could not create object store EVENT_OS')
         }
@@ -21,7 +22,6 @@ function initDatabase() {
             storyDb.createIndex('storyDescription', 'storyDescription', {unique: false});
             storyDb.createIndex('storyImage', 'storyImage', {unique: false});
             storyDb.createIndex('username', 'username', {unique: false});
-            console.log('created object store STORY_OS')
         } else {
             console.log('could not create object store STORY_OS')
         }
@@ -33,11 +33,14 @@ function initDatabase() {
             userDb.createIndex('password', 'password', {unique: false});
         }
     });
-    //console.log('created object store')
 }
 
+/**
+ * method for storing with the indexedDB
+ * @param newObject
+ * @param objectStore - name of the store to put the object in
+ */
 function storeCachedData(newObject, objectStore) {
-    console.log('inserting: '+JSON.stringify(newObject));
     if (dbPromise) {
         dbPromise.then(async db => {
             var tx = db.transaction(objectStore, 'readwrite');
@@ -48,16 +51,17 @@ function storeCachedData(newObject, objectStore) {
             console.log('added item to the store! '+ JSON.stringify(newObject));
         }).catch(function (error) {
             console.log('could not add object to object store');
-            alert('could not add object to object store');
         });
     }
 }
 
+/**
+ * used to get all events from indexedDB and display them on main page
+ * @param objectStore
+ */
 function getEventData(objectStore) {
-    console.log("Get cached data!");
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: ' + objectStore);
             var transaction = db.transaction(objectStore, "readonly");
             var store = transaction.objectStore(objectStore);
             var request = store.getAll();
@@ -68,123 +72,131 @@ function getEventData(objectStore) {
     }
 }
 
+/**
+ * get all stories form indexedDB
+ * @param eventID - used to retrieve stories associated with it
+ * @param objectStore
+ */
 function getStoryData(eventID, objectStore) {
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: ' + objectStore);
             var transaction = db.transaction(objectStore, "readonly");
             var store = transaction.objectStore(objectStore);
             var index = store.index('eventId');
             var request = index.getAll(eventID.toString());
-            console.log(eventID);
-            console.log(request);
             return request;
         }).then( function (request) {
-            console.log(request);
             displayStories(request);
         });
     }
 }
 
+/**
+ * for search; retrieves events depending on both event name and event date
+ * @param eventName
+ * @param date
+ */
 function getEventDateSearch(eventName, date) {
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: EVENT_OS');
             var transaction = db.transaction('EVENT_OS', "readonly");
             var store = transaction.objectStore('EVENT_OS');
             var index = store.index('title');
             var request = index.getAll(eventName.toString());
             return request;
         }).then( function (request) {
-            console.log(request);
-            console.log(date);
             if(request && request.length>0) {
                 var results = [];
+                //check event date against date inserted by the user
                 for (var event of request) {
-                    console.log("Event date: " + event.date);
                     if (event.date == date) {
                         results.push(event);
                     }
                 }
             }
-            console.log(results);
             displayEvents(results);
         });
     }
 }
 
+/**
+ * for search; retrieves events depending on only date of event
+ * @param date
+ */
 function getDateSearch(date) {
-    console.log("Get date search");
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: EVENT_OS');
             var transaction = db.transaction('EVENT_OS', "readonly");
             var store = transaction.objectStore('EVENT_OS');
             var index = store.index('date');
             var request = index.getAll(date.toString());
             return request;
         }).then( function (request) {
-            console.log(request);
             displayEvents(request)
         });
     }
 }
 
+/**
+ * for search; retrieves events depending on only name of event
+ * @param eventName
+ */
 function getEventSearch(eventName) {
-    console.log("Get event search");
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: EVENT_OS');
             var transaction = db.transaction('EVENT_OS', "readonly");
             var store = transaction.objectStore('EVENT_OS');
             var index = store.index('title');
             var request = index.getAll(eventName.toString());
             return request;
         }).then( function (request) {
-            console.log(request);
             displayEvents(request)
         });
     }
 }
 
+/**
+ * retrieves events created by current user
+ */
 function getEventByUsername() {
+    //get username from local storage
     var username = getUsername();
-
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching events for user: ' + username);
             var transaction = db.transaction('EVENT_OS', 'readonly');
             var store = transaction.objectStore('EVENT_OS');
             var index = store.index('username');
             return index.getAll(IDBKeyRange.only(username.toString()));
         }).then(function (request) {
             displayUserEvents(request);
-            console.log("retrieved events");
         });
     }
 }
 
+/**
+ * retrieves stories created by current user
+ */
 function getStoryByUsername() {
+    // get username from local storage
     var username = getUsername();
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching events for user: ' + username);
             var transaction = db.transaction('STORY_OS', 'readonly');
             var store = transaction.objectStore('STORY_OS');
             var index = store.index('username');
             return index.getAll(IDBKeyRange.only(username.toString()));
         }).then(function (request) {
             displayStoryEvents(request);
-            console.log("retrieved events");
         });
     }
 }
 
+/**
+ * retrieves all events from indexedDB and displays then on map
+ */
 function getAllEvents() {
-    console.log("Get cached data!");
     if (dbPromise) {
         dbPromise.then(function (db) {
-            console.log('fetching from: \'EVENT_OS\'');
             var transaction = db.transaction('EVENT_OS', "readonly");
             var store = transaction.objectStore('EVENT_OS');
             var request = store.getAll();
