@@ -5,6 +5,7 @@
     <% include templates/head %>
 </head>
 
+<!-- initialises the indexedDB -->
 <body onload="initDB()">
 
     <% include templates/header %>
@@ -12,6 +13,7 @@
     <div class="form-container">
 
         <h2 class="photofestheading">Log in</h2>
+        <!-- form for logging in -->
         <form id="loginForm" onsubmit="logIn()">
 
             <div class="form-group">
@@ -28,7 +30,6 @@
         </form>
         <br>
         <p>Do not have an account? sign up<a href="signup"> here. </a></p>
-        <!--<a class="btn btn-secondary" href="signup" role="button">Sign up</a>-->
     </div>
 
 <footer>

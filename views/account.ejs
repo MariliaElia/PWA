@@ -5,6 +5,7 @@
     <% include templates/head %>
 </head>
 
+<!-- loads events and stories created by user from the indexedDB and displays them in the page -->
 <body onload="loadAccount()">
     <% include templates/header %>
     <div class="container">
@@ -37,6 +38,7 @@
             </div>
         </div>
 
+        <!-- link for signing out takes to login page -->
         <a onclick="signOut()" class="sign-out-btn" href="login">Sign out</a>
         <footer>
             <% include templates/footer %>
