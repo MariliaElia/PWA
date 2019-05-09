@@ -3,7 +3,9 @@
 
 <head>
     <% include templates/head %>
+
     <script src="/javascripts/datePicker.js"></script>
+    <!-- for the map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -12,6 +14,7 @@
             crossorigin=""></script>
 </head>
 
+<!-- initialises the indexedDB -->
 <body onload="initDB()">
 
     <% include templates/header %>
@@ -19,6 +22,7 @@
     <div class="form-container">
         <div class="panel panel-default">
             <h2 class="photofestheading">Create Event</h2>
+            <!-- form to create an event -->
             <form id="myForm" onsubmit="onSubmit('/create-event', 'EVENT_OS')">
                 <div class="form-group">
                     <label for="title">Event Name:</label>
@@ -26,7 +30,6 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <!--<textarea class="form-control" rows="3"></textarea>-->
                     <input type="text" name="description"  class="form-control" id="formGroupExampleInput">
                 </div>
                 <div class="form-group"> <!-- Date input -->
@@ -45,7 +48,6 @@
             </form>
         </div>
     </div>
-    <div class="some padding" id="bestresults"></div>
 <footer>
     <% include templates/footer %>
 </footer>

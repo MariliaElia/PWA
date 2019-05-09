@@ -1,7 +1,8 @@
 /**
  * general function to POST form data
- * @param url
+ * @param url - the url where data is coming from
  * @param data
+ * @param objectStore - the store where to save the data
  */
 function sendAjaxQuery(url, data, objectStore) {
     $.ajax({
@@ -10,22 +11,26 @@ function sendAjaxQuery(url, data, objectStore) {
         dataType: 'json',
         type: 'POST',
         success: function (dataR) {
-            // no need to JSON parse the result, as we are using dataType:json, so JQuery knows it and unpacks the object for us before returning it
+
+            // getting the username from the localstorage and saving it for an event/story created by the user
             if (url != '/signup' && url != '/login') {
                 dataR['username'] = getUsername();
             }
 
             var ret = dataR;
 
-            // in order to have the object printed by alert we need to JSON stringify the object
-            //document.getElementById('bestresults').innerHTML= JSON.stringify(ret);
-            console.log('Success! Adding down below' + JSON.stringify(ret));
+            // save to indexedDB
             storeCachedData(ret, objectStore);
-            takeToAccount(url, ret); // if this is a registry form
+
+            // saving data of current user in localstorage
+            takeToAccount(url, ret);
+
+            // take back to view newly created story
             if (url == '/create-story') {
                 eventId = ret.eventId;
                 document.location = '/view-event/' + eventId;
             }
+            // take back to home page after creating a new event
             else if (url == '/create-event') {
                 document.location = '/';
             }
@@ -42,22 +47,18 @@ function sendAjaxQuery(url, data, objectStore) {
  * @param objectStore
  */
 function onSubmit(url, objectStore) {
-    console.log('in onsubmit')
     var formArray= $("form").serializeArray();
-    console.log('serializing array')
     var data={};
     for (index in formArray){
         data[formArray[index].name]= formArray[index].value;
     }
-    console.log('serialized array')
-    // const data = JSON.stringify($(this).serializeArray());
+    // adding the data to the indexedDB
     sendAjaxQuery(url, data, objectStore);
-    console.log('tried to send ajax query')
     event.preventDefault();
 }
 
 /**
- * body onload function for initialising the databse, can call in login page
+ * body onload function for initialising the databse
  */
 function initDB() {
     //check for support
@@ -82,6 +83,9 @@ function crEvent() {
     }
 }
 
+/**
+ * called in index.ejs to display events
+ */
 function loadEvents() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
@@ -95,62 +99,87 @@ function loadEvents() {
     }
     if ('indexedDB' in window) {
         initDatabase();
+        // retrieving from the indexedDB
         getEventData("EVENT_OS");
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+/**
+ * called in view-event.ejs to display stories for a specific event
+ * @param eventID
+ */
 function loadStories(eventID) {
-    console.log("EVENT ID: " + eventID)
     if ('indexedDB' in window) {
         initDatabase();
+        //retrieves stories for specific event
         getStoryData(eventID, "STORY_OS");
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+/**
+ * called in map.ejs to display events on map
+ */
 function loadMapEvents() {
     if ('indexedDB' in window) {
         initDatabase();
+        //gets all events and displays then on map
         getAllEvents();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+/**
+ * called in account.ejs to load the user related data
+ */
 function loadAccount() {
     username = localStorage.getItem('username');
+    //sets the value of html tag to the username
     document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
     loadUserEvents();
     loadUserStories();
 }
 
+/**
+ * called in loadAccount() to load events created by the user
+ */
 function loadUserEvents() {
     if ('indexedDB' in window ) {
         initDatabase();
+        //retrieves events created by the user logged in
         getEventByUsername();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+/**
+ * called in loadAccount() to load stories created by the user
+ */
 function loadUserStories() {
     if ('indexedDB' in window ) {
         initDatabase();
+        //retrieves stories created by the user logged in
         getStoryByUsername();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
     }
 }
 
+/**
+ * Displays events
+ * @param request - events to be displayed on the related pages
+ */
 function displayEvents(request) {
-    console.log(request);
     var eventList = "";
     if (request.length == 0 ) {
         document.getElementById('noEvent').innerHTML = 'No events in the database';
     } else {
+        //display all the events, from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
             eventList +=
                 "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
@@ -163,15 +192,14 @@ function displayEvents(request) {
     }
 }
 
+/**
+ * Displays stories
+ * @param request - stories to be displayed
+ */
 function displayStories(request) {
     var storyList = "";
-    //var strImg = document.getElementById('testImg');
+    //displaying stories from most recent to oldest
     for (var i=request.length-1; i>= 0; i--) {
-        //strImg.src = request[i].storyImage;
-        //var strImg = document.getElementById('testImg');
-        //strImg.src = request[i].storyImage;
-        //bits = request[i].storyImage;
-        //bs64 = 'data:image/jpeg;base64,' + bits;
         storyList +=
             "<a  class='list-group list-group-item-action stories'> " +
             "<p>Description: " + request[i].storyDescription + "</p>" +
@@ -184,11 +212,13 @@ function displayStories(request) {
 
     }
     document.getElementById('stories').innerHTML = storyList;
-    //console.log('the base64: ' + request[0].storyImage);
 }
 
+/**
+ * Displays events created by current user
+ * @param request - events created by logged in user
+ */
 function displayUserEvents(request) {
-    console.log(request);
     var userEvents = "";
     for (var i = 0; i < request.length; i++) {
         userEvents +=
@@ -203,6 +233,10 @@ function displayUserEvents(request) {
     document.getElementById('events').innerHTML = userEvents;
 }
 
+/**
+ * Displays stories created by current user
+ * @param request - stories created by logged in user
+ */
 function displayStoryEvents(request) {
     var storyList = "";
     for (var i=request.length-1; i>= 0; i--) {
@@ -215,12 +249,4 @@ function displayStoryEvents(request) {
             "</a>" ;
     }
     document.getElementById('stories').innerHTML = storyList;
-}
-
-function takeToEvent(url, ret) {
-    eventId = ret.eventId;
-    console.log('/create-story/'+eventId)
-    if (url == '/create-story/'+eventId) {
-        document.location = 'view-event/' + eventId
-    }
 }

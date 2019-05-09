@@ -6,6 +6,7 @@
 
 </head>
 
+<!-- initialises the indexedDB -->
 <body onload="initDB()">
 
 <% include templates/header %>
@@ -13,7 +14,7 @@
 <div class="form-container">
     <div class="panel panel-default">
         <h2 class="photofestheading">create story</h2>
-
+        <!-- form to create story -->
         <form id="story" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
                 <label for="event-name">For event: <a href="view-event"><%= eventID %></a></label>
@@ -21,7 +22,6 @@
             </div>
             <div class="form-group">
                 <label for="storyDescription">Description:</label>
-                <!--<textarea class="form-control" rows="3"></textarea>-->
                 <input type="text" name="storyDescription"  class="form-control" id="formGroupExampleInput">
             </div>
             <div class="form-group">
@@ -29,12 +29,6 @@
                 <input type="file" onchange="readURL(this);" class="form-control" id="formGroupExampleInput"/>
                 <img id="usrImg" src="http://placehold.it/180" />
                 <input type="hidden" id="bits" name="storyImage">
-
-                <!--<input type="file" onchange="saveFile(this);" id="pictureTest">
-                <input type="number" id="recordToLoad">	<button id="testImageBtn">Test</button>
-                <img id="testImage">-->
-
-
             </div>
             <input type="submit" name="g" id="g" value="Submit" class="btn btn-info btn-md">
         </form>

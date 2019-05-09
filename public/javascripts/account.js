@@ -11,10 +11,9 @@ function sendLogInQuery(url, data) {
         type: 'POST',
         success: function (dataR) {
             var ret = dataR;
-            //console.log('login data' + JSON.stringify(ret));
-            /*username = ret.username;
-            password = ret.password;*/
-            checkUser(ret); // checks if user is registered
+
+            // checks if user is registered
+            checkUser(ret);
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -23,7 +22,7 @@ function sendLogInQuery(url, data) {
 }
 
 /**
- * onload function for login form
+ * onload function used in form in login.ejs
  */
 function logIn() {
     var formArray= $("form").serializeArray();
@@ -38,11 +37,16 @@ function logIn() {
 /**
  * takes the user to account after registering/logging in
  * @param url
+ * @param data received from IndexedDB
  */
 function takeToAccount(url, data) {
+    // saves loginState as true in localStorage
     setLoginState(true);
-    console.log(data.username);
+
+    // saves username onto localStorage
     setUsername(data.username);
+
+    // takes the user to the account page
     if (url == '/signup' || url == '/login') {
         document.location = '/account';
     }
@@ -50,13 +54,11 @@ function takeToAccount(url, data) {
 
 /**
  * checks if user is registered in the indexedDB
- * @param username
- * @param password
+ * @param ret user data
  */
 function checkUser(ret) {
     username = ret.username;
     password = ret.password;
-    console.log("Checking this user: " + username);
     if (dbPromise) {
         dbPromise.then(function (db) {
             var tx = db.transaction('USERS', 'readonly');
@@ -66,7 +68,7 @@ function checkUser(ret) {
             return request;
         }).then(function (request) {
             if (request && request.username == username && request.password == password) {
-                //console.log('login successful');
+                // takes to account on matching information
                 takeToAccount('/login', ret);
             }
             else {
@@ -93,12 +95,15 @@ function getLoginState() {
 }
 
 /**
- * onload function on sign-out button
+ * onload function on sign-out button in account.ejs
  */
 function signOut() {
+    // set value in localstorage to false
     setLoginState(false);
+    // delete username from localstorage
     localStorage.removeItem('username');
-    document.location = 'login';
+    // take back to login
+    document.location = '/login';
 }
 
 /*
@@ -114,17 +119,16 @@ function getUsername() {
  * @param username
  */
 function setUsername(username) {
-    console.log(username);
     localStorage.setItem('username', username);
 }
 
 /**
- * onload function on trying to get into account
+ * onload function called in footer.ejs for navigating to create-event and account
+ * if user is logged in, render their account, if not, take to login
  */
 function myAcc() {
     loginState = getLoginState();
     if (loginState == 'true') {
-        //alert('you are not logged in');
         document.location = '/account';
     }
     else {

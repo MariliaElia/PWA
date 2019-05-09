@@ -18,6 +18,9 @@ mymap.on('click', function (e) {
     console.log("LatLng: " + lat + "," +lon);
 });
 
+/**
+ * gets longitude and latitude of clicked location on map
+ */
 function LatLng(){
     document.getElementById("lat").value = lat;
     console.log("This is lat: " + lat);
