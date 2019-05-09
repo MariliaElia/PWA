@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+var event = require('../controllers/events');
+
 /* GET home page. */
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'photofest'});
 });
+
+router.get('/', event.getAllEvents)
 
 router.post('/', function(req, res, next) {
     var searchData = req.body;
@@ -16,11 +21,13 @@ router.post('/', function(req, res, next) {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(searchData));
 });
-
+/*
 router.get('/view-event/:id', function(req, res, next){
     var eventID = req.params.id;
     res.render('view-event', { title: 'photofest', eventID: eventID} );
 });
+*/
+router.get('/view-event/:id', event.getEventData)
 
 router.get('/create-story/:id', function(req, res, next) {
     var eventID = req.params.id;

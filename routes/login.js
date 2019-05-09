@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
     res.render('login', { title: 'photofest'});
 });
 
+
+
 router.post('/', function(req, res, next) {
     var userData = req.body;
     var username = req.body.username;

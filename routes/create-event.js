@@ -3,6 +3,8 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: false}));
 
+var event = require('../controllers/events');
+
 router.get('/', function(req, res, next) {
     //var log = req.cookies['loggedIn'];
     //if (log) {
@@ -13,7 +15,7 @@ router.get('/', function(req, res, next) {
     //}
 
 });
-
+/*
 router.post('/', function(req, res, next) {
     var userData = req.body;
     if (userData == null) {
@@ -23,5 +25,8 @@ router.post('/', function(req, res, next) {
     res.send(JSON.stringify(userData));
     //res.render('/index', { title: 'photofest'})
 });
+*/
+
+router.post('/', event.insertEvent)
 
 module.exports = router;
