@@ -175,7 +175,6 @@ function displayStories(request) {
         storyList +=
             "<a  class='list-group list-group-item-action stories'> " +
             "<p>Description: " + request[i].storyDescription + "</p>" +
-            "<p>Location: " + request[i].storyLocation + "</p>" +
             "<img src='" +
             request[i].storyImage +
             "' id='testImg'>" +
