@@ -53,10 +53,10 @@
       <change beforePath="$PROJECT_DIR$/node_modules/unpipe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/unpipe/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/utils-merge/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/vary/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vary/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/mapSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/mapSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/account.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/map.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/map.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/create-story.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/create-story.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/view-event.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view-event.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,10 +76,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/users.js">
+        <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="66" column="52" lean-forward="true" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="52" />
+            <state relative-caret-position="204">
+              <caret line="12" column="90" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -87,29 +87,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="464">
+              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
+        <entry file="file://$PROJECT_DIR$/controllers/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="59" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="59" />
+            <state relative-caret-position="401">
+              <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="154" column="39" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+              <folding>
+                <element signature="n#!!block;n#sendLogInQuery#0" />
+                <element signature="n#!!doc;n#logIn#0" />
+                <element signature="n#!!doc;n#checkUser#0" />
+                <element signature="n#!!block;n#checkUser#0" />
+                <element signature="n#!!doc;n#getLoginState#0" />
+                <element signature="n#!!doc;n#signOut#0" />
+                <element signature="n#!!block;n#signOut#0" />
+                <element signature="n#!!doc;n#myAcc#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/mapSearch.js">
+        <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#6#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="228">
+              <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -118,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/views/account.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="66" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="66" />
+              <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -194,25 +210,25 @@
         <option value="$PROJECT_DIR$/routes/signup.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/service-worker.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/account.js" />
         <option value="$PROJECT_DIR$/public/javascripts/database.js" />
         <option value="$PROJECT_DIR$/databases/database.js" />
         <option value="$PROJECT_DIR$/models/events.js" />
         <option value="$PROJECT_DIR$/public/javascripts/map.js" />
         <option value="$PROJECT_DIR$/views/create-event.ejs" />
-        <option value="$PROJECT_DIR$/views/create-story.ejs" />
         <option value="$PROJECT_DIR$/models/stories.js" />
-        <option value="$PROJECT_DIR$/views/view-event.ejs" />
         <option value="$PROJECT_DIR$/controllers/stories.js" />
         <option value="$PROJECT_DIR$/controllers/users.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/search.js" />
         <option value="$PROJECT_DIR$/views/account.ejs" />
-        <option value="$PROJECT_DIR$/controllers/events.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/views/map.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/mapSearch.js" />
+        <option value="$PROJECT_DIR$/views/view-event.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/account.js" />
+        <option value="$PROJECT_DIR$/controllers/events.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/create-story.ejs" />
       </list>
     </option>
   </component>
@@ -226,8 +242,8 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="762" />
-    <option name="width" value="1165" />
+    <option name="x" value="705" />
+    <option name="width" value="1223" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -235,6 +251,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -266,17 +283,6 @@
             <path>
               <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -288,14 +294,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557761351622" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557762215634" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab 1/Exercise 2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -375,7 +380,8 @@
       <workItem from="1557067310987" duration="2254000" />
       <workItem from="1557413844251" duration="66000" />
       <workItem from="1557413943670" duration="89038000" />
-      <workItem from="1557744416156" duration="11071000" />
+      <workItem from="1557744416156" duration="11779000" />
+      <workItem from="1557770943471" duration="1381000" />
     </task>
     <task id="LOCAL-00001" summary="- removed service worker&#10;- can create event and gets added to the indexed db">
       <created>1553365737180</created>
@@ -531,12 +537,12 @@
       <option name="project" value="LOCAL" />
       <updated>1557759104208</updated>
     </task>
-    <task id="LOCAL-00023" summary="fix header">
-      <created>1552836406444</created>
+    <task id="LOCAL-00023" summary="Map Search Done with pop up messages">
+      <created>1557761420005</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1552836406444</updated>
+      <updated>1557761420005</updated>
     </task>
     <task id="LOCAL-00024" summary="fix padding">
       <created>1552838214222</created>
@@ -601,11 +607,11 @@
       <option name="project" value="LOCAL" />
       <updated>1553096282989</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232350000" />
+    <option name="totallyTimeSpent" value="234439000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -617,10 +623,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="610" y="0" width="932" height="830" extended-state="0" />
+    <frame x="564" y="0" width="978" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49754903" visible="true" weight="0.16055046" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49754903" visible="true" weight="0.16230936" />
       <window_info id="Structure" order="1" sideWeight="0.50121063" side_tool="true" weight="0.273021" />
       <window_info id="npm" order="2" sideWeight="0.502451" side_tool="true" weight="0.18817204" />
       <window_info id="Image Layers" order="3" />
@@ -631,8 +637,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32954547" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4928862" weight="0.4674221" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5590909" weight="0.042979944" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.68878716" visible="true" weight="0.16189112" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.5590909" visible="true" weight="0.042979944" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.68878716" weight="0.16189112" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3295129" />
@@ -716,7 +722,8 @@
     <MESSAGE value="Updated package.json -run npm install" />
     <MESSAGE value="Updated package.json -run npm install&#10;MongoDB set up create account, event and story&#10;Search with MongoDB date and title" />
     <MESSAGE value="Search and account messages fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search and account messages fixed" />
+    <MESSAGE value="Map Search Done with pop up messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map Search Done with pop up messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -730,11 +737,6 @@
           <url>file://$PROJECT_DIR$/public/javascripts/app.js</url>
           <line>170</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/controllers/events.js</url>
-          <line>139</line>
-          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -867,23 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#sendLogInQuery#0" />
-            <element signature="n#!!doc;n#logIn#0" />
-            <element signature="n#!!doc;n#checkUser#0" />
-            <element signature="n#!!block;n#checkUser#0" />
-            <element signature="n#!!doc;n#getLoginState#0" />
-            <element signature="n#!!doc;n#signOut#0" />
-            <element signature="n#!!block;n#signOut#0" />
-            <element signature="n#!!doc;n#myAcc#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/stories.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -895,13 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -961,41 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="66" column="52" lean-forward="true" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/create-event.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="43" column="53" selection-start-line="43" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/account.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="66" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/map.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1020,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="59" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1036,11 +972,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/mapSearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        <state relative-caret-position="238">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="66" column="52" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/create-event.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="43" column="53" selection-start-line="43" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/account.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="90" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="154" column="39" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!block;n#sendLogInQuery#0" />
+            <element signature="n#!!doc;n#logIn#0" />
+            <element signature="n#!!doc;n#checkUser#0" />
+            <element signature="n#!!block;n#checkUser#0" />
+            <element signature="n#!!doc;n#getLoginState#0" />
+            <element signature="n#!!doc;n#signOut#0" />
+            <element signature="n#!!block;n#signOut#0" />
+            <element signature="n#!!doc;n#myAcc#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
         </state>
       </provider>
     </entry>

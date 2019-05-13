@@ -37,10 +37,7 @@ router.post('/map', event.getAllEvents);
 router.get('/view-event/:id', event.getEventData)
 
 //CREATE STORY get and post
-router.get('/create-story/:id', function(req, res, next) {
-    var eventID = req.params.id;
-    res.render('create-story', { title: 'photofest', eventID: eventID});
-});
+router.get('/create-story/:id', event.getEventTitle)
 
 /*router.post('/create-story', function(req, res, next) {
     var storyData = req.body;

@@ -146,6 +146,22 @@ exports.getUserEventsStories = function (req, res) {
 
 }
 
+exports.getEventTitle = function(req, res){
+    var eventID = req.params.id;
+    var objectID = new ObjectId(eventID);
+    try {
+        Event.findOne({_id: objectID},
+        function (err, event) {
+            if (err)
+                res.status(500).send('Invalid data!');
+            var eventTitle = event.title;
+            res.render('create-story', {title: 'photofest', eventID: eventID, eventTitle: eventTitle});
+        });
+    } catch (e) {
+        res.status(500).send('error ' + e);
+    }
+}
+
 //Insert Event in the database
 exports.insertEvent = function (req, res) {
     var eventData = req.body;
