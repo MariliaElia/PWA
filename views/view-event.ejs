@@ -6,15 +6,22 @@
 </head>
 
 <!-- displays stories for clicked event -->
-<body onload="loadStories(<%= eventID%>)">
+<body>
     <% include templates/header %>
 
     <div class="story-content ">
-        <h3 class="title"><a href="/create-story/<%= eventID%>"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventID %></h3>
+        <h3 class="title"><a href="/create-story/<%=eventID%>"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventTitle %></h3>
         <br>
 
         <div class="list-group list-group-item stories" id="stories">
+            <%for (var i=stories.length-1; i>= 0; i--) {%>
+                <a  class='list-group list-group-item-action stories'>
+                    <p>Description: <%=stories[i].storyDescription%></p>
+                    <img src='<%= stories[i].storyImage%>' id='testImg'>
+                </a>
+            <% }%>
         </div>
+
         <footer>
             <% include templates/footer %>
         </footer>

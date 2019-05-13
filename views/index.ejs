@@ -5,7 +5,7 @@
 </head>
 
 <!-- displays all events from indexedDB -->
-<body onload="loadEvents()" >
+<body>
 
 <% include templates/header %>
 
@@ -40,7 +40,14 @@
     </form>
 </div>
 
-<div class="content" id = "events">
+<div class="content" id = "events" >
+    <%for (var i=events.length-1; i>= 0; i--) {%>
+    <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action'>
+        <p><%=events[i].title%></p>
+        <p><%=events[i].description%></p>
+        <p><%=events[i].date%></p>
+        </a>
+    <% }%>
     <p id="noEvent"></p>
 </div>
 

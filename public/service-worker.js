@@ -21,7 +21,7 @@ var filesToCache = [
     '/create-event',
     '/create-story/:id',
     '/login',
-    '/test',
+    '/message',
     '/view-event/:id',
     '/javascripts/app.js',
 

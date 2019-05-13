@@ -7,15 +7,6 @@ var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
-var mapRouter = require('./routes/map');
-var createEventRouter = require('./routes/create-event');
-var loginRouter = require('./routes/login');
-var signupRouter = require('./routes/signup');
-var viewEventRouter = require('./routes/view-event');
-var createStoryRouter = require('./routes/create-story');
-var accountRouter = require('./routes/account');
-
 
 var app = express();
 
@@ -34,17 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/test', testRouter);
-app.use('/map', mapRouter);
-app.use('/create-event', createEventRouter);
-app.use('/login', loginRouter);
-app.use('/signup', signupRouter);
-app.use('/view-event', viewEventRouter);
-app.use('/create-story', createStoryRouter);
-app.use('/account', accountRouter);
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,10 +4,9 @@ var Schema = mongoose.Schema;
 
 var Story = new Schema(
     {
-        //storyId: {type: Number, required: true, unique: true},
-        eventID: {type: Number, required: true},
+        eventID: {type: Schema.Types.ObjectId, required: true},
         storyDescription: {type: String, required: true, max: 100},
-        storyImage: {type: String},
+        storyImage: {data: Buffer, contentType: String},
         username: {type: String, required: true, max: 100}
     }
 );

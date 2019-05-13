@@ -11,28 +11,31 @@ function sendAjaxQuery(url, data, objectStore) {
         dataType: 'json',
         type: 'POST',
         success: function (dataR) {
-
             // getting the username from the localstorage and saving it for an event/story created by the user
-            if (url != '/signup' && url != '/login') {
+            /*if (url != '/signup' && url != '/login') {
                 dataR['username'] = getUsername();
-            }
+            }*/
 
             var ret = dataR;
 
             // save to indexedDB
-            storeCachedData(ret, objectStore);
-
+            //storeCachedData(ret, objectStore);
             // saving data of current user in localstorage
-            takeToAccount(url, ret);
+            //takeToAccount(url, ret);
 
             // take back to view newly created story
             if (url == '/create-story') {
-                eventId = ret.eventId;
+                var eventId = ret.eventID;
                 document.location = '/view-event/' + eventId;
             }
             // take back to home page after creating a new event
             else if (url == '/create-event') {
                 document.location = '/';
+            } else if (url == '/account'){
+                var events = ret.events;
+                var stories = ret.stories;
+                displayEvents(events);
+                displayStories(stories);
             }
         },
         error: function (xhr, status, error) {
@@ -47,6 +50,9 @@ function sendAjaxQuery(url, data, objectStore) {
  * @param objectStore
  */
 function onSubmit(url, objectStore) {
+    if(url == '/create-story'){
+        document.getElementById("username").value = getUsername();
+    }
     var formArray= $("form").serializeArray();
     var data={};
     for (index in formArray){
@@ -79,7 +85,7 @@ function crEvent() {
         document.location = ('/create-event');
     }
     else {
-        document.location = '/test';
+        document.location = '/message';
     }
 }
 
@@ -123,14 +129,15 @@ function loadStories(eventID) {
 /**
  * called in map.ejs to display events on map
  */
-function loadMapEvents() {
-    if ('indexedDB' in window) {
+function loadMapEvents(events) {
+    //displayOnMap(events);
+    /*if ('indexedDB' in window) {
         initDatabase();
         //gets all events and displays then on map
         getAllEvents();
     } else {
         console.log('This browser doesn\'t support IndexedDB');
-    }
+    }*/
 }
 
 /**
@@ -140,8 +147,16 @@ function loadAccount() {
     username = localStorage.getItem('username');
     //sets the value of html tag to the username
     document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
-    loadUserEvents();
-    loadUserStories();
+    document.getElementById('username').value = username;
+    var formArray= $("form").serializeArray();
+    var data={};
+    for (index in formArray){
+        data[formArray[index].name]= formArray[index].value;
+    }
+
+    // adding the data to the indexedDB
+    sendAjaxQuery('/account', data, 'USER_OS');
+    event.preventDefault();
 }
 
 /**
@@ -176,13 +191,14 @@ function loadUserStories() {
  */
 function displayEvents(request) {
     var eventList = "";
+    document.getElementById('events').innerHTML = '';
     if (request.length == 0 ) {
         document.getElementById('noEvent').innerHTML = 'No events in the database';
     } else {
         //display all the events, from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
             eventList +=
-                "<a href='/view-event/"+ request[i].id + "' class='list-group list-group-item-action'> " +
+                "<a href='/view-event/"+ request[i]._id + "' class='list-group list-group-item-action'> " +
                 "<p>" + request[i].title + "</p>" +
                 "<p>" + request[i].description + "</p>" +
                 "<p>" + request[i].date + "</p>" +
@@ -198,18 +214,19 @@ function displayEvents(request) {
  */
 function displayStories(request) {
     var storyList = "";
+    if (request.length == 0 ) {
+        document.getElementById('noEvent').innerHTML = 'No events in the database';
+    } else {
     //displaying stories from most recent to oldest
-    for (var i=request.length-1; i>= 0; i--) {
-        storyList +=
-            "<a  class='list-group list-group-item-action stories'> " +
-            "<p>Description: " + request[i].storyDescription + "</p>" +
-            "<img src='" +
-            request[i].storyImage +
-            "' id='testImg'>" +
-            "</a>" ;
-
-
-
+        for (var i=request.length-1; i>= 0; i--) {
+            storyList +=
+                "<a  class='list-group list-group-item-action stories'> " +
+                "<p>Description: " + request[i].storyDescription + "</p>" +
+                "<img src='" +
+                request[i].storyImage +
+                "' id='testImg'>" +
+                "</a>";
+        }
     }
     document.getElementById('stories').innerHTML = storyList;
 }
