@@ -20,33 +20,46 @@ exports.searchEvents = function (req, res) {
     var searchData = req.body;
     var eventName = searchData.eventName;
     var eventDate = searchData.date;
+    var noEvents = 'noEvents';
     try {
         if ((eventName != "" ) && (eventDate != "")) {
             Event.find({title: eventName, date: eventDate},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else if ((eventDate == "") && (eventName!= "")) {
             Event.find({title: eventName},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else if ((eventDate != "") && (eventName == "")){
             Event.find({date: eventDate},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else {
             var events = '';

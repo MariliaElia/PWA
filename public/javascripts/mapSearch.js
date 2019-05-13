@@ -9,7 +9,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
  * creates a marker for all events, on the map
  */
 document.onload = function() {
-    document.getElementById("events").va
+    var events = document.getElementById("events").value
     for (var event of events) {
         var lat = event.latitude;
         var lon = event.longitude;

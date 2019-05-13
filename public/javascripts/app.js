@@ -36,6 +36,8 @@ function sendAjaxQuery(url, data, objectStore) {
                 var stories = ret.stories;
                 displayEvents(events);
                 displayStories(stories);
+            } else if (url == '/signup') {
+                takeToAccount(url, ret);
             }
         },
         error: function (xhr, status, error) {
@@ -193,7 +195,8 @@ function displayEvents(request) {
     var eventList = "";
     document.getElementById('events').innerHTML = '';
     if (request.length == 0 ) {
-        document.getElementById('noEvent').innerHTML = 'No events in the database';
+        var noEvent = "<a  class='list-group list-group-item-action stories'>No events created</a>";
+        document.getElementById('events').innerHTML = noEvent;
     } else {
         //display all the events, from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
@@ -215,7 +218,8 @@ function displayEvents(request) {
 function displayStories(request) {
     var storyList = "";
     if (request.length == 0 ) {
-        document.getElementById('noEvent').innerHTML = 'No events in the database';
+        var noStory = "<a  class='list-group list-group-item-action stories'>No stories posted</a>";
+        document.getElementById('stories').innerHTML = noStory;
     } else {
     //displaying stories from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
@@ -227,8 +231,8 @@ function displayStories(request) {
                 "' id='testImg'>" +
                 "</a>";
         }
+        document.getElementById('stories').innerHTML = storyList;
     }
-    document.getElementById('stories').innerHTML = storyList;
 }
 
 /**
