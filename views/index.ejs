@@ -2,10 +2,18 @@
 <html>
 <head>
     <% include templates/head %>
+    <!--<script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost');
+        socket.on('news', function(data) {
+            console.log(data);
+            socket.emit('my other event', {my:'data'});
+        });
+    </script>-->
 </head>
 
 <!-- displays all events from indexedDB -->
-<body>
+<body >
 
 <% include templates/header %>
 
@@ -46,7 +54,8 @@
         <p><%=events[i].title%></p>
         <p><%=events[i].description%></p>
         <p><%=events[i].date%></p>
-        </a>
+        <script>savEvent("{title: '<%=events[i].title%>', description: '<%=events[i].description%>', date: '<%=events[i].date%>'}")</script>
+    </a>
     <% }%>
     <p id="noEvent"></p>
 </div>

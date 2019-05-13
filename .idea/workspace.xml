@@ -1,43 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="52d5456c-5077-4381-896b-2ab8795b8c24" name="Default Changelist" comment="Updated package.json -run npm install">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/events.js" afterDir="false" />
+    <list default="true" id="52d5456c-5077-4381-896b-2ab8795b8c24" name="Default Changelist" comment="installed socket.io&#10;simple notification page was tested">
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/mime" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/mime.cmd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/accepts/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ajax/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajax/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/basic-auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/basic-auth/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bytes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/content-disposition/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/content-disposition/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/content-type/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/content-type/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/cookie-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cookie-parser/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/cookie-signature/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cookie-signature/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/cookie/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cookie/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/debug/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/depd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/depd/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/destroy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/destroy/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/ee-first/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ee-first/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/encodeurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/encodeurl/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/escape-html/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/escape-html/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/etag/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/etag/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/check.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/consts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/parsekv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/lib/stringifykv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/test/fpm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/test/phpcgi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/test/requests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fastcgi-client/test/www/helloworld.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/forwarded/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/forwarded/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/fresh/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fresh/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs-extra/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs-extra/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-errors/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/inherits/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/inherits/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/ipaddr.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ipaddr.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/support.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/support.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rcheckableType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/jsonfile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jsonfile/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/localStorage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/localStorage/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/media-typer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/media-typer/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/merge-descriptors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/merge-descriptors/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/methods/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/methods/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/mime-db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-db/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/mime-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mime/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/cli.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/mime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/morgan/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/morgan/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ms/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/negotiator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/negotiator/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/on-finished/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/on-finished/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/on-headers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/on-headers/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/parseurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseurl/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/path-to-regexp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-fpm/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-fpm/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-fpm/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-fpm/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-fpm/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/example-evalphp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/example-expressapp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/php-node/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/poppper.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/index.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/qs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/range-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/range-parser/package.json" afterDir="false" />
@@ -49,14 +158,11 @@
       <change beforePath="$PROJECT_DIR$/node_modules/setprototypeof/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/setprototypeof/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/statuses/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/type-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/type-is/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/underscore/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/underscore/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/universalify/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/universalify/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/unpipe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/unpipe/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/utils-merge/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/vary/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vary/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/create-story.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/create-story.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view-event.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view-event.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,8 +173,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="PWA" />
@@ -76,74 +181,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="90" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="154" column="39" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+            <state relative-caret-position="186">
+              <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
               <folding>
-                <element signature="n#!!block;n#sendLogInQuery#0" />
-                <element signature="n#!!doc;n#logIn#0" />
-                <element signature="n#!!doc;n#checkUser#0" />
-                <element signature="n#!!block;n#checkUser#0" />
-                <element signature="n#!!doc;n#getLoginState#0" />
-                <element signature="n#!!doc;n#signOut#0" />
-                <element signature="n#!!block;n#signOut#0" />
-                <element signature="n#!!doc;n#myAcc#0" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
+        <entry file="file://$PROJECT_DIR$/views/message.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/account.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/create-event.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="43" column="53" selection-start-line="43" selection-end-line="44" />
+            <state relative-caret-position="45">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -153,14 +206,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>false</find>
+      <find>test</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/views</dir>
@@ -178,57 +232,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/search-results.ejs" />
-        <option value="$PROJECT_DIR$/routes/map.js" />
         <option value="$PROJECT_DIR$/routes/search-results.js" />
-        <option value="$PROJECT_DIR$/routes/test.js" />
         <option value="$PROJECT_DIR$/views/templates/header.ejs" />
         <option value="$PROJECT_DIR$/views/templates/create-event.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/idb.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/public/javascripts/bootstrap.min.js" />
-        <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.min.js" />
         <option value="$PROJECT_DIR$/routes/view-event.js" />
         <option value="$PROJECT_DIR$/public/javascripts/create-event.js" />
-        <option value="$PROJECT_DIR$/routes/create-event.js" />
         <option value="$PROJECT_DIR$/views/templates/footer.ejs" />
-        <option value="$PROJECT_DIR$/views/login.ejs" />
-        <option value="$PROJECT_DIR$/views/signup.ejs" />
         <option value="$PROJECT_DIR$/views/test.php" />
-        <option value="$PROJECT_DIR$/views/test.ejs" />
-        <option value="$PROJECT_DIR$/views/templates/head.ejs" />
-        <option value="$PROJECT_DIR$/public/javascripts/upload.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/upload.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/javascripts/account.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/database.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/map.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/mapSearch.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/search.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/upload.js" />
+        <option value="$PROJECT_DIR$/views/account.ejs" />
+        <option value="$PROJECT_DIR$/views/create-event.ejs" />
+        <option value="$PROJECT_DIR$/views/create-story.ejs" />
+        <option value="$PROJECT_DIR$/views/login.ejs" />
+        <option value="$PROJECT_DIR$/views/map.ejs" />
+        <option value="$PROJECT_DIR$/views/signup.ejs" />
+        <option value="$PROJECT_DIR$/views/view-event.ejs" />
+        <option value="$PROJECT_DIR$/views/templates/head.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/header.js" />
-        <option value="$PROJECT_DIR$/models/users.js" />
+        <option value="$PROJECT_DIR$/service-worker.js" />
         <option value="$PROJECT_DIR$/routes/account.js" />
+        <option value="$PROJECT_DIR$/routes/create-event.js" />
         <option value="$PROJECT_DIR$/routes/create-story.js" />
+        <option value="$PROJECT_DIR$/routes/map.js" />
         <option value="$PROJECT_DIR$/routes/login.js" />
         <option value="$PROJECT_DIR$/routes/signup.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/service-worker.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/database.js" />
-        <option value="$PROJECT_DIR$/databases/database.js" />
-        <option value="$PROJECT_DIR$/models/events.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/map.js" />
-        <option value="$PROJECT_DIR$/views/create-event.ejs" />
-        <option value="$PROJECT_DIR$/models/stories.js" />
-        <option value="$PROJECT_DIR$/controllers/stories.js" />
-        <option value="$PROJECT_DIR$/controllers/users.js" />
+        <option value="$PROJECT_DIR$/routes/test.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/public/javascripts/search.js" />
-        <option value="$PROJECT_DIR$/views/account.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
-        <option value="$PROJECT_DIR$/views/map.ejs" />
-        <option value="$PROJECT_DIR$/public/javascripts/mapSearch.js" />
-        <option value="$PROJECT_DIR$/views/view-event.ejs" />
-        <option value="$PROJECT_DIR$/public/javascripts/account.js" />
-        <option value="$PROJECT_DIR$/controllers/events.js" />
+        <option value="$PROJECT_DIR$/views/test.html" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/service-worker.js" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/views/socket-io-test.ejs" />
+        <option value="$PROJECT_DIR$/socket-io-test.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/socket-io/socket-io.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/create-story.ejs" />
+        <option value="$PROJECT_DIR$/bin/www" />
+        <option value="$PROJECT_DIR$/socket.io/socket.io.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/test.js" />
+        <option value="$PROJECT_DIR$/views/test.ejs" />
       </list>
     </option>
   </component>
@@ -242,9 +296,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="705" />
-    <option name="width" value="1223" />
-    <option name="height" value="1038" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -252,7 +306,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -260,61 +313,36 @@
               <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PWA" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="databases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PWA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PWA" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557762215634" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab 1/Exercise 2" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553990243573" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/javascripts" />
     </key>
   </component>
@@ -373,15 +401,17 @@
       <workItem from="1553992682796" duration="247000" />
       <workItem from="1554040163632" duration="1110000" />
       <workItem from="1554042523591" duration="7672000" />
-      <workItem from="1554052384931" duration="8601000" />
-      <workItem from="1554123717320" duration="790000" />
-      <workItem from="1554461774577" duration="2293000" />
-      <workItem from="1554898411265" duration="20000" />
-      <workItem from="1557067310987" duration="2254000" />
-      <workItem from="1557413844251" duration="66000" />
-      <workItem from="1557413943670" duration="89038000" />
-      <workItem from="1557744416156" duration="11779000" />
-      <workItem from="1557770943471" duration="1381000" />
+      <workItem from="1554051926659" duration="8422000" />
+      <workItem from="1554124075619" duration="3494000" />
+      <workItem from="1554127973457" duration="220000" />
+      <workItem from="1554128488703" duration="2135000" />
+      <workItem from="1554470747585" duration="178000" />
+      <workItem from="1554473155964" duration="574000" />
+      <workItem from="1557068649939" duration="395000" />
+      <workItem from="1557241261203" duration="2051000" />
+      <workItem from="1557412370683" duration="12291000" />
+      <workItem from="1557656945748" duration="18849000" />
+      <workItem from="1557744478602" duration="3829000" />
     </task>
     <task id="LOCAL-00001" summary="- removed service worker&#10;- can create event and gets added to the indexed db">
       <created>1553365737180</created>
@@ -502,54 +532,54 @@
       <option name="project" value="LOCAL" />
       <updated>1554044172637</updated>
     </task>
-    <task id="LOCAL-00018" summary="Final">
-      <created>1554058623277</created>
+    <task id="LOCAL-00018" summary="Navigation">
+      <created>1554051972854</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1554058623277</updated>
+      <updated>1554051972854</updated>
     </task>
-    <task id="LOCAL-00019" summary="Final final">
-      <created>1554060243154</created>
+    <task id="LOCAL-00019" summary="Navigation">
+      <created>1554058583117</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1554060243154</updated>
+      <updated>1554058583117</updated>
     </task>
-    <task id="LOCAL-00020" summary="Updated package.json -run npm install">
-      <created>1557415979605</created>
+    <task id="LOCAL-00020" summary="Navigation">
+      <created>1554060316801</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1557415979605</updated>
+      <updated>1554060316801</updated>
     </task>
-    <task id="LOCAL-00021" summary="Updated package.json -run npm install&#10;MongoDB set up create account, event and story&#10;Search with MongoDB date and title">
-      <created>1557755195438</created>
+    <task id="LOCAL-00021" summary="Navigation">
+      <created>1554060714090</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1557755195438</updated>
+      <updated>1554060714090</updated>
     </task>
-    <task id="LOCAL-00022" summary="Search and account messages fixed">
-      <created>1557759104208</created>
+    <task id="LOCAL-00022" summary="COMMENTS">
+      <created>1554128139379</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1557759104208</updated>
+      <updated>1554128139379</updated>
     </task>
-    <task id="LOCAL-00023" summary="Map Search Done with pop up messages">
-      <created>1557761420005</created>
+    <task id="LOCAL-00023" summary="comments">
+      <created>1554129030655</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1557761420005</updated>
+      <updated>1554129030655</updated>
     </task>
-    <task id="LOCAL-00024" summary="fix padding">
-      <created>1552838214222</created>
+    <task id="LOCAL-00024" summary="installed socket.io&#10;simple notification page was tested">
+      <created>1557755206915</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1552838214222</updated>
+      <updated>1557755206916</updated>
     </task>
     <task id="LOCAL-00025" summary="started indexed db">
       <created>1552852017447</created>
@@ -607,46 +637,37 @@
       <option name="project" value="LOCAL" />
       <updated>1553096282989</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234439000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="170655000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="564" y="0" width="978" height="830" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="712" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49754903" visible="true" weight="0.16230936" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.22617124" />
       <window_info id="Structure" order="1" sideWeight="0.50121063" side_tool="true" weight="0.273021" />
-      <window_info id="npm" order="2" sideWeight="0.502451" side_tool="true" weight="0.18817204" />
+      <window_info id="npm" order="2" sideWeight="0.50121063" side_tool="true" weight="0.273021" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.50121063" side_tool="true" weight="0.273021" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Messages" order="0" visible="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4928862" weight="0.4674221" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.5590909" visible="true" weight="0.042979944" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.68878716" weight="0.16189112" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49427918" weight="0.32419354" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.561017" weight="0.43387097" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4983845" weight="0.3967742" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.3295129" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32954547" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.5228188" weight="0.048710603" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48546043" weight="0.32376397" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.7772338" weight="0.33094555" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.3112128" side_tool="true" weight="0.42979944" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48707592" weight="0.32258064" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.43993232" side_tool="true" weight="0.32376397" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -717,63 +738,108 @@
     <MESSAGE value="Story image uploadable added" />
     <MESSAGE value="None" />
     <MESSAGE value="Navigation" />
-    <MESSAGE value="Final" />
-    <MESSAGE value="Final final" />
-    <MESSAGE value="Updated package.json -run npm install" />
-    <MESSAGE value="Updated package.json -run npm install&#10;MongoDB set up create account, event and story&#10;Search with MongoDB date and title" />
-    <MESSAGE value="Search and account messages fixed" />
-    <MESSAGE value="Map Search Done with pop up messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map Search Done with pop up messages" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/javascripts/account.js</url>
-          <line>13</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/javascripts/app.js</url>
-          <line>170</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="javascript-exception">
-          <properties />
-        </breakpoint>
-      </default-breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="COMMENTS" />
+    <MESSAGE value="comments" />
+    <MESSAGE value="installed socket.io&#10;simple notification page was tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="installed socket.io&#10;simple notification page was tested" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/package.json">
+    <entry file="file://$PROJECT_DIR$/views/search-results.ejs" />
+    <entry file="file://$PROJECT_DIR$/public/javascripts/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="236" column="9" lean-forward="true" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
+        <state relative-caret-position="120">
+          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc;n#readURL#0" />
+            <element signature="n#!!block;n#readURL#0" />
+            <element signature="n#!!doc;n#save#0" />
+            <element signature="n#!!block;n#save#0" />
+            <element signature="n#!!doc;n#setFileBits#0" />
+            <element signature="n#!!block;n#setFileBits#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1606" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/routes/search-results.js" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/create-event.js" />
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+        <state relative-caret-position="45">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IntelligentWeb.iml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/private_access/ca.csr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="33" lean-forward="true" selection-end-line="13" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/private_access/ca.crt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="12" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/counter.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/mapSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#6#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/account.js" />
+    <entry file="file://$PROJECT_DIR$/routes/create-event.js" />
+    <entry file="file://$PROJECT_DIR$/routes/create-story.js" />
+    <entry file="file://$PROJECT_DIR$/routes/map.js" />
+    <entry file="file://$PROJECT_DIR$/routes/login.js" />
+    <entry file="file://$PROJECT_DIR$/routes/signup.js" />
+    <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/map.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/create-event.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/error.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/bootstrap.js">
@@ -785,264 +851,242 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/account.js" />
-    <entry file="file://$PROJECT_DIR$/routes/create-event.js" />
-    <entry file="file://$PROJECT_DIR$/routes/create-story.js" />
-    <entry file="file://$PROJECT_DIR$/routes/map.js" />
-    <entry file="file://$PROJECT_DIR$/routes/login.js" />
-    <entry file="file://$PROJECT_DIR$/routes/signup.js" />
-    <entry file="file://$PROJECT_DIR$/routes/message.js" />
-    <entry file="file://$PROJECT_DIR$/routes/view-event.js" />
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/database.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/counter.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/service-worker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="257" selection-start-line="257" selection-end-line="257" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/databases/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/header.ejs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="991">
-          <caret line="4730" column="15" selection-start-line="4730" selection-start-column="15" selection-end-line="4730" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/stories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/stories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="390">
+          <caret line="28" column="74" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+          <folding>
+            <element signature="n#!!doc;n#initDatabase#0" />
+            <element signature="n#!!doc;n#storeCachedData#0" />
+            <element signature="n#!!block;n#storeCachedData#0" />
+            <element signature="n#!!doc;n#getEventData#0" />
+            <element signature="n#!!block;n#getEventData#0" />
+            <element signature="n#!!doc;n#getStoryData#0" />
+            <element signature="n#!!block;n#getStoryData#0" />
+            <element signature="n#!!doc;n#getEventDateSearch#0" />
+            <element signature="n#!!block;n#getEventDateSearch#0" />
+            <element signature="n#!!doc;n#getDateSearch#0" />
+            <element signature="n#!!block;n#getDateSearch#0" />
+            <element signature="n#!!doc;n#getEventSearch#0" />
+            <element signature="n#!!block;n#getEventSearch#0" />
+            <element signature="n#!!doc;n#getEventByUsername#0" />
+            <element signature="n#!!block;n#getEventByUsername#0" />
+            <element signature="n#!!doc;n#getStoryByUsername#0" />
+            <element signature="n#!!block;n#getStoryByUsername#0" />
+            <element signature="n#!!doc;n#getAllEvents#0" />
+            <element signature="n#!!block;n#getAllEvents#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/footer.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="8" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        <state relative-caret-position="179">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="204" column="24" selection-start-line="204" selection-start-column="12" selection-end-line="204" selection-end-column="24" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/idb.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="45">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/head.ejs">
+    <entry file="file://$PROJECT_DIR$/routes/test.js" />
+    <entry file="file://$PROJECT_DIR$/routes/view-event.js" />
+    <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+        <state relative-caret-position="765">
+          <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc;n#sendLogInQuery#0" />
+            <element signature="n#!!block;n#sendLogInQuery#0" />
+            <element signature="n#!!doc;n#logIn#0" />
+            <element signature="n#!!block;n#logIn#0" />
+            <element signature="n#!!doc;n#takeToAccount#0" />
+            <element signature="n#!!block;n#checkUser#0" />
+            <element signature="n#!!doc;n#setLoginState#0" />
+            <element signature="n#!!block;n#setLoginState#0" />
+            <element signature="n#!!doc;n#getLoginState#0" />
+            <element signature="n#!!block;n#getLoginState#0" />
+            <element signature="n#!!doc;n#signOut#0" />
+            <element signature="n#!!block;n#signOut#0" />
+            <element signature="n#!!block;n#getUsername#0" />
+            <element signature="n#!!block;n#setUsername#0" />
+            <element signature="n#!!block;n#myAcc#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/signup.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/map.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="570">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="960">
+          <caret line="276" column="1" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc;n#sendAjaxQuery#0" />
+            <element signature="n#!!block;n#sendAjaxQuery#0" />
+            <element signature="n#!!doc;n#onSubmit#0" />
+            <element signature="n#!!block;n#onSubmit#0" />
+            <element signature="n#!!doc;n#initDB#0" />
+            <element signature="n#!!block;n#initDB#0" />
+            <element signature="n#!!doc;n#crEvent#0" />
+            <element signature="n#!!block;n#crEvent#0" />
+            <element signature="n#!!doc;n#loadEvents#0" />
+            <element signature="n#!!block;n#loadEvents#0" />
+            <element signature="n#!!doc;n#loadStories#0" />
+            <element signature="n#!!block;n#loadStories#0" />
+            <element signature="n#!!doc;n#loadMapEvents#0" />
+            <element signature="n#!!block;n#loadMapEvents#0" />
+            <element signature="n#!!doc;n#loadAccount#0" />
+            <element signature="n#!!block;n#loadAccount#0" />
+            <element signature="n#!!doc;n#loadUserEvents#0" />
+            <element signature="n#!!block;n#loadUserEvents#0" />
+            <element signature="n#!!doc;n#loadUserStories#0" />
+            <element signature="n#!!block;n#loadUserStories#0" />
+            <element signature="n#!!doc;n#displayEvents#0" />
+            <element signature="n#!!block;n#displayEvents#0" />
+            <element signature="n#!!doc;n#displayStories#0" />
+            <element signature="n#!!block;n#displayStories#0" />
+            <element signature="n#!!doc;n#displayUserEvents#0" />
+            <element signature="n#!!block;n#displayUserEvents#0" />
+            <element signature="n#!!doc;n#displayStoryEvents#0" />
+            <element signature="n#!!block;n#displayStoryEvents#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/events.js">
+    <entry file="file://$PROJECT_DIR$/public/service-worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc;n#sendSearchQuery#0" />
+            <element signature="n#!!block;n#sendSearchQuery#0" />
+            <element signature="n#!!doc;n#onSearch#0" />
+            <element signature="n#!!block;n#onSearch#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1161" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1403" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1098" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/socket-io.js" />
+    <entry file="file://$PROJECT_DIR$/public/socket-io/socket-io.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/mapSearch.js">
+    <entry file="file://$PROJECT_DIR$/views/templates/head.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#6#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="66" column="52" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/create-event.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="43" column="53" selection-start-line="43" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/account.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="80" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/view-event.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="90" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="154" column="39" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#sendLogInQuery#0" />
-            <element signature="n#!!doc;n#logIn#0" />
-            <element signature="n#!!doc;n#checkUser#0" />
-            <element signature="n#!!block;n#checkUser#0" />
-            <element signature="n#!!doc;n#getLoginState#0" />
-            <element signature="n#!!doc;n#signOut#0" />
-            <element signature="n#!!block;n#signOut#0" />
-            <element signature="n#!!doc;n#myAcc#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+        <state relative-caret-position="75">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="105">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/create-story.ejs">
+    <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+        <state relative-caret-position="166">
+          <caret line="102" column="45" lean-forward="true" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket.io/socket.io.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/account.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/test.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/message.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1103,13 +1147,23 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
         </settings>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">

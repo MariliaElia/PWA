@@ -6,7 +6,7 @@ var dbPromise;
 function initDatabase() {
     dbPromise = idb.openDb('PHOTOFEST_DB', 1, function (upgradeDb) {
         if (!upgradeDb.objectStoreNames.contains('EVENT_OS')) {
-            var eventDb = upgradeDb.createObjectStore('EVENT_OS', {keyPath: 'id', autoIncrement: true, unique: true});
+            var eventDb = upgradeDb.createObjectStore('EVENT_OS', {key: 'evid', autoIncrement: true, unique: true});
             eventDb.createIndex('title', 'title', {unique: false});
             eventDb.createIndex('description', 'description', {unique: false});
             eventDb.createIndex('date', 'date', {unique: false});
@@ -50,7 +50,7 @@ function storeCachedData(newObject, objectStore) {
         }).then(function () {
             console.log('added item to the store! '+ JSON.stringify(newObject));
         }).catch(function (error) {
-            console.log('could not add object to object store');
+            console.log('could not add object to object store' + error);
         });
     }
 }
