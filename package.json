@@ -19,9 +19,8 @@
     "popper.js": "^1.15.0",
     "fs-extra": "^7.0.1",
     "jquery": "^3.4.1",
-    "morgan": "~1.9.0",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
     "http-errors": "^1.7.2",
     "localStorage": "^1.0.4"
   }

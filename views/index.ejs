@@ -13,7 +13,7 @@
 </head>
 
 <!-- displays all events from indexedDB -->
-<body>
+<body >
 
 <% include templates/header %>
 
@@ -54,7 +54,8 @@
         <p><%=events[i].title%></p>
         <p><%=events[i].description%></p>
         <p><%=events[i].date%></p>
-        </a>
+        <script>savEvent("{title: '<%=events[i].title%>', description: '<%=events[i].description%>', date: '<%=events[i].date%>'}")</script>
+    </a>
     <% }%>
     <p id="noEvent"></p>
 </div>

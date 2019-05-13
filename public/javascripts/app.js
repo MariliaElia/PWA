@@ -1,4 +1,5 @@
 /**
+ * sendAjaxQuery
  * general function to POST form data
  * @param url - the url where data is coming from
  * @param data
@@ -18,7 +19,7 @@ function sendAjaxQuery(url, data, objectStore) {
 
             var ret = dataR;
 
-            // save to indexedDB
+            //save to indexedDB
             //storeCachedData(ret, objectStore);
             // saving data of current user in localstorage
             //takeToAccount(url, ret);
@@ -36,6 +37,8 @@ function sendAjaxQuery(url, data, objectStore) {
                 var stories = ret.stories;
                 displayEvents(events);
                 displayStories(stories);
+            } else if (url == '/signup') {
+                takeToAccount(url, ret);
             }
         },
         error: function (xhr, status, error) {
@@ -45,14 +48,15 @@ function sendAjaxQuery(url, data, objectStore) {
 }
 
 /**
+ * onSubmit
  * onsubmit for forms
  * @param url
  * @param objectStore
  */
 function onSubmit(url, objectStore) {
-    if(url == '/create-story'){
+/*    if(url == '/create-story'){
         document.getElementById("username").value = getUsername();
-    }
+    }*/
     var formArray= $("form").serializeArray();
     var data={};
     for (index in formArray){
@@ -64,6 +68,7 @@ function onSubmit(url, objectStore) {
 }
 
 /**
+ * initDB
  * body onload function for initialising the databse
  */
 function initDB() {
@@ -77,6 +82,7 @@ function initDB() {
 }
 
 /**
+ * crEvent
  * user should not be able to create event unless they are logged in
  */
 function crEvent() {
@@ -90,6 +96,7 @@ function crEvent() {
 }
 
 /**
+ * loadEvents
  * called in index.ejs to display events
  */
 function loadEvents() {
@@ -113,6 +120,7 @@ function loadEvents() {
 }
 
 /**
+ * loadStories
  * called in view-event.ejs to display stories for a specific event
  * @param eventID
  */
@@ -127,6 +135,7 @@ function loadStories(eventID) {
 }
 
 /**
+ * loadMapEvents
  * called in map.ejs to display events on map
  */
 function loadMapEvents(events) {
@@ -141,6 +150,7 @@ function loadMapEvents(events) {
 }
 
 /**
+ * loadAccount
  * called in account.ejs to load the user related data
  */
 function loadAccount() {
@@ -160,6 +170,7 @@ function loadAccount() {
 }
 
 /**
+ * loadUserEvents
  * called in loadAccount() to load events created by the user
  */
 function loadUserEvents() {
@@ -173,6 +184,7 @@ function loadUserEvents() {
 }
 
 /**
+ * loadUserStories
  * called in loadAccount() to load stories created by the user
  */
 function loadUserStories() {
@@ -186,6 +198,7 @@ function loadUserStories() {
 }
 
 /**
+ * displayEvents
  * Displays events
  * @param request - events to be displayed on the related pages
  */
@@ -208,8 +221,14 @@ function displayEvents(request) {
     }
 }
 
+function savEvent(event) {
+    console.log(event);
+    initDB();
+    storeCachedData(event, 'EVENT_OS');
+}
+
 /**
- * Displays stories
+ * displayStories
  * @param request - stories to be displayed
  */
 function displayStories(request) {
@@ -232,6 +251,7 @@ function displayStories(request) {
 }
 
 /**
+ * displayUserEvents
  * Displays events created by current user
  * @param request - events created by logged in user
  */
@@ -251,6 +271,7 @@ function displayUserEvents(request) {
 }
 
 /**
+ * displayStoryEvents
  * Displays stories created by current user
  * @param request - stories created by logged in user
  */
