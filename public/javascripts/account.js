@@ -146,3 +146,13 @@ function myAcc() {
         document.location = '/login';
     }
 }
+
+function userState() {
+    loginState = getLoginState();
+    if (loginState == 'true') {
+        return true;
+    } else {
+        document.location = '/message';
+        return false;
+    }
+}

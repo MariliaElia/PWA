@@ -19,7 +19,7 @@ function sendAjaxQuery(url, data, objectStore) {
 
             var ret = dataR;
 
-            //save to indexedDB
+            // save to indexedDB
             //storeCachedData(ret, objectStore);
             // saving data of current user in localstorage
             //takeToAccount(url, ret);
@@ -39,6 +39,8 @@ function sendAjaxQuery(url, data, objectStore) {
                 displayStories(stories);
             } else if (url == '/signup') {
                 takeToAccount(url, ret);
+            } else if (url =='/map') {
+                displayOnMap(ret);
             }
         },
         error: function (xhr, status, error) {
@@ -54,9 +56,9 @@ function sendAjaxQuery(url, data, objectStore) {
  * @param objectStore
  */
 function onSubmit(url, objectStore) {
-/*    if(url == '/create-story'){
+    if(url == '/create-story'){
         document.getElementById("username").value = getUsername();
-    }*/
+    }
     var formArray= $("form").serializeArray();
     var data={};
     for (index in formArray){
@@ -139,6 +141,15 @@ function loadStories(eventID) {
  * called in map.ejs to display events on map
  */
 function loadMapEvents(events) {
+    var formArray= $("form").serializeArray();
+    var data={};
+    for (index in formArray){
+        data[formArray[index].name]= formArray[index].value;
+    }
+
+    // adding the data to the indexedDB
+    sendAjaxQuery('/map', data, 'USER_OS');
+    event.preventDefault();
     //displayOnMap(events);
     /*if ('indexedDB' in window) {
         initDatabase();
@@ -206,7 +217,8 @@ function displayEvents(request) {
     var eventList = "";
     document.getElementById('events').innerHTML = '';
     if (request.length == 0 ) {
-        document.getElementById('noEvent').innerHTML = 'No events in the database';
+        var noEvent = "<a  class='list-group list-group-item-action stories'>No events created</a>";
+        document.getElementById('events').innerHTML = noEvent;
     } else {
         //display all the events, from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
@@ -234,7 +246,8 @@ function savEvent(event) {
 function displayStories(request) {
     var storyList = "";
     if (request.length == 0 ) {
-        document.getElementById('noEvent').innerHTML = 'No events in the database';
+        var noStory = "<a  class='list-group list-group-item-action stories'>No stories posted</a>";
+        document.getElementById('stories').innerHTML = noStory;
     } else {
     //displaying stories from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
@@ -246,8 +259,8 @@ function displayStories(request) {
                 "' id='testImg'>" +
                 "</a>";
         }
+        document.getElementById('stories').innerHTML = storyList;
     }
-    document.getElementById('stories').innerHTML = storyList;
 }
 
 /**
@@ -288,28 +301,3 @@ function displayStoryEvents(request) {
     }
     document.getElementById('stories').innerHTML = storyList;
 }
-
-/*
-var roomId;
-var userId;
-
-var socket = io();
-socket.on('updatechat', function (who,text) {
-    var div1 = document.getElementById('chat');
-    var div2 = document.createElement('div');
-    div1.appendChild(div2);
-    div2.style.backgroundColor = getChatColor(who);
-    var whoisit = (who == userId) ? 'me' : who;
-    div2.innerHTML = '<br/>' + whoisit + ':' + text + '<br/><b/>';
-});
-
-function sendText() {
-    var inpt = document.getElementById('text');
-    var text = inpt.value;
-    if (text == '')
-        return false;
-    socket.emit('sendchat', text);
-    inpt.value = '';
-    return false;
-}
- */

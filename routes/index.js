@@ -13,7 +13,10 @@ router.get('/', event.getEvents);
 router.post('/', event.searchEvents);
 
 /* MAP search */
-router.get('/map', event.getAllEvents);
+router.get('/map', function(req, res, next){
+    res.render('map', { title: 'photofest'} );
+});
+router.post('/map', event.getAllEvents);
 
 //router.get('/', event.getAllEvents)
 //Search post data
@@ -34,10 +37,7 @@ router.get('/map', event.getAllEvents);
 router.get('/view-event/:id', event.getEventData)
 
 //CREATE STORY get and post
-router.get('/create-story/:id', function(req, res, next) {
-    var eventID = req.params.id;
-    res.render('create-story', { title: 'photofest', eventID: eventID});
-});
+router.get('/create-story/:id', event.getEventTitle)
 
 /*router.post('/create-story', function(req, res, next) {
     var storyData = req.body;

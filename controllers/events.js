@@ -8,45 +8,60 @@ exports.getAllEvents = function (req, res) {
             function (err, events) {
                 if (err)
                     res.status(500).send('Invalid data!');
-                res.render('map', { title: 'photofest', events: events});
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(events));
             });
     }
     catch (e) {
         res.status(500).send('error ' + e);
     }
 }
+
 //Search for an event
 exports.searchEvents = function (req, res) {
     var searchData = req.body;
     var eventName = searchData.eventName;
     var eventDate = searchData.date;
+    var noEvents = 'noEvents';
     try {
         if ((eventName != "" ) && (eventDate != "")) {
             Event.find({title: eventName, date: eventDate},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else if ((eventDate == "") && (eventName!= "")) {
             Event.find({title: eventName},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else if ((eventDate != "") && (eventName == "")){
             Event.find({date: eventDate},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
-
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(events));
+                    if (events.length > 0) {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(events));
+                    } else {
+                        res.setHeader('Content-Type', 'application/json');
+                        res.send(JSON.stringify(noEvents));
+                    }
                 });
         } else {
             var events = '';
@@ -129,6 +144,22 @@ exports.getUserEventsStories = function (req, res) {
         res.status(500).send('error '+ e);
     }
 
+}
+
+exports.getEventTitle = function(req, res){
+    var eventID = req.params.id;
+    var objectID = new ObjectId(eventID);
+    try {
+        Event.findOne({_id: objectID},
+        function (err, event) {
+            if (err)
+                res.status(500).send('Invalid data!');
+            var eventTitle = event.title;
+            res.render('create-story', {title: 'photofest', eventID: eventID, eventTitle: eventTitle});
+        });
+    } catch (e) {
+        res.status(500).send('error ' + e);
+    }
 }
 
 //Insert Event in the database

@@ -12,7 +12,9 @@ function sendSearchQuery(url, data) {
         success: function (dataR) {
             if (dataR == ''){
                 alert('Please fill in the form to search!');
-            } else {
+            } else if (dataR == 'noEvents') {
+                document.getElementById("events").innerHTML = "No Events Found!";
+            }else{
                 displayEvents(dataR);
             }
 
