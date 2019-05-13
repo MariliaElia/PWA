@@ -13,7 +13,10 @@ router.get('/', event.getEvents);
 router.post('/', event.searchEvents);
 
 /* MAP search */
-router.get('/map', event.getAllEvents);
+router.get('/map', function(req, res, next){
+    res.render('map', { title: 'photofest'} );
+});
+router.post('/map', event.getAllEvents);
 
 //router.get('/', event.getAllEvents)
 //Search post data

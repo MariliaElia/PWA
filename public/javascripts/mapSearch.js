@@ -8,20 +8,16 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 /**
  * creates a marker for all events, on the map
  */
-document.onload = function() {
-    var events = document.getElementById("events").value
-    for (var event of events) {
-        var lat = event.latitude;
-        var lon = event.longitude;
-        var marker = L.marker([lat, lon]).addTo(mymap);
-    }
-}
-
-/*
 function displayOnMap(events) {
     for (var event of events) {
         var lat = event.latitude;
         var lon = event.longitude;
         var marker = L.marker([lat, lon]).addTo(mymap);
+        var eventTitle = event.title;
+        var eventDescription = event.description;
+        var eventDate = event.date;
+        var eventAuthor = event.username;
+        marker.bindPopup("<b>"+eventTitle+"</b><br>"+eventDescription+"<br>"+
+            eventDate+"<br>"+ eventAuthor);
     }
-}*/
+}

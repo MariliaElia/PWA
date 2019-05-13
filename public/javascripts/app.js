@@ -38,6 +38,8 @@ function sendAjaxQuery(url, data, objectStore) {
                 displayStories(stories);
             } else if (url == '/signup') {
                 takeToAccount(url, ret);
+            } else if (url =='/map') {
+                displayOnMap(ret);
             }
         },
         error: function (xhr, status, error) {
@@ -132,6 +134,15 @@ function loadStories(eventID) {
  * called in map.ejs to display events on map
  */
 function loadMapEvents(events) {
+    var formArray= $("form").serializeArray();
+    var data={};
+    for (index in formArray){
+        data[formArray[index].name]= formArray[index].value;
+    }
+
+    // adding the data to the indexedDB
+    sendAjaxQuery('/map', data, 'USER_OS');
+    event.preventDefault();
     //displayOnMap(events);
     /*if ('indexedDB' in window) {
         initDatabase();

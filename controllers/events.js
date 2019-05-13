@@ -8,13 +8,15 @@ exports.getAllEvents = function (req, res) {
             function (err, events) {
                 if (err)
                     res.status(500).send('Invalid data!');
-                res.render('map', { title: 'photofest', events: events});
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(events));
             });
     }
     catch (e) {
         res.status(500).send('error ' + e);
     }
 }
+
 //Search for an event
 exports.searchEvents = function (req, res) {
     var searchData = req.body;
