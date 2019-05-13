@@ -2,6 +2,11 @@ var Event = require('../models/events');
 var Story = require('../models/stories');
 var ObjectId = require('mongodb').ObjectId;
 
+/**
+ * Get all the events in the database to show them on the map
+ * @param req
+ * @param res
+ */
 exports.getAllEvents = function (req, res) {
     try {
         Event.find(
@@ -17,7 +22,12 @@ exports.getAllEvents = function (req, res) {
     }
 }
 
-//Search for an event
+/**
+ * Gets the search data from form and searches the database to return
+ * the appropriate results
+ * @param req
+ * @param res
+ */
 exports.searchEvents = function (req, res) {
     var searchData = req.body;
     var eventName = searchData.eventName;
@@ -65,19 +75,21 @@ exports.searchEvents = function (req, res) {
                 });
         } else {
             var events = '';
-
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(events));
         }
-
-
     }
     catch (e) {
         res.status(500).send('error ' + e);
     }
 }
 
-//Display stories of event currenlty displayed
+/**
+ * Get the eventID of event currenlty displayed and
+ * find the stories posted for that event
+ * @param req
+ * @param res
+ */
 exports.getEventData = function (req, res) {
     var eventID = req.params.id;
     var objectID = new ObjectId(eventID);
@@ -100,7 +112,11 @@ exports.getEventData = function (req, res) {
     }
 }
 
-//Get 5 latest events in the database and display then in index page
+/**
+ * Find 5 latest events in the database and send them in index page
+ * @param req
+ * @param res
+ */
 exports.getEvents = function (req, res) {
     var eventNum = 5;
     try {
@@ -119,7 +135,11 @@ exports.getEvents = function (req, res) {
     }
 }
 
-//Get Events created by the current user logged in
+/**
+ * Find Events created by the current user logged in
+ * @param req
+ * @param res
+ */
 exports.getUserEventsStories = function (req, res) {
     var userData = req.body;
     var username = userData.username;
@@ -146,6 +166,12 @@ exports.getUserEventsStories = function (req, res) {
 
 }
 
+/**
+ * Get the eventID for the event the story is currently created and
+ * find the title of that event
+ * @param req
+ * @param res
+ */
 exports.getEventTitle = function(req, res){
     var eventID = req.params.id;
     var objectID = new ObjectId(eventID);
@@ -162,7 +188,11 @@ exports.getEventTitle = function(req, res){
     }
 }
 
-//Insert Event in the database
+/**
+ * Get event data from the form and add in the database
+ * @param req
+ * @param res
+ */
 exports.insertEvent = function (req, res) {
     var eventData = req.body;
     if (eventData == null) {

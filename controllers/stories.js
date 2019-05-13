@@ -1,6 +1,11 @@
 var Story = require('../models/stories');
 var ObjectId = require('mongodb').ObjectId;
 
+/**
+ * Get story data from form and insert story to the database
+ * @param req
+ * @param res
+ */
 exports.insertStory = function (req, res) {
     var storyData = req.body;
     var eventID = storyData.eventID;

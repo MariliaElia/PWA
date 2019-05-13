@@ -147,6 +147,12 @@ function myAcc() {
     }
 }
 
+/**
+ * Check the user state when they click create story
+ * If not logged in, message page gets displayed so that they go to login page
+ * else create story page displayed
+ * @returns {boolean}
+ */
 function userState() {
     loginState = getLoginState();
     if (loginState == 'true') {

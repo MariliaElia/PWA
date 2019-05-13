@@ -7,97 +7,62 @@ var event = require('../controllers/events');
 var user = require('../controllers/users');
 var story = require('../controllers/stories');
 
-/* GET home page. */
+/*GET index page*/
 router.get('/', event.getEvents);
 
+/*POST event date and name from form to search for events*/
 router.post('/', event.searchEvents);
 
-/* MAP search */
+/*GET map search page*/
 router.get('/map', function(req, res, next){
     res.render('map', { title: 'photofest'} );
 });
+
+/*Get all events from database*/
 router.post('/map', event.getAllEvents);
 
-//router.get('/', event.getAllEvents)
-//Search post data
-/*router.post('/', function(req, res, next) {
-    var searchData = req.body;
-    if (searchData == null) {
-        res.status(403).send('No data sent!')
-    }
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(searchData));
-});*/
-
-/*router.get('/view-event/:id', function(req, res, next){
-    var eventID = req.params.id;
-    res.render('view-event', { title: 'photofest', eventID: eventID} );
-});*/
-
+/*GET view-event page*/
 router.get('/view-event/:id', event.getEventData)
 
-//CREATE STORY get and post
+/*GET create-story page*/
 router.get('/create-story/:id', event.getEventTitle)
 
-/*router.post('/create-story', function(req, res, next) {
-    var storyData = req.body;
-    if (storyData == null) {
-        res.status(403).send('No data sent!')
-    }
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(storyData));
-});*/
-
+/*POST data from create-story form to insert in the database*/
 router.post('/create-story',story.insertStory );
 
+/*GET Account Page*/
 router.get('/account', function(req, res, next) {
     res.render('account', {title: 'photofest'});
 });
 
+/*POST username of user logged In and get user events and stories*/
 router.post('/account', event.getUserEventsStories)
 
-/* CREATE EVENT get and post */
+/*GET create-event page*/
 router.get('/create-event', function(req, res, next) {
     res.render('create-event', {title: 'photofest'});
   });
 
+/*POST data from create-event form and insert into dtabase*/
 router.post('/create-event', event.insertEvent)
 
-/*router.post('/create-event', function(req, res, next) {
-    var eventData = req.body;
-    if (eventData == null) {
-        res.status(403).send('No data sent!')
-    }
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(eventData));
-});*/
-
-/* LOGIN get and post */
+/*GET login page*/
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'photofest'});
 });
 
+/*POST user data from login form to log them in*/
 router.post('/login', user.signUser);
 
-/*
-router.post( '/login', function (req,res,next) {
-    var userData = req.body;
-    if (userData == null) {
-        res.status(403).send('No data sent!')
-    }
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(userData));
-});
-*/
-
-/* SIGN UP get and post */
+/*GET signup page*/
 router.get('/signup', function(req, res, next) {
     res.render('signup', { title: 'photofest'});
 });
 
+/*POST user data from sign up form and insert into database*/
 router.post('/signup', user.insert);
 
-/* MESSAGE page for logging in when creating an event */
+/* MESSAGE page for logging in when creating an event or story if not logged In*/
 router.get('/message', function(req, res, next) {
     res.render('message', { title: 'photofest'});
 });
