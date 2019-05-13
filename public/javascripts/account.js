@@ -11,9 +11,15 @@ function sendLogInQuery(url, data) {
         type: 'POST',
         success: function (dataR) {
             var ret = dataR;
-
-            // checks if user is registered
-            checkUser(ret);
+            if (ret.data == "wrongData") {
+                alert("Incorrect password!");
+            } else if (ret.data == "unregistered") {
+                alert("Please register!");
+            } else {
+                takeToAccount('/login', ret);
+                // checks if user is registered
+                //checkUser(ret);
+            }
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
@@ -30,8 +36,12 @@ function logIn() {
     for (index in formArray){
         data[formArray[index].name]= formArray[index].value;
     }
-    sendLogInQuery('/login', data);
-    event.preventDefault();
+    if (data.username == '' || data.password == ''){
+        alert("Please fill in all the fields to log in!");
+    } else {
+        sendLogInQuery('/login', data);
+        event.preventDefault();
+    }
 }
 
 /**
@@ -59,6 +69,7 @@ function takeToAccount(url, data) {
 function checkUser(ret) {
     username = ret.username;
     password = ret.password;
+    takeToAccount('/login', ret);
     if (dbPromise) {
         dbPromise.then(function (db) {
             var tx = db.transaction('USERS', 'readonly');

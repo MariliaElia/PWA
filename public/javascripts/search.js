@@ -10,8 +10,13 @@ function sendSearchQuery(url, data) {
         dataType: 'json',
         type: 'POST',
         success: function (dataR) {
-            var ret = dataR;
-            eventName = ret.eventName;
+            if (dataR == ''){
+                alert('Please fill in the form to search!');
+            } else {
+                displayEvents(dataR);
+            }
+
+            /*eventName = ret.eventName;
             date = ret.date;
 
             if ((eventName != "" ) && (date != "")) {
@@ -22,7 +27,7 @@ function sendSearchQuery(url, data) {
                 getDateSearch(date);
             } else {
                 alert('Please fill in the form to search!');
-            }
+            }*/
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);

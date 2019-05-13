@@ -23,7 +23,8 @@ mymap.on('click', function (e) {
  */
 function LatLng(){
     document.getElementById("lat").value = lat;
-    console.log("This is lat: " + lat);
     document.getElementById("lon").value = lon;
-    console.log("This is lon: " + lon);
+
+    //Saving the current users username
+    document.getElementById("username").value = getUsername();
 }

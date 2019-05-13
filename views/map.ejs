@@ -12,15 +12,24 @@
 </head>
 
 <!-- showing the events as pins on the map -->
-<body onload="loadMapEvents()">
+<body>
     <% include templates/header %>
-    <div id="mapid" ></div>
-    <script src="/javascripts/mapSearch.js"></script>
-
+    <input id="events" type="hidden" class="'form-control" name="events" value="<%events%>"/>
+    <div id="mapid"></div>
+    <div class="content" id = "events" >
+        <%for (var i=events.length-1; i>= 0; i--) {%>
+            <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action'>
+                <p><%=events[i].title%></p>
+                <p><%=events[i].description%></p>
+                <p><%=events[i].date%></p>
+            </a>
+        <% }%>
+        <p id="noEvent"></p>
+    </div>
 
     <footer>
     <% include templates/footer %>
-</footer>
+    </footer>
 
 </body>
 
