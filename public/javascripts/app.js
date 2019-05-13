@@ -79,7 +79,7 @@ function crEvent() {
         document.location = ('/create-event');
     }
     else {
-        document.location = '/test';
+        document.location = '/message';
     }
 }
 
@@ -251,3 +251,28 @@ function displayStoryEvents(request) {
     }
     document.getElementById('stories').innerHTML = storyList;
 }
+
+/*
+var roomId;
+var userId;
+
+var socket = io();
+socket.on('updatechat', function (who,text) {
+    var div1 = document.getElementById('chat');
+    var div2 = document.createElement('div');
+    div1.appendChild(div2);
+    div2.style.backgroundColor = getChatColor(who);
+    var whoisit = (who == userId) ? 'me' : who;
+    div2.innerHTML = '<br/>' + whoisit + ':' + text + '<br/><b/>';
+});
+
+function sendText() {
+    var inpt = document.getElementById('text');
+    var text = inpt.value;
+    if (text == '')
+        return false;
+    socket.emit('sendchat', text);
+    inpt.value = '';
+    return false;
+}
+ */

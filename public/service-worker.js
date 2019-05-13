@@ -21,7 +21,6 @@ var filesToCache = [
     '/create-event',
     '/create-story/:id',
     '/login',
-    '/test',
     '/view-event/:id',
     '/javascripts/app.js',
 
@@ -129,10 +128,13 @@ self.addEventListener('fetch', function (event) {
                 if (response) {
                     return response;
                 }
-                return fetch(event.request);
+                return fetch(event.request.destination);
             })
     )
 });
+
+
+
     //var dataUrl = '/';
     //if the request is '/weather_data', post to the server
     //if (event.request.url.indexOf(dataUrl) > -1) {
