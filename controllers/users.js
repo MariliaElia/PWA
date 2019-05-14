@@ -1,4 +1,5 @@
 var User = require('../models/users');
+var bcrypt = require('bcryptjs');
 
 //Get User Data when logging in
 exports.signUser = function (req,res) {
@@ -15,11 +16,25 @@ exports.signUser = function (req,res) {
                 ret.status(500).send('Invalid data!');
             if (user != null) {
                 console.log("Username: " + user.username);
-                if (user.username == username && user.password == password) {
+
+                if (user.username == username) { // && user.password == password) {
                     //User exists and password is correct
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify(userData));
-                }else{
+                    bcrypt.compare(password, user.password, function(err, correct) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        //Checks if password is correct
+                        if (correct) {
+                            res.setHeader('Content-Type', 'application/json');
+                            res.send(JSON.stringify(userData));
+                            console.log('password correct');
+                        }
+                        else {
+                            res.setHeader('Content-Type', 'text/html');
+                            res.send(JSON.stringify({data: "wrongData"}));
+                        }
+                    });
+                } else {
                     //User wrote incorrect password
                     res.setHeader('Content-Type', 'text/html');
                     res.send(JSON.stringify({data: "wrongData"}));
@@ -49,7 +64,7 @@ exports.insert = function (req, res) {
                 if (user != null) {
                     console.log("Username is taken");
                 } else {
-                    //Add user data to he database
+                    //Add user data to the database
                     var user = new User({
                         username: userData.username,
                         name: userData.name,
