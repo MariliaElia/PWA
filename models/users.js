@@ -12,6 +12,7 @@ var User = new Schema(
     }
 );
 
+//Encrypts password before saving to database
 User.pre('save', function (next) {
     let user = this;
     console.log('saving password');

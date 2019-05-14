@@ -14,22 +14,24 @@
 
         <h2 class="photofestheading">Log in</h2>
         <!-- form for logging in -->
-        <form id="loginForm" onsubmit="logIn()">
+        <form id="loginForm" action="/login" method="POST">
 
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" class="form-control">
             </div>
+
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" name="password"  class="form-control">
+                <input type="password" name="password" class="form-control">
             </div>
-            <a href="account">
+
+
             <input type="submit" name="log-in" id="log-in" value="Log in" class="btn btn-info btn-md btn-mid">
-            </a>
+
         </form>
         <br>
-        <p>Do not have an account? sign up<a href="signup"> here. </a></p>
+        <p>Do not have an account? Sign up<a href="signup"> here. </a></p>
     </div>
 
 <footer>

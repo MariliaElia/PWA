@@ -18,7 +18,7 @@ exports.insertStory = function (req, res) {
             eventID: objectID,
             storyDescription: storyData.storyDescription,
             storyImage: storyData.storyImage,
-            username: storyData.username,
+            username: req.user.username,
         });
         console.log('received: ' + story);
 

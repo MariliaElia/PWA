@@ -9,9 +9,11 @@
 <body onload="loadAccount()">
     <% include templates/header %>
     <div class="container">
+        <%#
         <form name="account" id="account" onload="document.account.submit()" method="post" onsubmit="return false">
             <input id="username" type="hidden" class="'form-control" name="username"/>
         </form>
+        %>
         <div id="account-header" class="card mb-3">
             <div class="d-flex flex-nowrap row no-gutters">
                 <div class="col-md-1">
@@ -19,7 +21,10 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card-body" id="accountHeader"></div>
+                <div class="card-body" id="accountHeader">
+                    <h1><%= user.name %></h1>
+                    <h3><%= user.username %></h1>
+                </div>
             </div>
         </div>
         <!-- Nav pills -->
@@ -41,7 +46,7 @@
         </div>
         <div id="noEvent"></div>
         <!-- link for signing out takes to login page -->
-        <a onclick="signOut()" class="sign-out-btn" href="login">Sign out</a>
+        <a class="sign-out-btn" href="/logout">Sign out</a>
         <footer>
             <% include templates/footer %>
             <br>

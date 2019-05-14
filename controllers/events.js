@@ -141,9 +141,13 @@ exports.getEvents = function (req, res) {
  * @param res
  */
 exports.getUserEventsStories = function (req, res) {
-    var userData = req.body;
-    var username = userData.username;
-    if (userData == null) {
+    //var userData = req.body;
+    var username = req.user.username;
+
+    //console.log(userData);
+    console.log(username);
+
+    if (username == null) {
         res.status(403).send('No data sent!')
     }
     try {
@@ -205,7 +209,7 @@ exports.insertEvent = function (req, res) {
             date: eventData.date,
             latitude: eventData.latitude,
             longitude: eventData.longitude,
-            username: eventData.username
+            username: req.user.username
         });
         console.log('received: ' + event);
 

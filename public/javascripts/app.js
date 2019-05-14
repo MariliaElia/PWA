@@ -165,10 +165,10 @@ function loadMapEvents(events) {
  * called in account.ejs to load the user related data
  */
 function loadAccount() {
-    username = localStorage.getItem('username');
+    //username = localStorage.getItem('username');
     //sets the value of html tag to the username
-    document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
-    document.getElementById('username').value = username;
+    //document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
+    //document.getElementById('username').value = username;
     var formArray= $("form").serializeArray();
     var data={};
     for (index in formArray){
