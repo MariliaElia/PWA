@@ -62,6 +62,7 @@ router.get('/login', auth.forwardAuthenticated, function (req, res) {
     res.render('login', {title: 'photofest'});
 });
 
+/*POST redirect to account page*/
 router.post('/login',
         passport.authenticate('local', {
             successRedirect: '/account',
@@ -78,6 +79,7 @@ router.get('/signup', auth.forwardAuthenticated, function (req, res) {
 /*POST user data from sign up form and insert into database*/
 router.post('/signup', user.insert);
 
+/*GET logout page, redirects to log in page*/
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/login');

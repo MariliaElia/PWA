@@ -74,6 +74,16 @@ function onSubmit(url, objectStore) {
  * body onload function for initialising the databse
  */
 function initDB() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./service-worker.js')
+            .then(function () {
+                console.log('Service Worker Registered');
+            })
+            .catch (function (error){
+                console.log('Service Worker NOT Registered '+ error.message);
+            });
+    }
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
@@ -102,16 +112,6 @@ function crEvent() {
  * called in index.ejs to display events
  */
 function loadEvents() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('./service-worker.js')
-            .then(function () {
-                console.log('Service Worker Registered');
-            })
-            .catch (function (error){
-                console.log('Service Worker NOT Registered '+ error.message);
-            });
-    }
     if ('indexedDB' in window) {
         initDatabase();
         // retrieving from the indexedDB

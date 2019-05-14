@@ -28,7 +28,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(express.static("public"));
-app.use(session({ secret: "cats" }));
+app.use(session({ secret: "cats", cookie: { secure: true }}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
