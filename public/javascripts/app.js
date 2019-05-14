@@ -32,6 +32,9 @@ function sendAjaxQuery(url, data, objectStore) {
             // take back to home page after creating a new event
             else if (url == '/create-event') {
                 document.location = '/';
+                /*var eventTitle = ret.title;
+                sendText('An event was added: ' + eventTitle);*/
+
             } else if (url == '/account'){
                 var events = ret.events;
                 var stories = ret.stories;
