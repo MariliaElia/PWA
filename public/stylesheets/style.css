@@ -161,3 +161,16 @@ a {
     position: relative;
     border-bottom: solid 2px lightgray;
 }
+
+.comment {
+    border-radius: 5px;
+}
+.usercomment {
+    padding: 5px;
+    width: 70%;
+}
+
+.camera {
+    margin:auto;
+}
+

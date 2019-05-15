@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+
 var passport = require('passport');
 //router.use(bodyParser.urlencoded({extended: false}));
 
@@ -25,13 +26,16 @@ router.get('/map', function(req, res, next){
 router.post('/map', event.getAllEvents);
 
 /*GET view-event page*/
-router.get('/view-event/:id', event.getEventData)
+router.get('/view-event/:id', event.getEventData);
 
 /*GET create-story page*/
+router.get('/create-story/:id', event.getEventTitle);
 router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 
 /*POST data from create-story form to insert in the database*/
 router.post('/create-story', story.insertStory );
+
+router.get('/view-story/:id', story.getStoryData);
 
 /*GET Account Page*/
 //router.get('/account', auth.checkAccount,event.getUserEventsStories);

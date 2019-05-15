@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../javascripts/comment.js"></script>
     <% include templates/head %>
 </head>
 
@@ -15,9 +17,11 @@
 
         <div class="list-group list-group-item stories" id="stories">
             <%for (var i=stories.length-1; i>= 0; i--) {%>
-                <a  class='list-group list-group-item-action stories'>
-                    <p>Description: <%=stories[i].storyDescription%></p>
-                    <img src='<%= stories[i].storyImage%>' id='testImg'>
+                <a href='/view-story/<%= stories[i]._id %>' class='list-group list-group-item-action'>
+                    <div class='list-group stories'>
+                        <p>Description: <%=stories[i].storyDescription%></p>
+                        <img src='<%= stories[i].storyImage%>' id='testImg'>
+                    </div>
                 </a>
             <% }%>
         </div>
