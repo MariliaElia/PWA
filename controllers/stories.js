@@ -56,12 +56,13 @@ exports.insertStory = function (req, res) {
 exports.getStoryData = function (req, res) {
     var storyID = req.params.id;
     var objectID = new ObjectId(storyID);
+    var user = req.user;
     try {
         Story.findOne({_id: objectID},
             function (error, story) {
                 if (error)
                     res.status(500).send('invalid story id');
-                res.render('view-story', {title: 'photofest', story: story});
+                res.render('view-story', {title: 'photofest', story: story, user: user});
             });
     }
     catch (e) {
