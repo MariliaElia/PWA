@@ -153,14 +153,6 @@ function loadMapEvents(events) {
     // adding the data to the indexedDB
     sendAjaxQuery('/map', data, 'USER_OS');
     event.preventDefault();
-    //displayOnMap(events);
-    /*if ('indexedDB' in window) {
-        initDatabase();
-        //gets all events and displays then on map
-        getAllEvents();
-    } else {
-        console.log('This browser doesn\'t support IndexedDB');
-    }*/
 }
 
 /**
@@ -236,10 +228,18 @@ function displayEvents(request) {
     }
 }
 
-function savEvent(event) {
-    console.log(event);
-    initDB();
-    storeCachedData(event, 'EVENT_OS');
+function saveEvent(events) {
+    //check for support
+    if ('indexedDB' in window) {
+        initDatabase();
+    }
+    else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+    var data={};
+    for (event in events) {
+        storeCachedData(events[event], 'EVENT_OS');
+    }
 }
 
 /**

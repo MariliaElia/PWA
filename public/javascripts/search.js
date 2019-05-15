@@ -18,21 +18,13 @@ function sendSearchQuery(url, data) {
                 displayEvents(dataR);
             }
 
-            /*eventName = ret.eventName;
-            date = ret.date;
-
-            if ((eventName != "" ) && (date != "")) {
-                getEventDateSearch(eventName, date);
-            } else if ((date == "") && (eventName!= "")) {
-                getEventSearch(eventName);
-            } else if ((date != "") && (eventName == "")){
-                getDateSearch(date);
-            } else {
-                alert('Please fill in the form to search!');
-            }*/
         },
         error: function (xhr, status, error) {
-            alert('Error: ' + error.message);
+            showOfflineWarning();
+            loadEvents();
+            const dvv= document.getElementById('offline_div');
+            if (dvv!=null)
+                dvv.style.display='block';
         }
     });
 }
@@ -47,5 +39,33 @@ function onSearch() {
         data[formArray[index].name]= formArray[index].value;
     }
     sendSearchQuery('/', data);
-    event.preventDefault();
+}
+
+/**
+ * When the client gets off-line, it shows an off line warning to the user
+ * so that it is clear that the data is stale
+ */
+window.addEventListener('offline', function(e) {
+    // Queue up events for server.
+    console.log("You are offline");
+    showOfflineWarning();
+}, false);
+
+/**
+ * When the client gets online, it hides the off line warning
+ */
+window.addEventListener('online', function(e) {
+    // Resync data with server.
+    console.log("You are online");
+    hideOfflineWarning();
+}, false);
+
+function showOfflineWarning(){
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').style.display='block';
+}
+
+function hideOfflineWarning(){
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').style.display='none';
 }

@@ -41,7 +41,7 @@ router.get('/view-story/:id', story.getStoryData);
 //router.get('/account', auth.checkAccount,event.getUserEventsStories);
 
 router.get('/account', auth.checkAccount, function(req, res, next) {
-    console.log(req.user);
+    console.log(req.user.username);
     res.render('account', { title: 'photofest', user: req.user });
 });
 

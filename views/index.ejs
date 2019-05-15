@@ -5,12 +5,12 @@
 </head>
 
 <!-- displays all events from indexedDB -->
-<body >
+<body onload="initDB()">
 
 <% include templates/header %>
 
 <div class="search">
-
+    <div class="offline_div" id="offline_div" style="display: none">You are offline</div>
     <!-- form for searching events -->
     <form id="searchForm" onsubmit="onSearch()">
         <div class="form-group">
@@ -42,15 +42,17 @@
 
 <!-- DISPLAYING LATEST EVENTS -->
 <div class="content" id = "events" >
+    <script>var list = [];</script>
     <%for (var i=events.length-1; i>= 0; i--) {%>
     <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action'>
         <p><%=events[i].title%></p>
         <p><%=events[i].description%></p>
         <p><%=events[i].date%></p>
-        <script>savEvent("{title: '<%=events[i].title%>', description: '<%=events[i].description%>', date: '<%=events[i].date%>'}")</script>
+        <script>list.push({title:"<%=events[i].title%>", description:"<%=events[i].description%>", date:"<%=events[i].date%>"})</script>
     </a>
     <% }%>
-    <p id="noEvent"></p>
+        <script>saveEvent(list)</script>
+        <p id="noEvent"></p>
 </div>
 
 <!-- script for keeping the title sticky -->
