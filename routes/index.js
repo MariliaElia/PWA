@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+
 //router.use(bodyParser.urlencoded({extended: false}));
 
 var event = require('../controllers/events');
@@ -22,13 +23,15 @@ router.get('/map', function(req, res, next){
 router.post('/map', event.getAllEvents);
 
 /*GET view-event page*/
-router.get('/view-event/:id', event.getEventData)
+router.get('/view-event/:id', event.getEventData);
 
 /*GET create-story page*/
-router.get('/create-story/:id', event.getEventTitle)
+router.get('/create-story/:id', event.getEventTitle);
 
 /*POST data from create-story form to insert in the database*/
 router.post('/create-story',story.insertStory );
+
+router.get('/view-story/:id', story.getStoryData);
 
 /*GET Account Page*/
 router.get('/account', function(req, res, next) {
@@ -65,6 +68,17 @@ router.post('/signup', user.insert);
 /* MESSAGE page for logging in when creating an event or story if not logged In*/
 router.get('/message', function(req, res, next) {
     res.render('message', { title: 'photofest'});
+});
+
+router.get('/test', function (req, res) {
+    res.render('test');
+});
+
+router.get('/take-image', function (req,res) {
+    res.render('take-image', { title: 'photofest'});
+});
+
+router.post('/take-image', function(req, res, next) {
 });
 
 module.exports = router;

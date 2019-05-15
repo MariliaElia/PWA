@@ -9,7 +9,7 @@ socket.on('sendcomment', function (comment) {
     div2.style.padding = '3px';
     div2.style.lineHeight = '30px';
     div2.style.width = '70%';
-    div2.innerHTML = comment + '<br/>';
+    div2.innerHTML = comment + ' ~username';
 });
 
 function sendComment(comment) {

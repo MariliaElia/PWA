@@ -2,39 +2,66 @@
 <html lang="en">
 
 <head>
+    <script src="/socket.io/socket.io.js"></script>
     <% include templates/head %>
-
+    <script src="/javascripts/take-image.js"></script>
 </head>
 
 <!-- initialises the indexedDB -->
 <body onload="initDB()">
-
 <% include templates/header %>
-
 <div class="form-container">
     <div class="panel panel-default">
         <h2 class="photofestheading">Create Story</h2>
         <!-- form to create story -->
         <form id="story" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
-                <label for="event-name">For event: <a href="/view-event/<%=eventID%>"><%= eventTitle %></a></label>
+                <label for="event-name">For: <a href="/view-event/<%=eventID%>"><%= eventTitle %></a></label>
                 <input type="hidden" name="eventID" value="<%= eventID %>">
             </div>
             <div class="form-group">
                 <label for="storyDescription">Description:</label>
                 <input type="text" name="storyDescription"  class="form-control" id="formGroupExampleInput">
             </div>
+
             <div class="form-group">
-                <label for="image">Image:</label>
-                <input type="file" onchange="readURL(this);" class="form-control" id="formGroupExampleInput"/>
-                <img id="usrImg" src="http://placehold.it/180" />
-                <input type="hidden" id="bits" name="storyImage">
+                <input id="imgdata" name="imgdata" type="hidden"/>
+            </div>
+
+            <!-- TAKE PHOTO -->
+            <div class="form-group">
+                <label for="image">Take a Photo:</label>
+                <a class="btn btn-md" data-toggle="collapse" href="#takePhoto" role="button" aria-expanded="false" aria-controls="takePhoto">
+                    <img onclick="startup()" src="/stylesheets/icons/photo-camera.png" style="width:30px; height:30px" title="Take Photo" alt="Take Photo">
+                </a>
+                <a class="btn btn-md" data-toggle="collapse" href="#takePhoto" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <img onclick="stop()" src="/stylesheets/icons/cancel-button.png" style="width:30px; height:30px" title="Take Photo" alt="Take Photo">
+                </a>
+
+            <div class="collapse" id="takePhoto">
+                    <div class="card card-body">
+                        <div class="camera">
+                            <video id="video">video stream not available</video>
+                            <img id="startbutton" src="/stylesheets/icons/take-a-picture.png" style="width:30px; height:30px" title="Take Photo" alt="Take Photo">
+                        </div>
+
+                        <canvas style="display:none;" id="canvas">
+                        </canvas>
+
+                        <div class="camera">
+                            <img id="photo" alt="the screen capture will appear in this box">
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <div class="form-group">
                 <input id="username" type="hidden" name="username">
             </div>
-            <input type="submit" name="g" id="g" value="Submit" class="btn btn-info btn-md">
+            <input type="submit" name="g" id="g" value="Post" class="btn btn-info btn-md">
         </form>
+
     </div>
 </div>
 <footer>
