@@ -2,11 +2,14 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
 //router.use(bodyParser.urlencoded({extended: false}));
 
 var event = require('../controllers/events');
 var user = require('../controllers/users');
 var story = require('../controllers/stories');
+
+var auth = require('../config/auth');
 
 /*GET index page*/
 router.get('/', event.getEvents);
@@ -27,58 +30,63 @@ router.get('/view-event/:id', event.getEventData);
 
 /*GET create-story page*/
 router.get('/create-story/:id', event.getEventTitle);
+router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 
 /*POST data from create-story form to insert in the database*/
-router.post('/create-story',story.insertStory );
+router.post('/create-story', story.insertStory );
 
 router.get('/view-story/:id', story.getStoryData);
 
 /*GET Account Page*/
-router.get('/account', function(req, res, next) {
-    res.render('account', {title: 'photofest'});
+//router.get('/account', auth.checkAccount,event.getUserEventsStories);
+
+router.get('/account', auth.checkAccount, function(req, res, next) {
+    console.log(req.user);
+    res.render('account', { title: 'photofest', user: req.user });
 });
 
 /*POST username of user logged In and get user events and stories*/
 router.post('/account', event.getUserEventsStories)
 
 /*GET create-event page*/
-router.get('/create-event', function(req, res, next) {
+router.get('/create-event', auth.checkAuthenticated, function(req, res, next) {
     res.render('create-event', {title: 'photofest'});
   });
 
-/*POST data from create-event form and insert into dtabase*/
+/*POST data from create-event form and insert into database*/
 router.post('/create-event', event.insertEvent)
-
-/*GET login page*/
-router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'photofest'});
-});
-
-/*POST user data from login form to log them in*/
-router.post('/login', user.signUser);
-
-/*GET signup page*/
-router.get('/signup', function(req, res, next) {
-    res.render('signup', { title: 'photofest'});
-});
-
-/*POST user data from sign up form and insert into database*/
-router.post('/signup', user.insert);
 
 /* MESSAGE page for logging in when creating an event or story if not logged In*/
 router.get('/message', function(req, res, next) {
     res.render('message', { title: 'photofest'});
 });
 
-router.get('/test', function (req, res) {
-    res.render('test');
+/*GET login page*/
+router.get('/login', auth.forwardAuthenticated, function (req, res) {
+    res.render('login', {title: 'photofest'});
 });
 
-router.get('/take-image', function (req,res) {
-    res.render('take-image', { title: 'photofest'});
+/*POST redirect to account page*/
+router.post('/login',
+        passport.authenticate('local', {
+            successRedirect: '/account',
+            failureRedirect: '/login',
+            failureFlash: true
+        })
+);
+
+/*GET signup page*/
+router.get('/signup', auth.forwardAuthenticated, function (req, res) {
+    res.render('signup', {title: 'photofest'});
 });
 
-router.post('/take-image', function(req, res, next) {
+/*POST user data from sign up form and insert into database*/
+router.post('/signup', user.insert);
+
+/*GET logout page, redirects to log in page*/
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/login');
 });
 
 module.exports = router;

@@ -1,5 +1,47 @@
 var User = require('../models/users');
 var bcrypt = require('bcryptjs');
+var LocalStrategy = require('passport-local').Strategy;
+
+
+exports.login = function (passport) {
+    passport.use(new LocalStrategy( {usernameField: username},
+        function (username, password, done) {
+            User.findOne({username: username},
+                function (err, user) {
+                    if (err)
+                        ret.status(500).send('Invalid data!');
+
+                    if (!user) {
+                        return done(null, false, { message: 'That email is not registered' });
+                    }
+
+                    bcrypt.compare(password, user.password, function (err, correct) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        if (correct) {
+                            return done(null, user);
+                        } else {
+                            return done(null, false, { message: 'Password incorrect' });
+                        }
+                    });
+                })
+        }))
+}
+
+exports.serialize = function (passport) {
+    passport.serializeUser(function (user, done) {
+        done(null, user.id);
+    });
+}
+
+exports.deserialize = function (passport) {
+    passport.deserializeUser(function (id, done) {
+        User.findById(id, function (err, user) {
+            done(err, user);
+        });
+    });
+}
 
 //Get User Data when logging in
 exports.signUser = function (req,res) {
@@ -17,8 +59,8 @@ exports.signUser = function (req,res) {
             if (user != null) {
                 console.log("Username: " + user.username);
 
-                if (user.username == username) { // && user.password == password) {
-                    //User exists and password is correct
+                if (user.username == username) {
+                    //Compares encrypted password to plaintext password
                     bcrypt.compare(password, user.password, function(err, correct) {
                         if (err) {
                             console.log(err);

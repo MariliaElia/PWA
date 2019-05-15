@@ -77,6 +77,16 @@ function onSubmit(url, objectStore) {
  * body onload function for initialising the databse
  */
 function initDB() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./service-worker.js')
+            .then(function () {
+                console.log('Service Worker Registered');
+            })
+            .catch (function (error){
+                console.log('Service Worker NOT Registered '+ error.message);
+            });
+    }
     //check for support
     if ('indexedDB' in window) {
         initDatabase();
@@ -105,16 +115,6 @@ function crEvent() {
  * called in index.ejs to display events
  */
 function loadEvents() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('./service-worker.js')
-            .then(function () {
-                console.log('Service Worker Registered');
-            })
-            .catch (function (error){
-                console.log('Service Worker NOT Registered '+ error.message);
-            });
-    }
     if ('indexedDB' in window) {
         initDatabase();
         // retrieving from the indexedDB
@@ -168,10 +168,10 @@ function loadMapEvents(events) {
  * called in account.ejs to load the user related data
  */
 function loadAccount() {
-    username = localStorage.getItem('username');
+    //username = localStorage.getItem('username');
     //sets the value of html tag to the username
-    document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
-    document.getElementById('username').value = username;
+    //document.getElementById('accountHeader').innerHTML = "<h5 class='card-title'>" + username + "</h5>";
+    //document.getElementById('username').value = username;
     var formArray= $("form").serializeArray();
     var data={};
     for (index in formArray){

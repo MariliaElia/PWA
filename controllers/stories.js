@@ -28,7 +28,6 @@ exports.insertStory = function (req, res) {
     console.log('filepath created');
 
     var objectID = new ObjectId(eventID);
-    var str = "hello world";
     if (storyData == null) {
         res.status(403).send('No data sent!')
     }

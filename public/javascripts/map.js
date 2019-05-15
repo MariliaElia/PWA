@@ -26,5 +26,5 @@ function LatLng(){
     document.getElementById("lon").value = lon;
 
     //Saving the current users username
-    document.getElementById("username").value = getUsername();
+    //document.getElementById("username").value = getUsername();
 }
