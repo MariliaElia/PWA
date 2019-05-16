@@ -29,7 +29,7 @@ router.post('/map', event.getAllEvents);
 router.get('/view-event/:id', event.getEventData);
 
 /*GET create-story page*/
-router.get('/create-story/:id', event.getEventTitle);
+//router.get('/create-story/:id', event.getEventTitle);
 router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 
 /*POST data from create-story form to insert in the database*/
