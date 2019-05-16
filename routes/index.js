@@ -35,9 +35,11 @@ router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 /*POST data from create-story form to insert in the database*/
 router.post('/create-story', story.insertStory );
 
+/*GET view-story page*/
 router.get('/view-story/:id', story.getStoryData);
 
-//router.get('/account', auth.checkAccount,event.getUserEventsStories);
+/*POST comments from form and insert in the database*/
+router.post('/view-story', story.addComments);
 
 /*GET Account Page*/
 router.get('/account', auth.checkAccount, function(req, res, next) {

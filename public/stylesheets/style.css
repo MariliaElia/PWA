@@ -174,3 +174,10 @@ a {
     margin:auto;
 }
 
+.story-comment {
+    background-color: rgb(245,245,245);
+    border: solid 1px rgb(220,220,220);
+    padding: 3px;
+    line-height: 30px;
+    width: 70%;
+}

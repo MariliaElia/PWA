@@ -6,6 +6,7 @@ var mongoDB = 'mongodb://localhost:27017/photofestDB';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoDB);
+//mongoose.set('useFindAndModify', false);
 var db = mongoose.connection;
 
 //Bind connection to error event (to get notification of connection errors)

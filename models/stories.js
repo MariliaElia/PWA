@@ -7,7 +7,8 @@ var Story = new Schema(
         eventID: {type: Schema.Types.ObjectId, required: true},
         storyDescription: {type: String, required: true, max: 100},
         storyImage: {type: String},
-        username: {type: String, required: true, max: 100}
+        username: {type: String, required: true, max: 100},
+        comments: {type: Array, default: []}
     }
 );
 

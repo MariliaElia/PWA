@@ -12,6 +12,7 @@ socket.on('sendcomment', function (comment) {
     div2.style.lineHeight = '30px';
     div2.style.width = '70%';
     div2.innerHTML = comment + ' -' + username;
+    onCommentSubmit('/view-story', comment);
 });
 
 function sendComment() {
@@ -22,4 +23,45 @@ function sendComment() {
     socket.emit('sendcomment', usercomment);
     input.value = '';
     return false;
+}
+
+/**
+ * Get data from comments form
+ * @param url
+ * @param data
+ */
+function onCommentSubmit(url, data) {
+    console.log("in onsubmit, data: " + data);
+    var formArray = $("form").serializeArray();
+    var formdata = {};
+    formdata['comment'] = data;
+    for (index in formArray){
+        formdata[formArray[index].name]= formArray[index].value;
+    }
+    sendCommentAjaxQuery(url, formdata);
+}
+
+/**
+ * Send ajax query for comment form data
+ * @param url
+ * @param data
+ */
+function sendCommentAjaxQuery(url, data) {
+    $.ajax({
+        url: url ,
+        data: data,
+        dataType: 'json',
+        type: 'POST',
+        success: function (dataR) {
+
+            console.log('in ajax query');
+
+            var ret = dataR;
+            console.log(dataR);
+
+        },
+        error: function (xhr, status, error) {
+            alert('Error: ' + error.message);
+        }
+    });
 }
