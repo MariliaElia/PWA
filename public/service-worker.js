@@ -123,163 +123,17 @@ self.addEventListener('activate', function (e) {
  */
 self.addEventListener('fetch', function (event) {
     console.log('[Service Worker] Fetch', event.request.url);
-    event.respondWith(
-        caches.match(event.request).then(function(response) {
-            if(response) {
-                console.log("[Service Worker]: Found In Cache", event.request.url);
-                return response;
-            }
+    event.respondWith(async function () {
+        const cache = await caches.open('mysite-dynamic');
+        const cachedResponse = await cache.match(event.request);
+        const networkResponsePromise = fetch(event.request);
 
-            var requestClone = event.request.clone();
+        event.waitUntil(async function () {
+            const networkResponse = await networkResponsePromise;
+            await cache.put(event.request, networkResponse.clone());
+        }());
 
-            fetch(requestClone)
-                .then(function(response){
-                    if(!response){
-                        console.log("[Service Worker] No response from fetch");
-                        return response;
-                    }
-
-                    var responseClone = response.clone();
-
-                    caches.open(cacheName).then(function (cache) {
-                        cache.put(event.request, responseClone);
-                        return response;
-                    });
-                })
-                .catch(function(err){
-                console.log("[Service Worker]Error Fetching and Caching ", err);
-                })
-
-
-        }))
+        // Returned the cached response if we have one, otherwise return the network response.
+        return cachedResponse || networkResponsePromise;
+    }());
 });
-/*    event.respondWith(
-        caches.match(event.request).then(function(response) {
-            return response
-                || fetch(event.request)
-                    .then(function (response) {
-                        // note if network error happens, fetch does not return
-                        // an error. it just returns response not ok
-                        // https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
-                        if (!response.ok) {
-                            console.log("error: " + err);
-                        }
-                    }) // here we capture HTTP errors such as 404 file not found
-                    .catch(function (event) {
-                        console.log("error: " + err);
-                    })
-        }))*/
-
-  /*      caches.match(event.request)
-            .then(function(response) {
-                    // Cache hit - return response
-                    if (response) {
-                        return response;
-                    }
-                    return fetch(event.request).then(
-                        function(response) {
-                            // Check if we received a valid response
-                            if(!response || response.status !== 200 || response.type !== 'basic') {
-                                return response;
-                            }
-
-                            // IMPORTANT: Clone the response. A response is a stream
-                            // and because we want the browser to consume the response
-                            // as well as the cache consuming the response, we need
-                            // to clone it so we have two streams.
-                            var responseToCache = response.clone();
-
-                            caches.open(CACHE_NAME)
-                                .then(function(cache) {
-                                    cache.put(event.request, responseToCache);
-                                });
-
-                            return response;
-                        }
-                    );
-            })
-*/
-    /*//if the request is '/', post to the server
-    if (event.request.url.indexOf(dataUrl) > -1 || event.request.url.indexOf('/account') > -1) {
-        /!*
-         * When the request URL contains dataUrl, the app is asking for fresh
-         * weather data. In this case, the service worker always goes to the
-         * network and then caches the response. This is called the "Cache then
-         * network" strategy:
-         * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
-         *!/
-        return fetch(event.request).then(function (response) {
-            // note: it the network is down, response will contain the error
-            // that will be passed to Ajax
-            return response;
-        }).catch (function(e){
-            console.log("service worker error 1: " + e.message);
-        })
-    } else {
-        /!*
-         * The app is asking for app shell files. In this scenario the app uses the
-         * "Cache, then if netowrk available, it will refresh the cache
-         * see stale-while-revalidate at
-         * https://jakearchibald.com/2014/offline-cookbook/#on-activate
-         *!/
-        event.respondWith(async function () {
-            const cache = await caches.open('mysite-dynamic');
-            const cachedResponse = await cache.match(event.request);
-            const networkResponsePromise = fetch(event.request);
-
-            event.waitUntil(async function () {
-                const networkResponse = await networkResponsePromise;
-                await cache.put(event.request, networkResponse.clone());
-            }());
-
-            // Returned the cached response if we have one, otherwise return the network response.
-            return cachedResponse || networkResponsePromise;
-        }());
-    }*/
-/*event.respondWith(
-    caches.match(event.request)
-        .then(function (response) {
-            if (response) {
-                return response;
-            }
-            return fetch(event.request);
-        })
-)*/
-    //var dataUrl = '/';
-    //if the request is '/weather_data', post to the server
-    //if (event.request.url.indexOf(dataUrl) > -1) {
-        /*
-         * When the request URL contains dataUrl, the app is asking for fresh
-         * weather data. In this case, the service worker always goes to the
-         * network and then caches the response. This is called the "Cache then
-         * network" strategy:
-         * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
-         */
-        /*return fetch(event.request).then(function (response) {
-            // note: it the network is down, response will contain the error
-            // that will be passed to Ajax
-            return response;
-        }).catch (function(e){
-            console.log("service worker error 1: " + e.message);
-        })*/
-    //} else {
-        /*
-         * The app is asking for app shell files. In this scenario the app uses the
-         * "Cache, then if netowrk available, it will refresh the cache
-         * see stale-while-revalidate at
-         * https://jakearchibald.com/2014/offline-cookbook/#on-activate
-         */
-        /*event.respondWith(async function () {
-            const cache = await caches.open('mysite-dynamic');
-            const cachedResponse = await cache.match(event.request);
-            const networkResponsePromise = fetch(event.request);
-
-            event.waitUntil(async function () {
-                const networkResponse = await networkResponsePromise;
-                await cache.put(event.request, networkResponse.clone());
-            }());
-
-            // Returned the cached response if we have one, otherwise return the network response.
-            return cachedResponse || networkResponsePromise;
-        }());
-    }*/
