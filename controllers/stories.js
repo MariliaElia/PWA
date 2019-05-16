@@ -60,15 +60,45 @@ exports.getStoryData = function (req, res) {
     var storyID = req.params.id;
     var objectID = new ObjectId(storyID);
     var user = req.user;
+
     try {
         Story.findOne({_id: objectID},
             function (error, story) {
                 if (error)
                     res.status(500).send('invalid story id');
-                res.render('view-story', {title: 'photofest', story: story, user: user});
+                console.log(story.comments);
+                res.render('view-story', {title: 'photofest', story: story, user: user, comments: story.comments, storyId: objectID});
             });
     }
     catch (e) {
         res.status(500).send('error ' + e);
     }
 }
+
+
+exports.addComments = function (req, res) {
+    var commentData = req.body;
+    var storyData = commentData.storyID;
+    var objectID = new ObjectId(storyData);
+    var username = req.user.username;
+
+    var comment = commentData.comment + " -" + username;
+
+    console.log(commentData);
+    console.log(storyData);
+
+    if (commentData == null) {
+        res.status(403).send('No data sent!')
+    }
+    try {
+        console.log('in add comment function');
+        Story.updateOne({_id: objectID}, {$push: {comments: comment}},
+            function (error, story) {
+                if (error)
+                    res.status(500).send('invalid story id');
+                console.log(comment);
+            });
+    } catch (e) {
+        res.status(500).send('error ' + e);
+    }
+};

@@ -199,6 +199,8 @@ exports.getEventTitle = function(req, res){
  */
 exports.insertEvent = function (req, res) {
     var eventData = req.body;
+    var username = req.user.username;
+
     if (eventData == null) {
         res.status(403).send('No data sent!')
     }
@@ -209,7 +211,7 @@ exports.insertEvent = function (req, res) {
             date: eventData.date,
             latitude: eventData.latitude,
             longitude: eventData.longitude,
-            username: req.user.username
+            username: username
         });
         console.log('received: ' + event);
 

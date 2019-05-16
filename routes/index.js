@@ -8,6 +8,7 @@ var passport = require('passport');
 var event = require('../controllers/events');
 var user = require('../controllers/users');
 var story = require('../controllers/stories');
+var comment = require('../controllers/comments');
 
 var auth = require('../config/auth');
 
@@ -35,7 +36,13 @@ router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 /*POST data from create-story form to insert in the database*/
 router.post('/create-story', story.insertStory );
 
+//router.get('/view-story/:id', comment.getComments);
+
+//router.post('/view-story', comment.addComment);
+
 router.get('/view-story/:id', story.getStoryData);
+
+router.post('/view-story', story.addComments);
 
 //router.get('/account', auth.checkAccount,event.getUserEventsStories);
 
