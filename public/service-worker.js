@@ -20,6 +20,7 @@ var filesToCache = [
     '/create-event',
     '/login',
     '/message',
+    '/view-story',
 
     '/stylesheets/style.css',
     '/stylesheets/upload.css',
@@ -66,7 +67,7 @@ var filesToCache = [
     '/javascripts/search.js',
     '/javascripts/header.js',
     '/javascripts/upload.js',
-
+    '/javascripts/take-image.js'
 ];
 
 

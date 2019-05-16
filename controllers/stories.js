@@ -10,13 +10,17 @@ var fs = require('fs-extra');
 exports.insertStory = function (req, res) {
     var storyData = req.body;
     var eventID = storyData.eventID;
-    targetDirectory = './uploads/' + eventID + '/';
-    if (!fs.existsSync(targetDirectory)) {
-        fs.mkdirSync(targetDirectory);
-    }
-    console.log('wants to save file to ' + targetDirectory + 'story');
+    var objectID = new ObjectId(eventID);
+    var user = req.user;
+    var username = user.username;
+
+    /* targetDirectory = './uploads/' + eventID + '/';
+     if (!fs.existsSync(targetDirectory)) {
+         fs.mkdirSync(targetDirectory);
+     }*/
+    //console.log('wants to save file to ' + targetDirectory + 'story');
     var imageBlob = req.body.imgdata;
-    var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
+   /* var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
     var buf = new Buffer(storyImage, 'base64');
 
     fs.writeFile(targetDirectory + 'story' + '.png', buf, (err) => {
@@ -25,9 +29,8 @@ exports.insertStory = function (req, res) {
     });
 
     var storyFilePath = targetDirectory + 'story';
-    console.log('filepath created');
+    console.log('filepath created');*/
 
-    var objectID = new ObjectId(eventID);
     if (storyData == null) {
         res.status(403).send('No data sent!')
     }
@@ -36,7 +39,7 @@ exports.insertStory = function (req, res) {
             eventID: objectID,
             storyDescription: storyData.storyDescription,
             storyImage: imageBlob,
-            username: storyData.username,
+            username: username,
         });
         console.log('received: ' + story);
 
