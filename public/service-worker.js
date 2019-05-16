@@ -20,7 +20,6 @@ var filesToCache = [
     '/create-event',
     '/login',
     '/message',
-    '/view-story',
 
     '/stylesheets/style.css',
     '/stylesheets/upload.css',
@@ -66,7 +65,6 @@ var filesToCache = [
     '/javascripts/database.js',
     '/javascripts/search.js',
     '/javascripts/header.js',
-    '/javascripts/upload.js',
     '/javascripts/take-image.js'
 ];
 
@@ -93,7 +91,7 @@ self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
-                if (key !== cacheName && key !== dataCacheName) {
+                if (key !== cacheName) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
@@ -125,44 +123,35 @@ self.addEventListener('activate', function (e) {
  */
 self.addEventListener('fetch', function (event) {
     console.log('[Service Worker] Fetch', event.request.url);
-    var dataUrl = '/';
-    //if the request is '/weather_data', post to the server
-    if (event.request.url.indexOf(dataUrl) > -1) {
-        /*
-         * When the request URL contains dataUrl, the app is asking for fresh
-         * weather data. In this case, the service worker always goes to the
-         * network and then caches the response. This is called the "Cache then
-         * network" strategy:
-         * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
-         */
-        return fetch(event.request).then(function (response) {
-            // note: it the network is down, response will contain the error
-            // that will be passed to Ajax
-            return response;
-        }).catch(function (e) {
-            console.log("service worker error 1: " + e.message);
-        })
-    } else {
-        /*
-         * The app is asking for app shell files. In this scenario the app uses the
-         * "Cache, then if netowrk available, it will refresh the cache
-         * see stale-while-revalidate at
-         * https://jakearchibald.com/2014/offline-cookbook/#on-activate
-         */
-        event.respondWith(async function () {
-            const cache = await caches.open('mysite-dynamic');
-            const cachedResponse = await cache.match(event.request);
-            const networkResponsePromise = fetch(event.request);
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            if(response) {
+                console.log("[Service Worker]: Found In Cache", event.request.url);
+                return response;
+            }
 
-            event.waitUntil(async function () {
-                const networkResponse = await networkResponsePromise;
-                await cache.put(event.request, networkResponse.clone());
-            }());
+            var requestClone = event.request.clone();
 
-            // Returned the cached response if we have one, otherwise return the network response.
-            return cachedResponse || networkResponsePromise;
-        }());
-    }
+            fetch(requestClone)
+                .then(function(response){
+                    if(!response){
+                        console.log("[Service Worker] No response from fetch");
+                        return response;
+                    }
+
+                    var responseClone = response.clone();
+
+                    caches.open(cacheName).then(function (cache) {
+                        cache.put(event.request, responseClone);
+                        return response;
+                    });
+                })
+                .catch(function(err){
+                console.log("[Service Worker]Error Fetching and Caching ", err);
+                })
+
+
+        }))
 });
 /*    event.respondWith(
         caches.match(event.request).then(function(response) {
