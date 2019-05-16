@@ -17,9 +17,9 @@ var cacheName = 'photofestPWA-step-8-1';
 var filesToCache = [
     '/',
     '/account',
-    '/create-event',
     '/login',
     '/message',
+    '/create-event',
 
     '/stylesheets/style.css',
     '/stylesheets/upload.css',
@@ -124,7 +124,8 @@ self.addEventListener('activate', function (e) {
 self.addEventListener('fetch', function (event) {
     console.log('[Service Worker] Fetch', event.request.url);
     //if the request is '/weather_data', post to the server
-    if (event.request.url.indexOf(event.request.url) > -1) {
+    var dataUrl = '/';
+    if (event.request.method == 'POST') {
         /*
          * When the request URL contains dataUrl, the app is asking for fresh
          * weather data. In this case, the service worker always goes to the
@@ -133,6 +134,14 @@ self.addEventListener('fetch', function (event) {
          * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
          */
         return fetch(event.request).then(function (response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+            // Examine the text in the response
+            console.log(response.json());
+
             // note: it the network is down, response will contain the error
             // that will be passed to Ajax
             return response;

@@ -75,14 +75,18 @@ exports.searchEvents = function (req, res) {
                 });
         } else {
             var events = '';
+
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(events));
         }
+
+
     }
     catch (e) {
         res.status(500).send('error ' + e);
     }
 }
+
 
 /**
  * Get the eventID of event currenlty displayed and

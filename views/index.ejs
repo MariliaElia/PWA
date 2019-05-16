@@ -10,9 +10,9 @@
 <% include templates/header %>
 
 <div class="search">
-    <div class="offline_div" id="offline_div" style="display: none">You are offline</div>
+    <div class="offline_div" id="offline_div" style="color: darkred; display: none">You are offline</div>
     <!-- form for searching events -->
-    <form id="searchForm" onsubmit="onSearch()">
+    <form id="searchForm" onsubmit="onSearch()" >
         <div class="form-group">
             <input class="form-control" id="eventName" name="eventName" type="text" placeholder="Event Name" aria-label="Keyword">
         </div>
@@ -42,16 +42,16 @@
 
 <!-- DISPLAYING LATEST EVENTS -->
 <div class="content" id = "events" >
-    <script>var list = [];</script>
+    <!--<script>var list = [];</script>-->
     <%for (var i=events.length-1; i>= 0; i--) {%>
     <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action'>
         <p><%=events[i].title%></p>
         <p><%=events[i].description%></p>
         <p><%=events[i].date%></p>
-        <script>list.push({title:"<%=events[i].title%>", description:"<%=events[i].description%>", date:"<%=events[i].date%>"})</script>
+        <script>saveEvent({title:"<%=events[i].title%>", description:"<%=events[i].description%>", date:"<%=events[i].date%>"})</script>
     </a>
     <% }%>
-        <script>saveEvent(list)</script>
+        <!--<script>saveEvent(list)</script>-->
         <p id="noEvent"></p>
 </div>
 

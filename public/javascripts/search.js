@@ -17,10 +17,9 @@ function sendSearchQuery(url, data) {
             }else{
                 displayEvents(dataR);
             }
-
         },
         error: function (xhr, status, error) {
-            showOfflineWarning();
+            searchOfflineWarning();
             loadEvents();
             const dvv= document.getElementById('offline_div');
             if (dvv!=null)
@@ -39,6 +38,7 @@ function onSearch() {
         data[formArray[index].name]= formArray[index].value;
     }
     sendSearchQuery('/', data);
+    event.preventDefault();
 }
 
 /**
@@ -58,6 +58,7 @@ window.addEventListener('online', function(e) {
     // Resync data with server.
     console.log("You are online");
     hideOfflineWarning();
+    hideSearchOfflineWarning();
 }, false);
 
 function showOfflineWarning(){
@@ -65,7 +66,20 @@ function showOfflineWarning(){
         document.getElementById('offline_div').style.display='block';
 }
 
+
 function hideOfflineWarning(){
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').style.display='none';
+}
+
+function searchOfflineWarning() {
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').innerHTML = "You can't search while offline!" +
+            " <br>Latestoffline data are displayed below";
+        document.getElementById('offline_div').style.display='block';
+}
+
+function hideSearchOfflineWarning(){
     if (document.getElementById('offline_div')!=null)
         document.getElementById('offline_div').style.display='none';
 }

@@ -50,6 +50,7 @@ function sendAjaxQuery(url, data, objectStore) {
             alert('Error: ' + error.message);
         }
     });
+    return false;
 }
 
 /**
@@ -108,6 +109,18 @@ function crEvent() {
     else {
         document.location = '/message';
     }
+}
+
+function saveEvent(event) {
+    //check for support
+    if ('indexedDB' in window) {
+        initDatabase();
+    }
+    else {
+        console.log('This browser doesn\'t support IndexedDB');
+    }
+    var data={};
+    storeCachedData(event, 'EVENT_OS');
 }
 
 /**
@@ -225,20 +238,7 @@ function displayEvents(request) {
                 "</a>";
         }
         document.getElementById('events').innerHTML = eventList;
-    }
-}
-
-function saveEvent(events) {
-    //check for support
-    if ('indexedDB' in window) {
-        initDatabase();
-    }
-    else {
-        console.log('This browser doesn\'t support IndexedDB');
-    }
-    var data={};
-    for (event in events) {
-        storeCachedData(events[event], 'EVENT_OS');
+        event.preventDefault();
     }
 }
 
@@ -263,6 +263,7 @@ function displayStories(request) {
                 "</a>";
         }
         document.getElementById('stories').innerHTML = storyList;
+        return false;
     }
 }
 
@@ -284,6 +285,7 @@ function displayUserEvents(request) {
             "</li>"
     }
     document.getElementById('events').innerHTML = userEvents;
+    event.preventDefault();
 }
 
 /**
@@ -293,14 +295,15 @@ function displayUserEvents(request) {
  */
 function displayStoryEvents(request) {
     var storyList = "";
-    for (var i=request.length-1; i>= 0; i--) {
+    for (var i = request.length - 1; i >= 0; i--) {
         storyList +=
             "<a class='list-group list-group-item-action stories'> " +
             "<p>Description: " + request[i].storyDescription + "</p>" +
             "<img src='" +
             request[i].storyImage +
             "' id='testImg'>" +
-            "</a>" ;
+            "</a>";
     }
     document.getElementById('stories').innerHTML = storyList;
+    event.preventDefault();
 }
