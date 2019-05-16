@@ -30,21 +30,16 @@ router.post('/map', event.getAllEvents);
 router.get('/view-event/:id', event.getEventData);
 
 /*GET create-story page*/
-router.get('/create-story/:id', event.getEventTitle);
 router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 
 /*POST data from create-story form to insert in the database*/
 router.post('/create-story', story.insertStory );
 
-//router.get('/view-story/:id', comment.getComments);
-
-//router.post('/view-story', comment.addComment);
-
+/*GET view-story page*/
 router.get('/view-story/:id', story.getStoryData);
 
+/*POST comments from form and insert in the database*/
 router.post('/view-story', story.addComments);
-
-//router.get('/account', auth.checkAccount,event.getUserEventsStories);
 
 /*GET Account Page*/
 router.get('/account', auth.checkAccount, function(req, res, next) {

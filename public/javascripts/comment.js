@@ -25,6 +25,11 @@ function sendComment() {
     return false;
 }
 
+/**
+ * Get data from comments form
+ * @param url
+ * @param data
+ */
 function onCommentSubmit(url, data) {
     console.log("in onsubmit, data: " + data);
     var formArray = $("form").serializeArray();
@@ -36,6 +41,11 @@ function onCommentSubmit(url, data) {
     sendCommentAjaxQuery(url, formdata);
 }
 
+/**
+ * Send ajax query for comment form data
+ * @param url
+ * @param data
+ */
 function sendCommentAjaxQuery(url, data) {
     $.ajax({
         url: url ,

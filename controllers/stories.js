@@ -56,6 +56,12 @@ exports.insertStory = function (req, res) {
     }
 }
 
+
+/**
+ * Get story data from database
+ * @param req
+ * @param res
+ */
 exports.getStoryData = function (req, res) {
     var storyID = req.params.id;
     var objectID = new ObjectId(storyID);
@@ -75,7 +81,11 @@ exports.getStoryData = function (req, res) {
     }
 }
 
-
+/**
+ * Get comments from form and insert add to comments array in the story
+ * @param req
+ * @param res
+ */
 exports.addComments = function (req, res) {
     var commentData = req.body;
     var storyData = commentData.storyID;
@@ -83,9 +93,6 @@ exports.addComments = function (req, res) {
     var username = req.user.username;
 
     var comment = commentData.comment + " -" + username;
-
-    console.log(commentData);
-    console.log(storyData);
 
     if (commentData == null) {
         res.status(403).send('No data sent!')
