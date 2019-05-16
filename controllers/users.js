@@ -92,6 +92,7 @@ exports.signUser = function (req,res) {
 //Create a user, called when user signs up
 exports.insert = function (req, res) {
     var userData = req.body;
+    console.log('username: ' + userData.username);
     if (userData == null) {
         res.status(403).send('No data sent!')
     }
@@ -104,7 +105,14 @@ exports.insert = function (req, res) {
 
                 //if username is taken tell the user
                 if (user != null) {
-                    console.log("Username is taken");
+                    var nil = new User({
+                        username: 'exists',
+                        name: '',
+                        email: '',
+                        password: ''
+                    });
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(nil));
                 } else {
                     //Add user data to the database
                     var user = new User({
@@ -126,6 +134,6 @@ exports.insert = function (req, res) {
                 }
         });
     } catch (e) {
-        res.status(500).send('error ' + e);
+        res.status(500).send('Error: ' + e);
     }
 }

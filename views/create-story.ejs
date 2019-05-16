@@ -10,6 +10,8 @@
 <!-- initialises the indexedDB -->
 <body onload="initDB()">
 <% include templates/header %>
+<div style="display:none" id="alert">
+</div>
 <div class="form-container">
     <div class="panel panel-default">
         <h2 class="photofestheading">Create Story</h2>
@@ -20,7 +22,7 @@
                 <input type="hidden" name="eventID" value="<%= eventID %>">
             </div>
             <div class="form-group">
-                <label for="storyDescription">Description:</label>
+                <label for="storyDescription"><strong>*</strong>Description:</label>
                 <input type="text" name="storyDescription"  class="form-control" id="formGroupExampleInput">
             </div>
 

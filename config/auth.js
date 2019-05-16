@@ -4,6 +4,7 @@ exports.checkAccount = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.flash('error_msg', 'Please log in. If you do not have an account, please sign up!');
     res.redirect('/login');
 }
 

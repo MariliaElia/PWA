@@ -5,6 +5,7 @@ var bcrypt = require('bcryptjs');
 var mongoDB = 'mongodb://localhost:27017/photofestDB';
 
 mongoose.Promise = global.Promise;
+//mongoose.connect(mongoDB, {useNewUrlParser: true});
 mongoose.connect(mongoDB);
 //mongoose.set('useFindAndModify', false);
 var db = mongoose.connection;

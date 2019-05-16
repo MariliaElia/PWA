@@ -10,6 +10,11 @@ var fs = require('fs-extra');
 exports.insertStory = function (req, res) {
     var storyData = req.body;
     var eventID = storyData.eventID;
+/*    targetDirectory = './uploads/' + eventID + '/';
+    if (!fs.existsSync(targetDirectory)) {
+        fs.mkdirSync(targetDirectory);
+    }*/
+    //console.log('wants to save file to ' + targetDirectory + 'story');
     var objectID = new ObjectId(eventID);
     var user = req.user;
     var username = user.username;
@@ -20,39 +25,48 @@ exports.insertStory = function (req, res) {
      }*/
     //console.log('wants to save file to ' + targetDirectory + 'story');
     var imageBlob = req.body.imgdata;
+    //var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
+    //var buf = new Buffer(storyImage, 'base64');
    /* var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
     var buf = new Buffer(storyImage, 'base64');
 
+/*
     fs.writeFile(targetDirectory + 'story' + '.png', buf, (err) => {
         if (err) throw err;
         console.log('the file has been saved');
     });
+*/
 
-    var storyFilePath = targetDirectory + 'story';
-    console.log('filepath created');*/
+    //var storyFilePath = targetDirectory + 'story';
+    //console.log('filepath created');
+    //var storyFilePath = targetDirectory + 'story';
+    //console.log('filepath created');
 
-    if (storyData == null) {
-        res.status(403).send('No data sent!')
+    if (storyData.storyDescription == "") {
+        res.setHeader('Content-Type', 'text/html');
+        res.send(JSON.stringify({data: "missing"}));
     }
-    try {
-        var story = new Story({
-            eventID: objectID,
-            storyDescription: storyData.storyDescription,
-            storyImage: imageBlob,
-            username: username,
-        });
-        console.log('received: ' + story);
+    else {
+        try {
+            var story = new Story({
+                eventID: objectID,
+                storyDescription: storyData.storyDescription,
+                storyImage: imageBlob,
+                username: username,
+            });
+            console.log('received: ' + story);
 
-        story.save(function (err, results) {
-            console.log(results._id);
-            if (err)
-                res.status(500).send('Invalid data!');
+            story.save(function (err, results) {
+                console.log(results._id);
+                if (err)
+                    res.status(500).send('Invalid data!');
 
-            res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify(storyData));
-        });
-    } catch (e) {
-        res.status(500).send('error ' + e);
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(storyData));
+            });
+        } catch (e) {
+            res.status(500).send('error ' + e);
+        }
     }
 }
 

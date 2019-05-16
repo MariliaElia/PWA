@@ -22,7 +22,7 @@ function sendLogInQuery(url, data) {
             }
         },
         error: function (xhr, status, error) {
-            alert('Error: ' + error.message);
+            console.log("i am offline ");
         }
     });
 }
