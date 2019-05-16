@@ -3,19 +3,18 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var User = require('../models/users');
 
-
 module.exports = function (passport) {
+
     //Checks if username and password are correct
     passport.use(new LocalStrategy(
         function (username, password, done) {
-            User.findOne({username: username},
-                function (err, user) {
-                    console.log(user);
-                    if (err)
-                        ret.status(500).send('Invalid data!');
-
+            User.findOne({username: username}, function (err, user) {
+                if (err) {
+                        return done(err);
+                        ret.status(500).send('Data is invalid');
+                    }
                     if (!user) {
-                        return done(null, false, { message: 'That email is not registered' });
+                        return done(null, false, { message: 'Incorrect username' });
                     }
 
                     //Checks if password is correct
@@ -26,7 +25,7 @@ module.exports = function (passport) {
                         if (correct) {
                             return done(null, user);
                         } else {
-                            return done(null, false, { message: 'Password incorrect' });
+                            return done(null, false, { message: 'Incorrect password' });
                         }
                     });
                 })

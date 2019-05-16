@@ -20,6 +20,7 @@ var filesToCache = [
     '/login',
     '/message',
     '/create-event',
+    '/signup',
 
     '/stylesheets/style.css',
     '/stylesheets/upload.css',

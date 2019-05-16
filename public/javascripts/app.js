@@ -12,13 +12,7 @@ function sendAjaxQuery(url, data, objectStore) {
         dataType: 'json',
         type: 'POST',
         success: function (dataR) {
-            // getting the username from the localstorage and saving it for an event/story created by the user
-            /*if (url != '/signup' && url != '/login') {
-                dataR['username'] = getUsername();
-            }*/
-
             var ret = dataR;
-
             // save to indexedDB
             //storeCachedData(ret, objectStore);
             // saving data of current user in localstorage
@@ -26,14 +20,58 @@ function sendAjaxQuery(url, data, objectStore) {
 
             // take back to view newly created story
             if (url == '/create-story') {
-                var eventId = ret.eventID;
-                document.location = '/view-event/' + eventId;
+                var alertmessage = document.getElementById('alert');
+
+                // handle errors
+                if (ret.data == "missing") {
+                    alertmessage.setAttribute('class', 'alert alert-danger');
+                    alertmessage.textContent = 'Please fill in all required fields.';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        location.reload();
+                    });
+                }
+
+                // if event saved in mongodb successfully
+                else {
+                    alertmessage.setAttribute('class', 'alert alert-success');
+                    alertmessage.textContent = 'Event created!';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(500, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        var eventId = ret.eventID;
+                        document.location = '/view-event/' + eventId;
+                    });
+                }
+
             }
             // take back to home page after creating a new event
             else if (url == '/create-event') {
-                document.location = '/';
-                /*var eventTitle = ret.title;
-                sendText('An event was added: ' + eventTitle);*/
+                var alertmessage = document.getElementById('alert');
+
+                // handle errors
+                if (ret.data == "missing") {
+                    alertmessage.setAttribute('class', 'alert alert-danger');
+                    alertmessage.textContent = 'Please fill in all required fields.';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        location.reload();
+                    });
+                }
+
+                // if event saved in mongodb successfully
+                else {
+                    alertmessage.setAttribute('class', 'alert alert-success');
+                    alertmessage.textContent = 'Event created!';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(500, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        var eventId = ret.eventID;
+                        document.location = '/';
+                    });
+                }
 
             } else if (url == '/account'){
                 var events = ret.events;
@@ -41,13 +79,36 @@ function sendAjaxQuery(url, data, objectStore) {
                 displayEvents(events);
                 displayStories(stories);
             } else if (url == '/signup') {
-                takeToAccount(url, ret);
+                var alertmessage = document.getElementById('alert');
+
+                // handle errors
+                if (ret.username == 'exists') {
+                    alertmessage.setAttribute('class', 'alert alert-danger');
+                    alertmessage.textContent = 'Username already exists';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(1000, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        location.reload();
+                    });
+                }
+                else {
+                    alertmessage.setAttribute('class', 'alert alert-success');
+                    alertmessage.textContent = 'Success! Redirecting you to login...';
+                    alertmessage.style.display = 'block';
+                    $("#alert").fadeTo(500, 500).slideUp(500, function(){
+                        $("#alert").slideUp(500);
+                        location.replace('/account');
+                    });
+
+                }
             } else if (url =='/map') {
                 displayOnMap(ret);
             }
         },
         error: function (xhr, status, error) {
-            alert('Error: ' + error.message);
+            alert('Eeeeerror: ' + error.message);
+
+
         }
     });
     return false;

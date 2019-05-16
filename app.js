@@ -21,7 +21,6 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json({ limit: '10mb' }));
-//app.use(express.urlencoded({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -32,7 +31,6 @@ app.use(session({ secret: "cats", cookie: { secure: true }}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

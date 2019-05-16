@@ -203,30 +203,32 @@ exports.getEventTitle = function(req, res){
  */
 exports.insertEvent = function (req, res) {
     var eventData = req.body;
-    var username = req.user.username;
-
-    if (eventData == null) {
-        res.status(403).send('No data sent!')
+    if (eventData.title == '' || eventData.description == '' || eventData.date == '' ||
+        eventData.latitude == null) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({data:"missing"}));
     }
-    try {
-        var event = new Event({
-            title: eventData.title,
-            description: eventData.description,
-            date: eventData.date,
-            latitude: eventData.latitude,
-            longitude: eventData.longitude,
-            username: username
-        });
-        console.log('received: ' + event);
+    else {
+        try {
+            var event = new Event({
+                title: eventData.title,
+                description: eventData.description,
+                date: eventData.date,
+                latitude: eventData.latitude,
+                longitude: eventData.longitude,
+                username: req.user.username
+            });
+            console.log('received: ' + event);
 
-        event.save(function (err, results) {
-            console.log(results._id);
-            if (err)
-                res.status(500).send('Invalid data!');
-            res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify(event));
-        });
-    } catch (e) {
-        res.status(500).send('error ' + e);
+            event.save(function (err, results) {
+                console.log(results._id);
+                if (err)
+                    res.status(500).send('Invalid data!');
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(event));
+            });
+        } catch (e) {
+            res.status(500).send('error ' + e);
+        }
     }
 }
