@@ -11,7 +11,14 @@ function sendSearchQuery(url, data) {
         type: 'POST',
         success: function (dataR) {
             if (dataR == ''){
-                alert('Please fill in the form to search!');
+                var alertmessage = document.getElementById('alert');
+                alertmessage.setAttribute('class', 'alert alert-danger');
+                alertmessage.textContent = 'Please fill in the form to search!';
+                alertmessage.style.display = 'block';
+                $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+                    $("#alert").slideUp(500);
+                });
+                //alert('Please fill in the form to search!');
             } else if (dataR == 'noEvents') {
                 document.getElementById("events").innerHTML = "No Events Found!";
             }else{

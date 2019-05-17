@@ -162,6 +162,10 @@ a {
     border-bottom: solid 2px lightgray;
 }
 
+.events {
+    border-bottom: solid 2px lightgray;
+}
+
 .comment {
     border-radius: 5px;
 }
@@ -180,4 +184,9 @@ a {
     padding: 3px;
     line-height: 30px;
     width: 70%;
+}
+
+.user {
+    text-align: center;
+    max-width: 100%;
 }

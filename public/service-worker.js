@@ -123,51 +123,20 @@ self.addEventListener('activate', function (e) {
  * all the other pages are searched for in the cache. If not found, they are returned
  */
 self.addEventListener('fetch', function (event) {
-    console.log('[Service Worker] Fetch', event.request.url);
-    //if the request is '/weather_data', post to the server
-    var dataUrl = '/';
-    if (event.request.method == 'POST') {
-        /*
-         * When the request URL contains dataUrl, the app is asking for fresh
-         * weather data. In this case, the service worker always goes to the
-         * network and then caches the response. This is called the "Cache then
-         * network" strategy:
-         * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
-         */
-        return fetch(event.request).then(function (response) {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
-            }
-            // Examine the text in the response
-            console.log(response.json());
+/*    console.log('[Service Worker] Fetch', event.request.url);
+    event.respondWith(async function () {
+        const cache = await caches.open(cacheName);
+        const cachedResponse = await cache.match(event.request);
+        const networkResponsePromise = fetch(event.request);
 
-            // note: it the network is down, response will contain the error
-            // that will be passed to Ajax
-            return response;
-        }).catch (function(e){
-            console.log("service worker error 1: " + e.message);
-        })
-    } else {
-        /*
-         * The app is asking for app shell files. In this scenario the app uses the
-         * "Cache, then if netowrk available, it will refresh the cache
-         * see stale-while-revalidate at
-         * https://jakearchibald.com/2014/offline-cookbook/#on-activate
-         */
-        event.respondWith(async function () {
-            const cache = await caches.open(cacheName);
-            const cachedResponse = await cache.match(event.request);
-            const networkResponsePromise = fetch(event.request);
-
-            event.waitUntil(async function () {
-                const networkResponse = await networkResponsePromise;
-                await cache.put(event.request, networkResponse.clone());
-            }());
-
-            // Returned the cached response if we have one, otherwise return the network response.
-            return cachedResponse || networkResponsePromise;
+        event.waitUntil(async function () {
+            const networkResponse = await networkResponsePromise;
+            await cache.put(event.request, networkResponse.clone());
         }());
-    }
+
+        // Returned the cached response if we have one, otherwise return the network response.
+        return cachedResponse || networkResponsePromise;
+    }());*/
 });
+
+

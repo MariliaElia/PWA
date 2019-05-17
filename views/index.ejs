@@ -8,7 +8,8 @@
 <body onload="initDB()">
 
 <% include templates/header %>
-
+<div style="display:none" id="alert">
+</div>
 <div class="search">
     <div class="offline_div" id="offline_div" style="color: darkred; display: none">You are offline</div>
     <!-- form for searching events -->
@@ -41,10 +42,10 @@
 </div>
 
 <!-- DISPLAYING LATEST EVENTS -->
-<div class="content" id = "events" >
+<div class="events content" id = "events" >
     <!--<script>var list = [];</script>-->
     <%for (var i=events.length-1; i>= 0; i--) {%>
-    <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action'>
+    <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action events'>
         <p><%=events[i].title%></p>
         <p><%=events[i].description%></p>
         <p><%=events[i].date%></p>

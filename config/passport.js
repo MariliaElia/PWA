@@ -11,25 +11,29 @@ module.exports = function (passport) {
             User.findOne({username: username}, function (err, user) {
                 if (err) {
                         return done(err);
-                        ret.status(500).send('Data is invalid');
-                    }
-                    if (!user) {
-                        return done(null, false, { message: 'Incorrect username' });
-                    }
+                }
+                if (user == null) {
+                    console.log('here for name?');
+                    return done(null, false);
+                }
 
-                    //Checks if password is correct
-                    bcrypt.compare(password, user.password, function (err, correct) {
-                        if (err) {
-                            console.log(err);
-                        }
-                        if (correct) {
-                            return done(null, user);
-                        } else {
-                            return done(null, false, { message: 'Incorrect password' });
-                        }
-                    });
-                })
+                //Checks if password is correct
+                bcrypt.compare(password, user.password, function (err, correct) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    if (correct) {
+                        return done(null, user);
+                    } else {
+                        console.log('here for pass?')
+                        return done(null, false);
+                    }
+                });
+            })
         }));
+
+
+    // correct credentials handled below
 
     passport.serializeUser(function (user, done) {
         done(null, user.id);

@@ -204,7 +204,7 @@ exports.getEventTitle = function(req, res){
 exports.insertEvent = function (req, res) {
     var eventData = req.body;
     if (eventData.title == '' || eventData.description == '' || eventData.date == '' ||
-        eventData.latitude == null) {
+        eventData.latitude == '') {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({data:"missing"}));
     }
