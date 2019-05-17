@@ -145,10 +145,7 @@ exports.getEvents = function (req, res) {
  * @param res
  */
 exports.getUserEventsStories = function (req, res) {
-    //var userData = req.body;
     var username = req.user.username;
-
-    //console.log(userData);
     console.log(username);
 
     if (username == null) {

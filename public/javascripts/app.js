@@ -321,7 +321,7 @@ function displayStories(request) {
     //displaying stories from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
             storyList +=
-                "<a  class='list-group list-group-item-action stories'> " +
+                "<a href='/view-story/"+ request[i]._id + "' class='list-group list-group-item-action stories'> " +
                 "<p>Description: " + request[i].storyDescription + "</p>" +
                 "<img src='" +
                 request[i].storyImage +
