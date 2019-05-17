@@ -1,4 +1,9 @@
 /**
+ * searching
+ * search happens in this javascript file
+ */
+
+/**
  * posting from the search form
  * @param url
  * @param data
@@ -68,6 +73,9 @@ window.addEventListener('online', function(e) {
     hideSearchOfflineWarning();
 }, false);
 
+/**
+ * warnings for offline
+ */
 function showOfflineWarning(){
     if (document.getElementById('offline_div')!=null)
         document.getElementById('offline_div').style.display='block';

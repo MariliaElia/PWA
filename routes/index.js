@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-//var bodyParser = require('body-parser');
 var passport = require('passport');
-//router.use(bodyParser.urlencoded({extended: false}));
 var event = require('../controllers/events');
 var user = require('../controllers/users');
 var story = require('../controllers/stories');
@@ -28,6 +26,7 @@ router.get('/map', function(req, res, next){
 });
 
 /**
+ * POST map
  * Get all events
  * from database
  * */
@@ -43,30 +42,36 @@ router.get('/view-event/:id', event.getEventData);
  * GET create-story
  * page
  * */
-//router.get('/create-story/:id', event.getEventTitle);
 router.get('/create-story/:id', auth.checkAuthenticated, event.getEventTitle)
 
 /**
- * POST data from create-story
+ * POST  create-story
  * form to insert in the database
  * */
 router.post('/create-story', story.insertStory );
 
-/*GET view-story page*/
+/**
+ *  GET view-story
+ */
 router.get('/view-story/:id', story.getStoryData);
 
-/*POST comments from form and insert in the database*/
+/**
+ * POST view-story
+ * comments from form and insert in the database
+ */
 router.post('/view-story', story.addComments);
 
-/*GET Account Page*/
+/**
+ * GET Account Page
+ */
 router.get('/account', auth.checkAccount, function(req, res, next) {
     console.log(req.user.username);
     res.render('account', { title: 'photofest', user: req.user });
 });
 
 /**
- * POST username
- * of user logged In and get user events and stories
+ * POST account
+ * post username of user logged In and get user events and stories
  * */
 router.post('/account', event.getUserEventsStories)
 
@@ -78,13 +83,15 @@ router.get('/create-event', auth.checkAuthenticated, function(req, res, next) {
   });
 
 /**
- * POST data from create-event
- * form and insert into database*
+ * POST create-event
+ * post the form and insert into database*
  * */
-
 router.post('/create-event', event.insertEvent)
 
-/* MESSAGE page for logging in when creating an event or story if not logged In*/
+/**
+ * GET MESSAGE
+ * page for logging in when creating an event or story if not logged In
+ */
 router.get('/message', function(req, res, next) {
     res.render('message', { title: 'photofest'});
 });
@@ -97,7 +104,8 @@ router.get('/login', auth.forwardAuthenticated, function (req, res) {
 });
 
 /**
- * POST redirect to account page
+ * POST login
+ * redirect to account page
  * */
 router.post('/login',
         passport.authenticate('local', {
@@ -105,6 +113,9 @@ router.post('/login',
             failureRedirect: '/login-try-again'})
 );
 
+/** GET login-try-again
+ * page for incorrect user credentials
+ */
 router.get('/login-try-again', function (req, res) {
     res.render('login-try-again', {title: 'photofest'});
 });
@@ -117,21 +128,26 @@ router.get('/signup', auth.forwardAuthenticated, function (req, res) {
 });
 
 /**
- * POST user data from sign up form and insert into database
+ * POST signup
+ * user data from sign up form and insert into database
  * */
 router.post('/signup', user.insert, function (req,res) {
 
 });
 
 /**
- * GET logout page, redirects to log in page
+ * GET logout page,
+ * redirects to log in page
  * */
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/login');
 });
 
-
+/**
+ * GET offline
+ * page gets displayed when user is offline
+ */
 router.get('/offline', function(req,res){
     res.render('offline',{title: 'photofest'});
 });

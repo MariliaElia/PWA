@@ -1,3 +1,8 @@
+/**
+ * map javascript for searching events
+ * gets data from mongodb
+ */
+
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 var marker = {};
 
@@ -6,6 +11,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 
 /**
+ * displayOnMap
  * creates a marker for all events, on the map
  */
 function displayOnMap(events) {

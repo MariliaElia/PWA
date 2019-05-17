@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+/**
+ * story model for mongodb
+ * @type {Mongoose}
+ */
 var Story = new Schema(
     {
         eventID: {type: Schema.Types.ObjectId, required: true},

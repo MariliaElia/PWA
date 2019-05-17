@@ -1,6 +1,7 @@
 //Authentication functions
 
 /*
+ * checkAccount
  * Checks if user is logged in before going to
  * account page, otherwise redirects to log in page
  * @param req
@@ -17,6 +18,7 @@ exports.checkAccount = function(req, res, next) {
 
 
 /*
+ * checkAuthenticated
  * Checks if user is logged in, redirects to message page if not
  * @param req
  * @param res
@@ -31,6 +33,7 @@ exports.checkAuthenticated = function(req, res, next) {
 }
 
 /*
+ * forwardAuthenticated
  * Goes to account page if authenticated
  * @param req
  * @param res

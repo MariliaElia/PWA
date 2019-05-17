@@ -3,6 +3,9 @@ var bcrypt = require('bcryptjs');
 
 var Schema = mongoose.Schema;
 
+/**
+ * user model mongodb
+ */
 var User = new Schema(
     {
         username: {type: String, unique:true, required: true, max: 100},
@@ -12,7 +15,10 @@ var User = new Schema(
     }
 );
 
-//Encrypts password before saving to database
+/**
+ * save user pass
+ * Encrypts password before saving to database
+ */
 User.pre('save', function (next) {
     let user = this;
     console.log('saving password');

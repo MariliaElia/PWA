@@ -1,4 +1,10 @@
 /**
+ * main javascript
+ * doing ajax queries
+ * gets called from all pages with forms
+ */
+
+/**
  * sendAjaxQuery
  * general function to POST form data
  * @param url - the url where data is coming from
@@ -194,19 +200,10 @@ function initDB() {
 }
 
 /**
- * crEvent
- * user should not be able to create event unless they are logged in
+ * saveEvent
+ * saves 5 latest events onto indexed db
+ * @param event
  */
-function crEvent() {
-    loginState = getLoginState();
-    if (loginState == 'true') {
-        document.location = ('/create-event');
-    }
-    else {
-        document.location = '/message';
-    }
-}
-
 function saveEvent(event) {
     //check for support
     if ('indexedDB' in window) {

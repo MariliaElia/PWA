@@ -1,3 +1,9 @@
+/**
+ * webrtc image taking javascript
+ * uses the webcam to take photo
+ * @type {number}
+ */
+
 var width = 280;    // We will scale the photo width to this
 var height = 0;     // This will be computed based on the input stream
 
@@ -7,6 +13,10 @@ var video = null;
 var canvas = null;
 var photo = null;
 
+/**
+ * startup
+ * initialises the camera
+ */
 function startup() {
     video = document.getElementById('video');
     canvas = document.getElementById('canvas');
@@ -43,6 +53,9 @@ function startup() {
     clearphoto();
 }
 
+/**
+ * clears photo in canvas if new one taken
+ */
 function clearphoto() {
     var context = canvas.getContext('2d');
     context.fillStyle = "#AAA";
@@ -51,6 +64,11 @@ function clearphoto() {
     photo.setAttribute('src', data);
 }
 
+/**
+ * capture the image
+ * save its data in a hidden input
+ * where mongodb can get from and save
+ */
 function takepicture() {
     var context = canvas.getContext('2d');
     if (width && height) {
@@ -69,6 +87,9 @@ function takepicture() {
 
 }
 
+/**
+ * stops the camera and closes it on the browser
+ */
 function stop() {
     video = document.getElementById('video');
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })

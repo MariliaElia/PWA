@@ -3,6 +3,7 @@ var Story = require('../models/stories');
 var ObjectId = require('mongodb').ObjectId;
 
 /**
+ * getAllEvents
  * Get all the events in the database to show them on the map
  * @param req
  * @param res
@@ -24,6 +25,7 @@ exports.getAllEvents = function (req, res) {
 }
 
 /**
+ * searchEvents
  * Gets the search data from form and searches the database to return
  * the appropriate results
  * @param req
@@ -94,6 +96,7 @@ exports.searchEvents = function (req, res) {
 
 
 /**
+ * getEventData
  * Get the eventID of event currenlty displayed and
  * find the stories posted for that event
  * @param req
@@ -128,6 +131,7 @@ exports.getEventData = function (req, res) {
 }
 
 /**
+ * getEvents
  * Find 5 latest events in the database and send them in index page
  * @param req
  * @param res
@@ -155,6 +159,7 @@ exports.getEvents = function (req, res) {
 }
 
 /**
+ * getUserEventsStories
  * Find Events created by the current user logged in
  * @param req
  * @param res
@@ -190,6 +195,7 @@ exports.getUserEventsStories = function (req, res) {
 }
 
 /**
+ * getEventTitle
  * Get the eventID for the event the story is currently created and
  * find the title of that event
  * @param req
@@ -212,6 +218,7 @@ exports.getEventTitle = function(req, res){
 }
 
 /**
+ * insertEvent
  * Get event data from the form and add in the database
  * @param req
  * @param res

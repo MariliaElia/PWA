@@ -9,7 +9,6 @@ var session = require('express-session');
 var flash = require("connect-flash");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 require('./config/passport')(passport);
 
@@ -33,7 +32,6 @@ app.use(passport.session());
 app.use(flash());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,21 +48,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-/*
-app.use(
-    session({
-      secret: 'secret',
-      resave: true,
-      saveUninitialized: true
-    })
-);
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-*/
-
-
 
 module.exports = app;
