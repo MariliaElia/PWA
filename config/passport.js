@@ -3,17 +3,17 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var User = require('../models/users');
 
+//Passport user functions
 module.exports = function (passport) {
-
-    //Checks if username and password are correct
     passport.use(new LocalStrategy(
+        //Checks if username and password are correct
         function (username, password, done) {
             User.findOne({username: username}, function (err, user) {
                 if (err) {
                         return done(err);
                 }
                 if (user == null) {
-                    console.log('here for name?');
+                    //Returns false if user is null
                     return done(null, false);
                 }
 
@@ -23,17 +23,15 @@ module.exports = function (passport) {
                         console.log(err);
                     }
                     if (correct) {
+                        //Returns user if password is correct
                         return done(null, user);
                     } else {
-                        console.log('here for pass?')
+                        //Returns false if password is incorrect
                         return done(null, false);
                     }
                 });
             })
         }));
-
-
-    // correct credentials handled below
 
     passport.serializeUser(function (user, done) {
         done(null, user.id);

@@ -298,9 +298,15 @@ function displayEvents(request) {
         for (var i=request.length-1; i>= 0; i--) {
             eventList +=
                 "<a href='/view-event/"+ request[i]._id + "' class='list-group list-group-item-action'> " +
-                "<p>" + request[i].title + "</p>" +
+                "<div class='card text-center'>" +
+                "<div class='card-header'>" +
+                "<h5 class='card-title'>" + request[i].title + "</h5>" + "</div>" +
+                "<div class='card-body'>" +
                 "<p>" + request[i].description + "</p>" +
                 "<p>" + request[i].date + "</p>" +
+                "<img src='/stylesheets/icons/right-arrow.png' width='15' float='right'>" +
+                "</div>" +
+                "</div>" +
                 "</a>";
         }
         document.getElementById('events').innerHTML = eventList;
@@ -321,12 +327,14 @@ function displayStories(request) {
     //displaying stories from most recent to oldest
         for (var i=request.length-1; i>= 0; i--) {
             storyList +=
-                "<a  class='list-group list-group-item-action stories'> " +
-                "<p>Description: " + request[i].storyDescription + "</p>" +
-                "<img src='" +
-                request[i].storyImage +
-                "' id='testImg'>" +
-                "</a>";
+                "<a href='/view-story/"+ request[i]._id + "' class='list-group list-group-item-action stories'> " +
+                "<div class='card text-center'>" +
+                "<img src='" + request[i].storyImage + "' id='testImg'>" +
+                "<div class='card-body'>" +
+                "<h5 class='card-title'>Description:</h5>" +
+                "<p>" + request[i].storyDescription + "</p>" +
+                "<img src='/stylesheets/icons/right-arrow.png' width='15' float='right'>" +
+                "</div> </div> </a>";
         }
         document.getElementById('stories').innerHTML = storyList;
         return false;

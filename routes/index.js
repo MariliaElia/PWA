@@ -55,9 +55,6 @@ router.post('/create-story', story.insertStory );
 /*GET view-story page*/
 router.get('/view-story/:id', story.getStoryData);
 
-/**
- * GET Account Page
- * */
 /*POST comments from form and insert in the database*/
 router.post('/view-story', story.addComments);
 
