@@ -16,11 +16,13 @@
     <div class="panel panel-default">
         <h2 class="photofestheading">Create Story</h2>
         <!-- form to create story -->
+
         <form id="story" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
                 <label for="event-name">For: <a href="/view-event/<%=eventID%>"><%= eventTitle %></a></label>
                 <input type="hidden" name="eventID" value="<%= eventID %>">
             </div>
+
             <div class="form-group">
                 <label for="storyDescription"><strong>*</strong>Description:</label>
                 <input type="text" name="storyDescription"  class="form-control" id="formGroupExampleInput">
@@ -40,7 +42,7 @@
                     <img onclick="stop()" src="/stylesheets/icons/cancel-button.png" style="width:30px; height:30px" title="Take Photo" alt="Take Photo">
                 </a>
 
-            <div class="collapse" id="takePhoto">
+                <div class="collapse" id="takePhoto">
                     <div class="card card-body">
                         <div class="camera">
                             <video id="video">video stream not available</video>

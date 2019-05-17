@@ -17,7 +17,8 @@ User.pre('save', function (next) {
     let user = this;
     console.log('saving password');
     bcrypt.genSalt(10, function (err, salt) {
-        if (err) console.error(err);
+        if (err)
+            console.error(err);
         bcrypt.hash(user.password, salt, function (err, hash) {
             user.password = hash;
             next();

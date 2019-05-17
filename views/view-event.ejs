@@ -15,12 +15,25 @@
         <h3 class="title"><a href="/create-story/<%=eventID%>"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventTitle %></h3>
         <br>
 
+        <!-- List of user stories for event -->
         <div class="list-group list-group-item stories" id="stories">
             <%for (var i=stories.length-1; i>= 0; i--) {%>
                 <a href='/view-story/<%= stories[i]._id %>' class='list-group list-group-item-action'>
-                    <div class='list-group stories'>
-                        <p>Description: <%=stories[i].storyDescription%></p>
+
+                    <!-- Username of story creator -->
+                    <div class='card text-center'>
+                        <div class='card-header'>
+                            <h5 class='card-title'><%=stories[i].username%></h5>
+                        </div>
+                        <br>
                         <img src='<%= stories[i].storyImage%>' id='testImg'>
+
+                        <!-- Story details -->
+                        <div class='card-body'>
+                            <h5 class='card-title'>Description:</h5>
+                            <p><%=stories[i].storyDescription%></p>
+                            <img src='/stylesheets/icons/right-arrow.png' width='15' float='right'>
+                        </div>
                     </div>
                 </a>
             <% }%>

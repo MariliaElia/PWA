@@ -3,36 +3,33 @@
 /**
  * Module dependencies.
  */
-
 const app = require('../app');
 const debug = require('debug')('pwa:server');
-//var http = require('http');
 const https = require('https');
 const fs = require('fs-extra');
 var database = require('../databases/database');
 
+
 /**
  * Get port from environment and store in Express.
  */
-
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+
 /**
- * Create HTTPs server.
+ * Create HTTPs server using the options
  */
 const options = {
   key: fs.readFileSync('./private_access/ca.key'),
   cert: fs.readFileSync('./private_access/ca.crt')
 };
+var server = https.createServer(options, app);
+
 
 /**
- * Create HTTPs server using the options
- */
-var server = https.createServer(options, app);
-// var server = http.createServer(app);
-
-/* socket.io stuff */
+ *  socket.io initialisation
+ *  */
 var io = require('socket.io').listen(server);
 var socket_module = require('../socket.io/socket.io');
 socket_module.init(io, app);
@@ -41,15 +38,14 @@ socket_module.init(io, app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -66,10 +62,10 @@ function normalizePort(val) {
   return false;
 }
 
+
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -82,11 +78,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(bind + ' requires elevated privileges.');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(bind + ' is already in use.');
       process.exit(1);
       break;
     default:
@@ -94,10 +90,10 @@ function onError(error) {
   }
 }
 
+
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
@@ -105,5 +101,3 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-

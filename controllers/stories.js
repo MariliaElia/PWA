@@ -1,6 +1,5 @@
 var Story = require('../models/stories');
 var ObjectId = require('mongodb').ObjectId;
-var fs = require('fs-extra');
 
 /**
  * Get story data from form and insert story to the database
@@ -10,37 +9,11 @@ var fs = require('fs-extra');
 exports.insertStory = function (req, res) {
     var storyData = req.body;
     var eventID = storyData.eventID;
-/*    targetDirectory = './uploads/' + eventID + '/';
-    if (!fs.existsSync(targetDirectory)) {
-        fs.mkdirSync(targetDirectory);
-    }*/
-    //console.log('wants to save file to ' + targetDirectory + 'story');
     var objectID = new ObjectId(eventID);
     var user = req.user;
     var username = user.username;
 
-    /* targetDirectory = './uploads/' + eventID + '/';
-     if (!fs.existsSync(targetDirectory)) {
-         fs.mkdirSync(targetDirectory);
-     }*/
-    //console.log('wants to save file to ' + targetDirectory + 'story');
     var imageBlob = req.body.imgdata;
-    //var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
-    //var buf = new Buffer(storyImage, 'base64');
-   /* var storyImage = imageBlob.replace(/^data:image\/\w+;base64,/,"");
-    var buf = new Buffer(storyImage, 'base64');
-
-/*
-    fs.writeFile(targetDirectory + 'story' + '.png', buf, (err) => {
-        if (err) throw err;
-        console.log('the file has been saved');
-    });
-*/
-
-    //var storyFilePath = targetDirectory + 'story';
-    //console.log('filepath created');
-    //var storyFilePath = targetDirectory + 'story';
-    //console.log('filepath created');
 
     if (storyData.storyDescription == "") {
         res.setHeader('Content-Type', 'text/html');
@@ -82,11 +55,13 @@ exports.getStoryData = function (req, res) {
     var user = req.user;
 
     try {
+        //Find story with given id
         Story.findOne({_id: objectID},
             function (error, story) {
                 if (error)
                     res.status(500).send('invalid story id');
-                console.log(story.comments);
+
+                //Render view-story page with story data and comments
                 res.render('view-story', {title: 'photofest', story: story, user: user, comments: story.comments, storyId: objectID});
             });
     }
@@ -106,18 +81,19 @@ exports.addComments = function (req, res) {
     var objectID = new ObjectId(storyData);
     var username = req.user.username;
 
+    //Comment with username added
     var comment = commentData.comment + " -" + username;
 
     if (commentData == null) {
         res.status(403).send('No data sent!')
     }
+
     try {
-        console.log('in add comment function');
+        //Add comment to story with given id
         Story.updateOne({_id: objectID}, {$push: {comments: comment}},
             function (error, story) {
                 if (error)
                     res.status(500).send('invalid story id');
-                console.log(comment);
             });
     } catch (e) {
         res.status(500).send('error ' + e);
