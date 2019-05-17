@@ -1,3 +1,8 @@
+/**
+ * indexeddb file
+ * for carrying out operations on indexeddb
+ * like saving to and getting from indexed db
+ */
 var dbPromise;
 
 /**

@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+/**
+ * event model for mongodb
+ * @type {Mongoose}
+ */
 var Event = new Schema(
     {
         title: {type: String, required: true, max: 100},

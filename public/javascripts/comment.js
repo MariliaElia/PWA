@@ -1,5 +1,14 @@
+/**
+ * users can comment on stories
+ * this is done by the use of socket.io
+ */
+
 var socket = io();
 
+/**
+ * this prints the comment
+ * communicates with socket.io file
+ */
 socket.on('sendcomment', function (comment) {
     var div1 = document.getElementById('comments');
     var div2 = document.createElement('div');
@@ -15,6 +24,11 @@ socket.on('sendcomment', function (comment) {
     onCommentSubmit('/view-story', comment);
 });
 
+/**
+ * sendComment
+ * gets comment from users input onto form
+ * @returns {boolean}
+ */
 function sendComment() {
     var input = document.getElementById('comment');
     var usercomment = input.value;

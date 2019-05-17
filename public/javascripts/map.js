@@ -1,3 +1,8 @@
+/**
+ * javascript for map displaying and
+ * saving data from the map
+ */
+
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 var marker = {};
 var lat;
@@ -24,7 +29,4 @@ mymap.on('click', function (e) {
 function LatLng(){
     document.getElementById("lat").value = lat;
     document.getElementById("lon").value = lon;
-
-    //Saving the current users username
-    //document.getElementById("username").value = getUsername();
 }

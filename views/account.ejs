@@ -9,19 +9,8 @@
 <body onload="loadAccount()">
     <% include templates/header %>
     <div class="container">
-        <%#
-        <form name="account" id="account" onload="document.account.submit()" method="post" onsubmit="return false">
-            <input id="username" type="hidden" class="'form-control" name="username"/>
-        </form>
-        %>
-
         <!-- Account Heading -displays current user's username -->
         <div id="account-header story-content" class="card mb-3">
-            <%#<div class="d-flex flex-nowrap row no-gutters">
-                <div class="col-md-1">
-                    <img src="/stylesheets/icons/user.png" id="user-image" class="card-img" alt="user" style="width:100%;">
-                </div>
-            </div>%>
             <div class="user">
                 <div class="card-body user" id="accountHeader">
                     <h2 class="user"><%= user.username %>'s account</h2>

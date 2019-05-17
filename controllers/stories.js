@@ -2,6 +2,7 @@ var Story = require('../models/stories');
 var ObjectId = require('mongodb').ObjectId;
 
 /**
+ * insertStory
  * Get story data from form and insert story to the database
  * @param req
  * @param res
@@ -45,6 +46,7 @@ exports.insertStory = function (req, res) {
 
 
 /**
+ * getStoryData
  * Get story data from database
  * @param req
  * @param res
@@ -71,6 +73,7 @@ exports.getStoryData = function (req, res) {
 }
 
 /**
+ * addComments
  * Get comments from form and insert add to comments array in the story
  * @param req
  * @param res

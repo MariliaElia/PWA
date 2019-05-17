@@ -1,3 +1,7 @@
+/**
+ * header template javascript for our pages
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
     window.onscroll = function () {
         myFunction()
