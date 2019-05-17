@@ -17,8 +17,13 @@
 
     <div class="list-group list-group-item stories" id="stories">
         <div  class='list-group stories'>
-            <p>Description: <%=story.storyDescription%></p>
-            <img src='<%= story.storyImage%>' id='testImg'>
+            <div class='card text-center'>
+                <img src='<%= story.storyImage%>' id='testImg'>
+                <div class='card-body'>
+                    <h5 class='card-title'>Description:</h5>
+                    <p><%=story.storyDescription%></p>
+                </div>
+            </div>
                 <br>
                 <div class="comment">
                     <div id="comments">

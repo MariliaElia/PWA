@@ -162,7 +162,7 @@ exports.getUserEventsStories = function (req, res) {
                         if (err)
                             res.status(500).send('Invalid data!');
                         res.setHeader('Content-Type', 'application/json');
-                        res.send(JSON.stringify({events: events,stories: stories}));
+                        res.send(JSON.stringify({events: events, stories: stories}));
                     })
             })
     } catch (e) {
