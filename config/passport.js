@@ -4,7 +4,6 @@ var bcrypt = require('bcryptjs');
 var User = require('../models/users');
 
 module.exports = function (passport) {
-
     //Checks if username and password are correct
     passport.use(new LocalStrategy(
         function (username, password, done) {
