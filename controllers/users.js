@@ -19,6 +19,7 @@ exports.signUser = function (req,res) {
             function (err, user) {
                 if (err)
                     ret.status(500).send('Invalid data!');
+
                 if (user != null) {
                     if (user.username == username) {
                         //Compares encrypted password to plaintext password
@@ -26,12 +27,12 @@ exports.signUser = function (req,res) {
                             if (err) {
                                 console.log(err);
                             }
-                            // password correct
+                            // Password correct
                             if (correct) {
                                 res.setHeader('Content-Type', 'application/json');
                                 res.send(JSON.stringify(userData));
                             }
-                            // password incorrect
+                            // Password incorrect
                             else {
                                 res.setHeader('Content-Type', 'text/html');
                                 res.send(JSON.stringify({data: "incorrect"}));
@@ -61,13 +62,13 @@ exports.insert = function (req, res) {
     }
     else {
         try {
-            //before adding the user in the db check if username is already taken
+            //Before adding the user in the db check if username is already taken
             User.findOne({username: userData.username},
                 function(err, user) {
                     if (err)
                         res.status(500).send('Invalid data!');
 
-                    //if username is taken tell the user
+                    //If username is taken tell the user
                     if (user != null) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify({data:"exists"}));

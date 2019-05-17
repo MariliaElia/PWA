@@ -44,12 +44,18 @@
 <!-- DISPLAYING LATEST EVENTS -->
 <div class="events content" id = "events" >
     <!--<script>var list = [];</script>-->
+
+    <!-- List of events -->
     <%for (var i=events.length-1; i>= 0; i--) {%>
     <a href='/view-event/<%= events[i].id %>' class='list-group list-group-item-action events'>
         <div class='card text-center'>
+
+            <!-- Event Name -->
             <div class='card-header'>
                 <h5 class='card-title'><%=events[i].title%></h5>
             </div>
+
+            <!-- Event Details -->
             <div class='card-body'>
                 <p><%=events[i].description%></p>
                 <p><%=events[i].date%></p>

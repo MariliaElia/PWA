@@ -13,6 +13,7 @@ exports.getAllEvents = function (req, res) {
             function (err, events) {
                 if (err)
                     res.status(500).send('Invalid data!');
+
                 res.setHeader('Content-Type', 'application/json');
                 res.send(JSON.stringify(events));
             });
@@ -33,12 +34,15 @@ exports.searchEvents = function (req, res) {
     var eventName = searchData.eventName;
     var eventDate = searchData.date;
     var noEvents = 'noEvents';
+
     try {
         if ((eventName != "" ) && (eventDate != "")) {
+            //Find events with given name and date
             Event.find({title: eventName, date: eventDate},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
+
                     if (events.length > 0) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(events));
@@ -48,10 +52,12 @@ exports.searchEvents = function (req, res) {
                     }
                 });
         } else if ((eventDate == "") && (eventName!= "")) {
+            //Find events with given event name
             Event.find({title: eventName},
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
+
                     if (events.length > 0) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(events));
@@ -65,6 +71,7 @@ exports.searchEvents = function (req, res) {
                 function (err, events) {
                     if (err)
                         res.status(500).send('Invalid data!');
+
                     if (events.length > 0) {
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify(events));
@@ -79,8 +86,6 @@ exports.searchEvents = function (req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(events));
         }
-
-
     }
     catch (e) {
         res.status(500).send('error ' + e);
@@ -97,16 +102,22 @@ exports.searchEvents = function (req, res) {
 exports.getEventData = function (req, res) {
     var eventID = req.params.id;
     var objectID = new ObjectId(eventID);
+
     try {
         Event.findOne({_id: objectID},
             function (err, event) {
                 if (err)
                     res.status(500).send('Invalid data!');
+
                 var eventTitle = event.title;
+
+                //Find stories with given eventID
                 Story.find({eventID: eventID},
                     function (err, stories) {
                         if(err)
                             res.status(500).send('Invalid data!');
+
+                        //Renders view-event page with stories for the event
                         res.render('view-event', {title: 'photofest', eventID: eventID, eventTitle: eventTitle, stories: stories});
                     })
             });
@@ -123,14 +134,18 @@ exports.getEventData = function (req, res) {
  */
 exports.getEvents = function (req, res) {
     var eventNum = 5;
+
     try {
         Event.find(
             function (err, events) {
                 if (err)
                     res.status(500).send('Invalid data!');
+
                 if (events.length > 5) {
                     events =  events.slice(Math.max(events.length - eventNum, 0));
                 }
+
+                //Renders index page with events
                 res.render('index', { title: 'photofest', events: events});
             });
     }
@@ -157,10 +172,13 @@ exports.getUserEventsStories = function (req, res) {
             function (err, events) {
                 if(err)
                     res.status(500).send('Invalid data!');
+
+                //Find stories with user's username
                 Story.find({username: username},
                     function (err, stories) {
                         if (err)
                             res.status(500).send('Invalid data!');
+
                         res.setHeader('Content-Type', 'application/json');
                         res.send(JSON.stringify({events: events, stories: stories}));
                     })

@@ -15,8 +15,11 @@
     <h3 class="title"><%= story.username%>'s story</h3>
     <br>
 
+    <!-- Story data and comments -->
     <div class="list-group list-group-item stories" id="stories">
+
         <div  class='list-group stories'>
+
             <div class='card text-center'>
                 <img src='<%= story.storyImage%>' id='testImg'>
                 <div class='card-body'>
@@ -24,7 +27,9 @@
                     <p><%=story.storyDescription%></p>
                 </div>
             </div>
+
                 <br>
+
                 <div class="comment">
                     <div id="comments">
 
@@ -48,6 +53,7 @@
                     <!-- Display comment form if user is logged in -->
                     <% if (typeof user != 'undefined') { %>
 
+                        <!-- Comment submission form -->
                         <form onsubmit="return sendComment()">
                             <input id="comment" type="text" class="form-group rounded usercomment" placeholder="Comment..." aria-label="Comment..." aria-describedby="basic-addon2">
                             <input id="storyID" type="hidden" name="storyID" value="<%=storyId %>">

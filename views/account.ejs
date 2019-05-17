@@ -14,6 +14,8 @@
             <input id="username" type="hidden" class="'form-control" name="username"/>
         </form>
         %>
+
+        <!-- Account Heading -displays current user's username -->
         <div id="account-header story-content" class="card mb-3">
             <%#<div class="d-flex flex-nowrap row no-gutters">
                 <div class="col-md-1">
@@ -26,6 +28,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Nav pills -->
         <ul class="nav nav-pills events" role="tablist">
             <li class="nav-item">
@@ -43,9 +46,12 @@
             <div id="stories" class="container tab-pane fade"><br>
             </div>
         </div>
+
         <div id="noEvent"></div>
-        <!-- link for signing out takes to login page -->
+
+        <!-- link for signing out takes to logout page -->
         <a class="sign-out-btn" href="/logout">Sign out</a>
+
         <footer>
             <% include templates/footer %>
             <br>

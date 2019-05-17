@@ -329,9 +329,7 @@ function displayStories(request) {
             storyList +=
                 "<a href='/view-story/"+ request[i]._id + "' class='list-group list-group-item-action stories'> " +
                 "<div class='card text-center'>" +
-                "<img src='" +
-                request[i].storyImage +
-                "' id='testImg'>" +
+                "<img src='" + request[i].storyImage + "' id='testImg'>" +
                 "<div class='card-body'>" +
                 "<h5 class='card-title'>Description:</h5>" +
                 "<p>" + request[i].storyDescription + "</p>" +
