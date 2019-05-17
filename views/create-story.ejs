@@ -17,6 +17,8 @@
         <h2 class="photofestheading">Create Story</h2>
         <!-- form to create story -->
 
+        <div class="offline_div" id="offline_div" style="color: darkred; display: none">You are offline</div>
+
         <form id="story" onsubmit="onSubmit('/create-story', 'STORY_OS')">
             <div class="form-group fixed-event">
                 <label for="event-name">For: <a href="/view-event/<%=eventID%>"><%= eventTitle %></a></label>

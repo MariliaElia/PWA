@@ -13,6 +13,7 @@
 
 <!-- showing the events as pins on the map -->
 <body onload="loadMapEvents()">
+    <div class="offline_div" id="offline_div" style="color: darkred; display: none">You are offline</div>
     <% include templates/header %>
     <form name="account" id="account" onload="document.account.submit()" method="post" onsubmit="return false">
         <input id="map" type="hidden" class="'form-control" name="map"/>

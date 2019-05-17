@@ -41,7 +41,8 @@ function sendLogInQuery(url, data) {
             }
         },
         error: function (xhr, status, error) {
-            console.log("i am offline ");
+            console.log("Log In Offline");
+            document.location('/offline');
         }
     });
 }

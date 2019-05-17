@@ -82,7 +82,7 @@ function hideOfflineWarning(){
 function searchOfflineWarning() {
     if (document.getElementById('offline_div')!=null)
         document.getElementById('offline_div').innerHTML = "You can't search while offline!" +
-            " <br>Latestoffline data are displayed below";
+            " <br>Latest offline data are displayed below";
         document.getElementById('offline_div').style.display='block';
 }
 

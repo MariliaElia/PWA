@@ -112,11 +112,41 @@ function sendAjaxQuery(url, data, objectStore) {
         },
         error: function (xhr, status, error) {
             alert('Error: ' + error.message);
-
-
+            actionOfflineWarning();
         }
     });
     return false;
+}
+
+/**
+ * When the client gets off-line, it shows an off line warning to the user
+ * so that it is clear that the data is stale
+ */
+window.addEventListener('offline', function(e) {
+    // Queue up events for server.
+    console.log("You are offline");
+    showOfflineWarning();
+}, false);
+
+/**
+ * When the client gets online, it hides the off line warning
+ */
+window.addEventListener('online', function(e) {
+    // Resync data with server.
+    console.log("You are online");
+    hideOfflineWarning();
+    hideActionOfflineWarning();
+}, false);
+
+function actionOfflineWarning() {
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').innerHTML = "This action is not allowed while offline!";
+    document.getElementById('offline_div').style.display='block';
+}
+
+function hideActionOfflineWarning(){
+    if (document.getElementById('offline_div')!=null)
+        document.getElementById('offline_div').style.display='none';
 }
 
 /**

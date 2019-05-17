@@ -14,7 +14,7 @@
     <div class="story-content ">
         <h3 class="title"><a href="/create-story/<%=eventID%>"><img class="story-icon" src="/stylesheets/icons/plus.png"></a><%= eventTitle %></h3>
         <br>
-
+        <div class="offline_div" id="offline_div" style="color: darkred; display: none">You are offline</div>
         <!-- List of user stories for event -->
         <div class="list-group list-group-item stories" id="stories">
             <%for (var i=stories.length-1; i>= 0; i--) {%>
