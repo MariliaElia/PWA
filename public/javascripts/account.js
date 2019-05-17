@@ -11,12 +11,31 @@ function sendLogInQuery(url, data) {
         type: 'POST',
         success: function (dataR) {
             var ret = dataR;
-            if (ret.data == "wrongData") {
-                alert("Incorrect password!");
-            } else if (ret.data == "unregistered") {
-                alert("Please register!");
+            var alertmessage = document.getElementById('alert');
+            if (ret.data == "missing") {
+                alertmessage.setAttribute('class', 'alert alert-danger');
+                alertmessage.textContent = 'Please write your username and password.';
+                alertmessage.style.display = 'block';
+                $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+                    $("#alert").slideUp(500);
+                    location.reload();
+                });
+                //alert("Incorrect password!");
+            } else if (ret.data == "incorrect") {
+                alertmessage.setAttribute('class', 'alert alert-danger');
+                alertmessage.textContent = 'Incorrect sername or password.';
+                alertmessage.style.display = 'block';
+                $("#alert").fadeTo(2000, 500).slideUp(500, function(){
+                    $("#alert").slideUp(500);
+                    location.reload();
+                });
+                //alert("Please register!");
             } else {
-                takeToAccount('/login', ret);
+                passport.authenticate('local', {
+                    successRedirect: '/account',
+                    failureRedirect: '/login',
+                    failureFlash: true })
+                //takeToAccount('/login', ret);
                 // checks if user is registered
                 //checkUser(ret);
             }
@@ -36,12 +55,12 @@ function logIn() {
     for (index in formArray){
         data[formArray[index].name]= formArray[index].value;
     }
-    if (data.username == '' || data.password == ''){
+    /*if (data.username == '' || data.password == ''){
         alert("Please fill in all the fields to log in!");
-    } else {
-        sendLogInQuery('/login', data);
-        event.preventDefault();
-    }
+    } else {*/
+    sendLogInQuery('/login', data);
+    event.preventDefault();
+
 }
 
 /**

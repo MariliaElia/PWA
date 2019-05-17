@@ -36,7 +36,7 @@ function sendAjaxQuery(url, data, objectStore) {
                 // if event saved in mongodb successfully
                 else {
                     alertmessage.setAttribute('class', 'alert alert-success');
-                    alertmessage.textContent = 'Event created!';
+                    alertmessage.textContent = 'Story created!';
                     alertmessage.style.display = 'block';
                     $("#alert").fadeTo(500, 500).slideUp(500, function(){
                         $("#alert").slideUp(500);
@@ -82,9 +82,14 @@ function sendAjaxQuery(url, data, objectStore) {
                 var alertmessage = document.getElementById('alert');
 
                 // handle errors
-                if (ret.username == 'exists') {
+                if (ret.data == 'exists' || (ret.data == 'missing')) {
+                    if (ret.data == 'exists') {
+                        alertmessage.textContent = 'Username already exists';
+                    }
+                    else if (ret.data == 'missing') {
+                        alertmessage.textContent = 'Please fill in all required fields.';
+                    }
                     alertmessage.setAttribute('class', 'alert alert-danger');
-                    alertmessage.textContent = 'Username already exists';
                     alertmessage.style.display = 'block';
                     $("#alert").fadeTo(1000, 500).slideUp(500, function(){
                         $("#alert").slideUp(500);
@@ -106,7 +111,7 @@ function sendAjaxQuery(url, data, objectStore) {
             }
         },
         error: function (xhr, status, error) {
-            alert('Eeeeerror: ' + error.message);
+            alert('Error: ' + error.message);
 
 
         }

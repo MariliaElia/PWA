@@ -105,9 +105,12 @@ router.get('/login', auth.forwardAuthenticated, function (req, res) {
 router.post('/login',
         passport.authenticate('local', {
             successRedirect: '/account',
-            failureRedirect: '/login',
-            failureFlash: true })
+            failureRedirect: '/login-try-again'})
 );
+
+router.get('/login-try-again', function (req, res) {
+    res.render('login-try-again', {title: 'photofest'});
+});
 
 /**
  * GET signup page
