@@ -15,13 +15,6 @@
 var dataCacheName = 'photofestData-v1';
 var cacheName = 'photofestPWA-step-8-1';
 var filesToCache = [
-    '/',
-    '/account',
-    '/login',
-    '/message',
-    '/create-event',
-    '/signup',
-
     '/stylesheets/style.css',
     '/stylesheets/upload.css',
     '/stylesheets/bootstrap.min.css',
@@ -124,16 +117,38 @@ self.addEventListener('activate', function (e) {
  */
 self.addEventListener('fetch', function (event) {
     console.log('[Service Worker] Fetch', event.request.url);
+    event.respondWith(async function() {
+        const networkPromise = fetch(event.request);
+
+        // Try the cache
+        const cachedResponse = await caches.match(event.request);
+        if (cachedResponse) return cachedResponse;
+
+        try {
+            const networkResponse = await networkPromise;
+            //const cache = await caches.open(cacheName);
+            //await cache.put(event.request, networkResponse.clone());
+            // Fall back to network
+            return networkResponse;
+        } catch (err) {
+            // If both fail, show a generic fallback:
+            return caches.match('/offline');
+            // However, in reality you'd have many different
+            // fallbacks, depending on URL & headers.
+            // Eg, a fallback silhouette image for avatars.
+        }
+    }());
+ /*
     //if the request is '/weather_data', post to the server
     var dataUrl = '/';
     if (event.request.method == 'POST') {
-        /*
+        /!*
          * When the request URL contains dataUrl, the app is asking for fresh
          * weather data. In this case, the service worker always goes to the
          * network and then caches the response. This is called the "Cache then
          * network" strategy:
          * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
-         */
+         *!/
         return fetch(event.request).then(function (response) {
             if (response.status !== 200) {
                 console.log('Looks like there was a problem. Status Code: ' +
@@ -150,12 +165,12 @@ self.addEventListener('fetch', function (event) {
             console.log("service worker error 1: " + e.message);
         })
     } else {
-        /*
+        /!*
          * The app is asking for app shell files. In this scenario the app uses the
          * "Cache, then if netowrk available, it will refresh the cache
          * see stale-while-revalidate at
          * https://jakearchibald.com/2014/offline-cookbook/#on-activate
-         */
+         *!/
         event.respondWith(async function () {
             const cache = await caches.open(cacheName);
             const cachedResponse = await cache.match(event.request);
@@ -169,5 +184,5 @@ self.addEventListener('fetch', function (event) {
             // Returned the cached response if we have one, otherwise return the network response.
             return cachedResponse || networkResponsePromise;
         }());
-    }
+    }*/
 });
