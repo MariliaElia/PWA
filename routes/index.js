@@ -134,10 +134,10 @@ router.get('/logout', function (req, res) {
     res.redirect('/login');
 });
 
-/*
+
 router.get('/offline', function(req,res){
     res.render('offline',{title: 'photofest'});
 });
-*/
+
 
 module.exports = router;

@@ -48,7 +48,7 @@ function storeCachedData(newObject, objectStore) {
             await store.put(newObject);
             return tx.complete;
         }).then(function () {
-            console.log('added item to the store! '+ JSON.stringify(newObject));
+            //console.log('added item to the store! '+ JSON.stringify(newObject));
         }).catch(function (error) {
             console.log('could not add object to object store' + error);
         });

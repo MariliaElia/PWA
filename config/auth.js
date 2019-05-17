@@ -1,14 +1,19 @@
-//Checks if user is logged in before going to
-//account page, otherwise redirects to log in page
+/**
+ * checkAccount
+ * Checks if user is logged in before going to
+ * account page, otherwise redirects to log in page
+ */
 exports.checkAccount = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    req.flash('error_msg', 'Please log in. If you do not have an account, please sign up!');
     res.redirect('/login');
 }
 
-//Checks if user is logged in, redirects to message page if not
+/**
+ * checkAuthenticated
+ * Checks if user is logged in, redirects to message page if not
+*/
 exports.checkAuthenticated = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
